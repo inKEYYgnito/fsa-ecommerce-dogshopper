@@ -1,0 +1,49 @@
+{
+  "name": "ecommerce-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean": "rm dist/bundle.js",
+    "build-dev": "webpack --watch --mode=development",
+    "start-dev": "npm run build-dev & nodemon server/index.js --ignore dist/ "
+  },
+  "dependencies": {
+    "dotenv": "^8.1.0",
+    "express": "^4.17.1",
+    "pg": "^7.12.1",
+    "sequelize": "^5.19.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "babel-loader": "^8.0.6",
+    "node-sass": "^4.12.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.1",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "file-loader": "^4.2.0",
+    "css-loader": "^3.2.0",
+    "style-loader": "^1.0.0",
+    "sass-loader": "^8.0.0",
+    "webpack": "^4.41.1",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/inKEYYgnito/fsa-ecommerce-dogshopper.git"
+  },
+  "bugs": {
+    "url": "https://github.com/inKEYYgnito/fsa-ecommerce-dogshopper/issues"
+  },
+  "homepage": "https://github.com/inKEYYgnito/fsa-ecommerce-dogshopper#readme"
+}

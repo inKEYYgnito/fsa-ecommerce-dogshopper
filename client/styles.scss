@@ -1,0 +1,10 @@
+$path-assets: '../assets';
+$path-images: '#{$path-assets}/img';
+
+$primary-color: white;
+$bg: black;
+
+body {
+  color: $primary-color;
+  background: url(#{$path-images}/bg-pastel-sample.jpg);
+}
