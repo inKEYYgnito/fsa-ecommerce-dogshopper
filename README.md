@@ -1,5 +1,7 @@
 # fsa-ecommerce-dogshopper
 
+npm run start-dev
+
 | File structure |
 
 Components
@@ -7,6 +9,6 @@ Components
 -- .spec.js
 -- .scss
 
-api
+API
 -- .js
 -- .spec.js
