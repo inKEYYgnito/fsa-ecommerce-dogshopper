@@ -2,8 +2,6 @@ const express = require('express')
 const app = express()
 const path = require('path')
 
-require('./config/passport-setup')
-
 app.use(express.json())
 
 // API Routes

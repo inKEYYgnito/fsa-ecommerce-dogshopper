@@ -1,5 +1,6 @@
 const router = require('express').Router()
 const passport = require('passport')
+require('../config/passport-setup')
 
 // login with google
 router.get('/google', passport.authenticate('google', {

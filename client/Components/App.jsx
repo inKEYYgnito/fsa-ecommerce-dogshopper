@@ -12,6 +12,4 @@ class App extends Component {
     }
 }
 
-const mapStateToProps = () => {}
-
-export default connect(mapStateToProps)(App)
+export default connect(null)(App)

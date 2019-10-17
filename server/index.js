@@ -8,8 +8,6 @@ const db = require('./db')
 
 const PORT = process.env.PORT || 8000
 
-try {
-    db.sync().then(app.listen(PORT, () => console.log(`\nBackend service running on port ${PORT}\n`)))
-} catch (e) {
-    console.error(`Failed to load app on port ${PORT} with error: ${e}`)
-}
+db.sync()
+    .then(app.listen(PORT, () => console.log(`\nApplication running on port ${PORT}\n`)))
+    .catch(e => console.error(`Failed to load app on port ${PORT} with error: ${e}`))
