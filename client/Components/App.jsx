@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import OAuth from './OAuth'
 
 class App extends Component {
-    state = {  }
     render() {
-        return <h1>Success! The app loaded.</h1>
+        return (
+            <>
+                <OAuth />
+            </>
+        )
     }
 }
 
-export default App
+export default connect(null)(App)
