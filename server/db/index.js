@@ -1,21 +1,29 @@
-const connection = require('./connection')
-const User = require('./models/User')
-const Address = require('./models/Address')
+const connection = require('./connection');
+const User = require('./models/User');
+const Address = require('./models/Address');
 
 const modelCreator = (list, Model) => {
-    return Promise.all( list.map(el => Model.create(el)) )
-}
+  return Promise.all(list.map(el => Model.create(el)));
+};
 
-const sync = async() => {
-    Address.hasOne(User)
+const modelCreator2 = (list, Model) => {
+  return Promise.all(list.map(el => Model.create(el)));
+};
 
-    await connection.sync({ force: true })
-}
+const modelCreator3 = (list, Model) => {
+  return Promise.all(list.map(el => Model.create(el)));
+};
+
+const sync = async () => {
+  Address.hasOne(User);
+
+  await connection.sync({ force: true });
+};
 
 module.exports = {
-    sync,
-    models: {
-        User,
-        Address
-    }
-}
+  sync,
+  models: {
+    User,
+    Address
+  }
+};
