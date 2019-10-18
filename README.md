@@ -1,14 +1,5 @@
 # fsa-ecommerce-dogshopper
 
-npm run start-dev
+**Shoppa Dog!**
 
-| File structure |
-
-Components
--- .jsx
--- .spec.js
--- .scss
-
-API
--- .js
--- .spec.js
+[Contributing Guidelines](docs/contributing.md)

@@ -1,16 +1,10 @@
+import OAuth from './OAuth'
 import React, { Component } from 'react'
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux'
 import Dogs from './Dogs'
 import { actions } from '../store/index'
 const { getDogs_ } = actions;
-
-const Hi =()=> {
-    return(
-        <h1>hi</h1>
-    )
-}
-
 
 class App extends Component {
     constructor(){
@@ -23,7 +17,7 @@ class App extends Component {
     render(){
         return (
            <HashRouter>
-                <Route exact path ='/' component = {Hi}/>
+                <OAuth />
                 <Switch>
                     <Route exact path='/dogs' component = {Dogs}/>
                 </Switch>

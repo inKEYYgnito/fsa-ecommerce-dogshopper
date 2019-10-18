@@ -3,7 +3,6 @@ import GET_DOGS from '../constants/constants'
 
 
 const getDogs = (dogs) => {
-    
     return {
         type: GET_DOGS,
         dogs

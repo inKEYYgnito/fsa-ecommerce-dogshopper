@@ -4,9 +4,8 @@ const path = require('path')
 const { Dog } = require('./db/db').models
 app.use(express.json())
 
-
-// to add api route, use router
-// app.use('/api/routeName', require('./api/routeFileName'))
+// API Routes
+app.use('/api/auth', require('./api/auth'))
 
 app.use('/', express.static('dist'))
 app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '../client/index.html')))
