@@ -1,6 +1,6 @@
 const Sequelize = require('sequelize')
 const conn = new Sequelize(process.env.DATABASE_URL)
-const { UUID, UUIDV4, STRING, TEXT, DECIMAL } = Sequelize
+const { UUID, UUIDV4, STRING, TEXT, BOOLEAN } = Sequelize
 
 const Dog = conn.define('dog', {
     id: {
@@ -33,14 +33,18 @@ const Dog = conn.define('dog', {
         validate: {
             isUrl: true
         }
+    },
+    isAvailable: {
+        type: BOOLEAN
     }
 })
 
 const syncAndSeed = async()=> {
     await conn.sync({force:true})
     const dogs = [
-        {name: 'Katsu1', description: 'Katsu is a young and lively pup who loves peanut butter', price: 14.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg'},
-        {name: 'Katsu2', description: 'This pup will make u smile', price: 15.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg'}
+        {name: 'Katsu1', description: 'Katsu is a young and lively pup who loves peanut butter', price: 14.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg', isAvailable: true},
+        {name: 'Katsu2', description: 'This pup will make u smile', price: 15.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg', isAvailable: true},
+        {name: 'Katsu3', description: 'Great pupster', price: 13.99, imageURL: 'https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg', isAvailable: true}
     ]
     await Promise.all(dogs.map(dog => Dog.create(dog)))
 }
