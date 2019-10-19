@@ -1,6 +1,6 @@
 const connection = require('../connection');
 const { Sequelize } = connection;
-const { UUID, UUIDV4, STRING, TEXT, BOOLEAN } = Sequelize;
+const { UUID, UUIDV4, STRING, TEXT, BOOLEAN, DECIMAL } = Sequelize;
 
 const Dog = connection.define('dog', {
   id: {
@@ -17,15 +17,16 @@ const Dog = connection.define('dog', {
     unique: true
   },
   description: {
-    type: TEXT,
-    allowNull: false,
-    unique: true
+    type: TEXT
   },
   price: {
-    type: STRING,
+    type: DECIMAL,
     validate: {
-      isDecimal: true,
-      min: 0.0
+      greaterThanZero(price) {
+        if (price <= 0) {
+          throw new Error('price should be greater than 0');
+        }
+      }
     }
   },
   imageURL: {
@@ -35,7 +36,8 @@ const Dog = connection.define('dog', {
     }
   },
   isAvailable: {
-    type: BOOLEAN
+    type: BOOLEAN,
+    defaultValue: true
   }
 });
 
