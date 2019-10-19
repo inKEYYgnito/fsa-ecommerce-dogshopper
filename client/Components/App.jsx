@@ -1,29 +1,29 @@
-import OAuth from './OAuth'
-import React, { Component } from 'react'
+import OAuth from './OAuth';
+import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
-import { connect } from 'react-redux'
-import Dogs from './Dogs'
-import { actions } from '../store/index'
+import { connect } from 'react-redux';
+import Dogs from './Dogs';
+import { actions } from '../store/store';
 const { getDogs_ } = actions;
 
 class App extends Component {
-    constructor(){
-        super()
-        this.state = {}
-    }
-    componentDidMount(){
-        this.props.getDogs_()
-    }
-    render(){
-        return (
-           <HashRouter>
-                <OAuth />
-                <Switch>
-                    <Route exact path='/dogs' component = {Dogs}/>
-                </Switch>
-                </HashRouter>
-        )
-    }
+  constructor() {
+    super();
+    this.state = {};
+  }
+  componentDidMount() {
+    this.props.getDogs_();
+  }
+  render() {
+    return (
+      <HashRouter>
+        <OAuth />
+        <Switch>
+          <Route exact path="/dogs" component={Dogs} />
+        </Switch>
+      </HashRouter>
+    );
+  }
 }
 
 // const mapDispatchToProps = (dispatch) => {
@@ -33,6 +33,10 @@ class App extends Component {
 // }
 
 const mapDispatchToProps = {
-    getDogs_
+  getDogs_
 };
-export default connect(null,mapDispatchToProps)(App)
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(App);
