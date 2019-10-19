@@ -1,10 +1,10 @@
-import OAuth from './OAuth';
 import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
+
+import OAuth from './OAuth';
 import Dogs from './Dogs';
-import { actions } from '../store/store';
-const { getDogs_ } = actions;
+import { getDogs } from './../store/actions/actions';
 
 class App extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {};
   }
   componentDidMount() {
-    this.props.getDogs_();
+    this.props.getDogs();
   }
   render() {
     return (
@@ -26,14 +26,8 @@ class App extends Component {
   }
 }
 
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         getDogs_: () => dispatch(actions.getDogs_())
-//     }
-// }
-
 const mapDispatchToProps = {
-  getDogs_
+  getDogs
 };
 
 export default connect(

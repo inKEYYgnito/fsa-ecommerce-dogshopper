@@ -1,20 +1,8 @@
-import { combineReducers } from 'redux'
-import GET_DOGS from '../constants/constants'
-// import newReducer from './reducerFile'
-const dogsReducer = (state =[], action) => {
-    switch(action.type){
-        case GET_DOGS:
-           return action.dogs
-    }
-    return state
-}
+import { combineReducers } from 'redux';
+import dogReducer from './dogReducer';
 
 const reducer = combineReducers({
-    dogs: dogsReducer
-    // add reducers here
-    // remove sample reducer
-    //sampleReducer: (init = {}) => init
-})
+  dogs: dogReducer
+});
 
-export default reducer
- 
+export default reducer;
