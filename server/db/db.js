@@ -1,57 +1,52 @@
-const Sequelize = require('sequelize')
-const conn = new Sequelize(process.env.DATABASE_URL)
-const { UUID, UUIDV4, STRING, TEXT, BOOLEAN } = Sequelize
+const connection = require('./connection');
+const User = require('./models/User');
+const Address = require('./models/Address');
+const Dog = require('./models/Dog');
 
-const Dog = conn.define('dog', {
-    id: {
-        type: UUID,
-        primaryKey: true,
-        defaultValue: UUIDV4
+const modelCreator = (list, Model) => {
+  return Promise.all(list.map(el => Model.create(el)));
+};
+
+const sync = async () => {
+  Address.hasOne(User);
+
+  await connection.sync({ force: true });
+
+  const dogs = [
+    {
+      name: 'Katsu1',
+      description: 'Katsu is a young and lively pup who loves peanut butter',
+      price: 14.99,
+      imageURL:
+        'https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg',
+      isAvailable: true
     },
-    name: {
-        type: STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        },
-        unique: true
+    {
+      name: 'Katsu2',
+      description: 'This pup will make u smile',
+      price: 15.99,
+      imageURL:
+        'https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg',
+      isAvailable: true
     },
-    description: {
-        type: TEXT,
-        allowNull: false,
-        unique: true
-    },
-    price: {
-        type: STRING,
-        validate: {
-            isDecimal:true,
-            min:0.0
-        }
-    },
-    imageURL: {
-        type: STRING,
-        validate: {
-            isUrl: true
-        }
-    },
-    isAvailable: {
-        type: BOOLEAN
+    {
+      name: 'Katsu3',
+      description: 'Great pupster',
+      price: 13.99,
+      imageURL:
+        'https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg',
+      isAvailable: true
     }
-})
+  ];
 
-const syncAndSeed = async()=> {
-    await conn.sync({force:true})
-    const dogs = [
-        {name: 'Katsu1', description: 'Katsu is a young and lively pup who loves peanut butter', price: 14.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg', isAvailable: true},
-        {name: 'Katsu2', description: 'This pup will make u smile', price: 15.99, imageURL: 'https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg', isAvailable: true},
-        {name: 'Katsu3', description: 'Great pupster', price: 13.99, imageURL: 'https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg', isAvailable: true}
-    ]
-    await Promise.all(dogs.map(dog => Dog.create(dog)))
-}
+  await modelCreator(dogs, Dog);
+};
 
 module.exports = {
-    syncAndSeed,
-    models:{
-        Dog
-    }
-}
+  sync,
+  models: {
+    User,
+    Address,
+    Dog
+  }
+};
