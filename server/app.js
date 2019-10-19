@@ -1,6 +1,16 @@
 const express = require('express')
 const app = express()
 const path = require('path')
+const cookieSession = require('cookie-session')
+const passport = require('passport')
+
+app.use(cookieSession({
+    maxAge: 24 * 60 * 60 * 1000, // expires in 1 day
+    keys: [process.env.SESSION_KEY]
+}))
+
+app.use(passport.initialize())
+app.use(passport.session())
 
 app.use(express.json())
 

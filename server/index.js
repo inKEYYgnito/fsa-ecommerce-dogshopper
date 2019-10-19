@@ -1,6 +1,5 @@
 /* load configs */
 require('dotenv').config()
-require('./config/passport-setup')
 
 /* app setup */
 const app = require('./app')

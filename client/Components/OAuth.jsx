@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 
 class OAuth extends Component {
-  state = {}
   render() {
-    const loggedIn = false
+    const { user } = this.props
     return (
       <>
         {loggedIn && (<h1>Welcome! You are logged in.</h1>)}
