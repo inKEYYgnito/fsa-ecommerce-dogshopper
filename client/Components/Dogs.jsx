@@ -1,11 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { ROUTE_PATH } from './../commons/constants';
+const { DOGS } = ROUTE_PATH;
 
 const Dogs = ({ dogs }) => (
   <div>
     {dogs.map(dog => (
       <div key={dog.id}>
-        {dog.name} {dog.price} {dog.description}
+        <Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link> {dog.price}{' '}
+        {dog.description}
       </div>
     ))}
   </div>
