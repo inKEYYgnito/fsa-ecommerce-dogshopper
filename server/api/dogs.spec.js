@@ -8,11 +8,11 @@ const { Dog } = db.models;
 
 describe('Dog routes', () => {
   beforeEach(async () => {
-    await db.sync();
+    await db.sync(true);
   });
 
   describe('GET /api/dogs', () => {
-    before(async () => {
+    beforeEach(async () => {
       await Dog.create({ name: 'Katsu 1', price: 1000 });
       await Dog.create({ name: 'Katsu 2', price: 2500 });
       await Dog.create({ name: 'Katsu 3', price: 3750 });

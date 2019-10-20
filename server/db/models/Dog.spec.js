@@ -7,7 +7,7 @@ const Dog = require('./Dog');
 
 describe('Dog Model', () => {
   beforeEach(async () => {
-    await db.sync();
+    await db.sync(true);
   });
 
   describe('name column', () => {
