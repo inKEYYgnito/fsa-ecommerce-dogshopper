@@ -1,11 +1,14 @@
-import GET_DOGS from '../constants/constants';
+import { ACTION_TYPE } from '../../commons/constants';
 
-const dogReducer = (state = [], action) => {
-  switch (action.type) {
-    case GET_DOGS:
-      return action.dogs;
+const { SET_DOGS } = ACTION_TYPE
+
+const dogReducer = (state = [], {type, dogs}) => {
+  switch (type) {
+    case SET_DOGS:
+      return dogs;
+    default:
+      return state;
   }
-  return state;
 };
 
 export default dogReducer;

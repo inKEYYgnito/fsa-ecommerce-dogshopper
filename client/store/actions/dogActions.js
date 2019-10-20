@@ -1,9 +1,11 @@
 import axios from 'axios';
-import GET_DOGS from '../constants/constants';
+import { ACTION_TYPE } from '../../commons/constants';
 
-const getDogsAction = dogs => {
+const { SET_DOGS } = ACTION_TYPE
+
+const setDogsAction = dogs => {
   return {
-    type: GET_DOGS,
+    type: SET_DOGS,
     dogs
   };
 };
@@ -11,7 +13,7 @@ const getDogsAction = dogs => {
 const getDogs = () => {
   return async dispatch => {
     const dogs = (await axios.get('/api/dogs')).data;
-    return dispatch(getDogsAction(dogs));
+    return dispatch(setDogsAction(dogs));
   };
 };
 

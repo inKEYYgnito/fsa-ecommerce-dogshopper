@@ -4,15 +4,12 @@ import { connect } from 'react-redux';
 
 import OAuth from './OAuth';
 import Dogs from './Dogs';
-import { getDogs } from './../store/actions/actions';
+import { getDogs, getUser } from './../store/actions/actions';
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   componentDidMount() {
     this.props.getDogs();
+    this.props.getUser();
   }
   render() {
     return (
@@ -27,7 +24,8 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
-  getDogs
+  getDogs,
+  getUser
 };
 
 export default connect(

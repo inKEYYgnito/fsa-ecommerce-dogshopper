@@ -8,9 +8,9 @@ module.exports = connection.define('user', {
         primaryKey: true,
         defaultValue: UUIDV4
     },
-    googleId: {
+    name: {
         type: STRING,
-        unique: true
+        allowNull: false
     },
     email: {
         type: STRING,
@@ -18,6 +18,10 @@ module.exports = connection.define('user', {
         validate: {
             isEmail: true
         }
+    },
+    googleId: {
+        type: STRING,
+        unique: true
     },
     addressId: {
         type: INTEGER
