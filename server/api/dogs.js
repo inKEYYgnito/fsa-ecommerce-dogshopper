@@ -8,4 +8,10 @@ router.get('/', (req, res, next) => {
     .catch(next);
 });
 
+router.get('/:id', (req, res, next) => {
+  Dog.findByPk(req.params.id)
+    .then(dog => res.send(dog))
+    .catch(next);
+});
+
 module.exports = router;
