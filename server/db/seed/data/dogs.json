@@ -19,5 +19,12 @@
     "price": 13.99,
     "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg",
     "isAvailable": true
+  },
+  {
+    "name": "Katsu Not Available",
+    "description": "This katsu is no longer available",
+    "price": 16.99,
+    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "isAvailable": false
   }
 ]
