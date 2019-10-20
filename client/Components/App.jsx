@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import OAuth from './OAuth';
+import Header from './Header/Header';
 import Dogs from './Dogs';
 import Dog from './Dog';
 import { getDogs, getUser } from './../store/actions/actions';
@@ -17,7 +17,7 @@ class App extends Component {
   render() {
     return (
       <HashRouter>
-        <OAuth />
+        <Header />
         <Switch>
           <Route exact path={DOGS} component={Dogs} />
           <Route exact path={`${DOGS}/:id`} component={Dog} />

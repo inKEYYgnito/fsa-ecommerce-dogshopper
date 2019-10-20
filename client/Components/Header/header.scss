@@ -1,0 +1,12 @@
+header {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 9vh;
+    border-bottom: solid 2px;
+    border-image: radial-gradient(rgb(65,105,225), rgb(250,224,66)) 1;
+}
+
+#header-logo {
+    height: 100%;
+}
