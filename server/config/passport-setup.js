@@ -1,6 +1,6 @@
 const passport = require('passport')
 const GoogleStrategy = require('passport-google-oauth20')
-const { User } = require('../db').models
+const { User } = require('../db/db').models
 
 passport.serializeUser((user, done) => {
     done(null, user.id)
@@ -8,7 +8,7 @@ passport.serializeUser((user, done) => {
 
 passport.deserializeUser(async (id, done) => {
     const user = await User.findByPk(id)
-    done(null, user)
+    done(null, user.dataValues)
 })
 
 passport.use(

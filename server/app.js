@@ -12,16 +12,20 @@ app.use(cookieSession({
 app.use(passport.initialize())
 app.use(passport.session())
 
-app.use(express.json())
+app.use(express.json());
 
 // API Routes
-app.use('/api/auth', require('./api/auth'))
+app.use('/api/auth', require('./api/auth'));
+app.use('/api/dogs', require('./api/dogs'));
+app.use('/api/user', require('./api/user'));
 
-app.use('/', express.static('dist'))
-app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '../client/index.html')))
+app.use('/', express.static('dist'));
+app.get('/', (req, res, next) =>
+  res.sendFile(path.join(__dirname, '../client/index.html'))
+);
 
 app.use(({ message }, req, res, next) => {
-    res.status(500).send({ message })
-})
+  res.status(500).send({ message });
+});
 
-module.exports = app
+module.exports = app;
