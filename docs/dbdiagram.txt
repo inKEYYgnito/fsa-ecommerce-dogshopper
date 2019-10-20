@@ -1,0 +1,84 @@
+Table breeds {
+  id uuid [pk]
+  name varchar [not null, unique]
+}
+
+Enum age_unit {
+  weeks
+  months
+  years
+}
+
+Enum size {
+  small
+  medium
+  large
+}
+
+Enum gender {
+  M
+  F
+}
+
+Table dogs {
+  id uuid [pk]
+  name varchar [not null]
+  description varchar
+  price decimal [note: 'greater than 0']
+  age integer [not null]
+  age_unit age_unit [not null]
+  gender gender [not null]
+  size size [not null]
+  imageUrl varchar
+  is_available boolean [default: true]
+  breed_id uuid [ref: > breeds.id]
+}
+
+Table users {
+  id uuid [pk]
+  email varchar [not null, unique, note: 'google email']
+  address_id int [ref: - addresses.id]
+}
+
+Table addresses {
+  id int [pk, increment]
+  street varchar [not null]
+  city varchar [not null]
+  state varchar
+  zip varchar [not null]
+  country varchar [not null]
+}
+
+Enum order_status {
+  cart
+  created
+  processing
+  completed
+  cancelled
+}
+
+Table orders {
+  id uuid [pk]
+  status order_status
+  email varchar [not null]
+  street varchar
+  city varchar
+  state varchar
+  zip varchar
+  country varchar 
+  user_id uuid [ref: > users.id]
+}
+
+Table order_items {
+  id int [pk, increment]
+  dog_id uuid [not null, ref: - dogs.id]
+  order_id uuid [not null, ref: > orders.id]
+  price decimal
+}
+
+Table reviews {
+  id int [pk, increment]
+  rating int [note: 'range is 1-5']
+  description text
+  order_id uuid [not null, ref: > orders.id]
+}
