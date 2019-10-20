@@ -41,4 +41,8 @@ const Dog = connection.define('dog', {
   }
 });
 
+Dog.findAllAvailable = function() {
+  return this.findAll({ where: { isAvailable: true } });
+};
+
 module.exports = Dog;

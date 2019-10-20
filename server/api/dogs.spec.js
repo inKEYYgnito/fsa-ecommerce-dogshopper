@@ -16,9 +16,14 @@ describe('Dog routes', () => {
       await Dog.create({ name: 'Katsu 1', price: 1000 });
       await Dog.create({ name: 'Katsu 2', price: 2500 });
       await Dog.create({ name: 'Katsu 3', price: 3750 });
+      await Dog.create({
+        name: 'Katsu Not Available',
+        price: 4000,
+        isAvailable: false
+      });
     });
 
-    it('should return all dogs in the database', () => {
+    it('should return all available dogs in the database', () => {
       return app
         .get('/api/dogs')
         .expect(200)
