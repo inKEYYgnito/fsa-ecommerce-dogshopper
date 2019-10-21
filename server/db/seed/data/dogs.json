@@ -3,27 +3,40 @@
     "name": "Katsu1",
     "description": "Katsu is a young and lively pup who loves peanut butter",
     "price": 14.99,
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "isAvailable": true
+    "age": 2,
+    "ageUnit": "month",
+    "gender": "F",
+    "size": "L",
+    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg"
   },
   {
     "name": "Katsu2",
     "description": "This pup will make u smile",
     "price": 15.99,
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg",
-    "isAvailable": true
+    "age": 2,
+    "ageUnit": "month",
+    "gender": "F",
+    "size": "L",
+    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg"
   },
   {
     "name": "Katsu3",
     "description": "Great pupster",
     "price": 13.99,
-    "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg",
-    "isAvailable": true
+    "age": 2,
+    "ageUnit": "month",
+    "gender": "F",
+    "size": "L",
+    "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg"
   },
   {
     "name": "Katsu Not Available",
     "description": "This katsu is no longer available",
     "price": 16.99,
+    "age": 2,
+    "ageUnit": "month",
+    "gender": "F",
+    "size": "L",
     "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
     "isAvailable": false
   }
