@@ -1,6 +1,6 @@
 const connection = require('../connection');
 const { Sequelize } = connection;
-const { UUID, UUIDV4, STRING, TEXT, BOOLEAN, DECIMAL } = Sequelize;
+const { UUID, UUIDV4, STRING, TEXT, BOOLEAN, DECIMAL, INTEGER } = Sequelize;
 
 const Dog = connection.define('dog', {
   id: {
@@ -29,6 +29,10 @@ const Dog = connection.define('dog', {
         }
       }
     }
+  },
+  age: {
+    type: INTEGER,
+    allowNull: false
   },
   imageURL: {
     type: STRING,

@@ -6,7 +6,11 @@ const db = require('../db');
 const Dog = require('./Dog');
 
 describe('Dog Model', () => {
+  let katsu;
+
   beforeEach(async () => {
+    katsu = { name: 'Katsu', price: 5000, age: 1 };
+
     await db.sync(true);
   });
 
@@ -18,13 +22,14 @@ describe('Dog Model', () => {
     });
 
     it('should not be an empty string', async () => {
-      await expect(Dog.create({ name: '' })).to.be.rejectedWith(
+      katsu.name = '';
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
         'Validation error: Validation notEmpty on name failed'
       );
     });
 
     it('should be uniqe', async () => {
-      const katsu = { name: 'Katsu', price: 5000 };
       await Dog.create(katsu);
 
       await expect(Dog.create(katsu)).to.be.rejectedWith('Validation error');
@@ -33,7 +38,7 @@ describe('Dog Model', () => {
 
   describe('price column', () => {
     it('should not be null', async () => {
-      const katsu = { name: 'Katsu' };
+      delete katsu.price;
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'notNull Violation: dog.price cannot be null'
@@ -41,7 +46,7 @@ describe('Dog Model', () => {
     });
 
     it('should be greater than 0', async () => {
-      const katsu = { name: 'Katsu', price: 0 };
+      katsu.price = 0;
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'Validation error: price should be greater than 0'
@@ -49,10 +54,18 @@ describe('Dog Model', () => {
     });
   });
 
+  describe('age column', () => {
+    it('should not be null', async () => {
+      delete katsu.age;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.age cannot be null'
+      );
+    });
+  });
+
   describe('isAvailable column', () => {
     it('should default to true', async () => {
-      const katsu = { name: 'Katsu', price: 5000 };
-
       const dog = await Dog.create(katsu);
 
       expect(dog.isAvailable).to.equal(true);
