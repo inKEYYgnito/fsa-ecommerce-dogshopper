@@ -3,9 +3,8 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-const connection = require('./../connection');
-const Breed = require('./../models/Breed');
-const Dog = require('./../models/Dog');
+const db = require('./../db');
+const { Breed, Dog } = db.models;
 
 const SEED_DATA_FOLDER = path.resolve('./server/db/seed/data');
 const SEED_DATA_FILES = [
@@ -23,7 +22,7 @@ const getSeedFileData = file => {
 };
 
 const seed = async () => {
-  await connection.sync({ force: true });
+  await db.sync(true);
 
   SEED_DATA_FILES.forEach(async ({ model, file }) => {
     const seedData = getSeedFileData(file);
