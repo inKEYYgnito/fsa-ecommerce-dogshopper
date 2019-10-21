@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 const Dog = ({ dog }) => (
-  <>
+  <div id="dog-container">
     {dog && (
       <>
         {dog.name}
@@ -11,7 +11,7 @@ const Dog = ({ dog }) => (
         {dog.imageUrl}
       </>
     )}
-  </>
+  </div>
 );
 
 const mapStateToProps = ({ dogs }, { match }) => {

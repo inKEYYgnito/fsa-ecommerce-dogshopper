@@ -10,3 +10,17 @@ $dark-blue: #0c093c;
 $intense-pink: #99235c;
 $pastel-pink: #ffe6eb;
 $sky-blue: #ccffec;
+$light-blue-gray: #f2f3ee;
+
+// MIXINS
+@mixin inline-flex {
+    display: flex;
+    align-items: center;
+}
+
+@mixin retro-shadow {
+    letter-spacing: .05em;
+    text-shadow: 
+      4px 4px 0px #d5d5d5, 
+      7px 7px 0px rgba(0, 0, 0, 0.2);
+}
