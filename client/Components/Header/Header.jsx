@@ -16,9 +16,9 @@ class Header extends Component {
           <img src={dogLogo} />
         </div>
         <div id="user-access">
+          <NavLink to={ROUTE_PATH.DOGS}>Available Dogs</NavLink>
           {user.name && (
             <>
-              <span>Hi, {user.name}!</span>
               <NavLink to={ROUTE_PATH.USER_PROFILE}>My Account</NavLink>
               <NavLink to={ROUTE_PATH.USER_ORDERS}>Order History</NavLink>
               <a href="/api/auth/logout">Logout</a>
