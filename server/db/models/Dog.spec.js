@@ -24,7 +24,7 @@ describe('Dog Model', () => {
     });
 
     it('should be uniqe', async () => {
-      const katsu = { name: 'Katsu' };
+      const katsu = { name: 'Katsu', price: 5000 };
       await Dog.create(katsu);
 
       await expect(Dog.create(katsu)).to.be.rejectedWith('Validation error');
@@ -32,6 +32,14 @@ describe('Dog Model', () => {
   });
 
   describe('price column', () => {
+    it('should not be null', async () => {
+      const katsu = { name: 'Katsu' };
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.price cannot be null'
+      );
+    });
+
     it('should be greater than 0', async () => {
       const katsu = { name: 'Katsu', price: 0 };
 

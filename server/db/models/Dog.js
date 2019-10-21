@@ -21,6 +21,7 @@ const Dog = connection.define('dog', {
   },
   price: {
     type: DECIMAL,
+    allowNull: false,
     validate: {
       greaterThanZero(price) {
         if (price <= 0) {
