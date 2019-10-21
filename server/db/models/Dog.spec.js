@@ -2,19 +2,24 @@ const chai = require('chai');
 chai.use(require('chai-as-promised'));
 const { expect } = chai;
 
+const Breed = require('./Breed');
 const Dog = require('./Dog');
 
-describe('Dog Model', () => {
+describe('Dog Model', async () => {
+  let goldendoodle;
   let katsu;
 
   beforeEach(async () => {
+    goldendoodle = await Breed.create({ name: 'Golden Doodle' });
+
     katsu = {
       name: 'Katsu',
       price: 5000,
       age: 1,
       ageUnit: 'month',
       gender: 'F',
-      size: 'L'
+      size: 'L',
+      breedId: goldendoodle.id
     };
   });
 
@@ -189,6 +194,25 @@ describe('Dog Model', () => {
       const dog = await Dog.create(katsu);
 
       expect(dog.isAvailable).to.equal(true);
+    });
+  });
+
+  describe('relationship to breed', () => {
+    it('should belong to an existing breed', async () => {
+      const nonExistentBreedId = 47;
+      katsu.breedId = nonExistentBreedId;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'insert or update on table "dogs" violates foreign key constraint "dogs_breedId_fkey"'
+      );
+    });
+
+    it('should not be null', async () => {
+      delete katsu.breedId;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.breedId cannot be null'
+      );
     });
   });
 });
