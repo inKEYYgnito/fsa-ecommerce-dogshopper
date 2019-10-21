@@ -9,7 +9,7 @@ describe('Dog Model', () => {
   let katsu;
 
   beforeEach(async () => {
-    katsu = { name: 'Katsu', price: 5000, age: 1 };
+    katsu = { name: 'Katsu', price: 5000, age: 1, ageUnit: 'month' };
 
     await db.sync(true);
   });
@@ -68,6 +68,24 @@ describe('Dog Model', () => {
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'Validation error: field should be greater than 0'
+      );
+    });
+  });
+
+  describe('ageUnit column', () => {
+    it('should not be null', async () => {
+      delete katsu.ageUnit;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.ageUnit cannot be null'
+      );
+    });
+
+    it('should accept value week, month and year', async () => {
+      katsu.ageUnit = 'day';
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'invalid input value for enum "enum_dogs_ageUnit"'
       );
     });
   });
