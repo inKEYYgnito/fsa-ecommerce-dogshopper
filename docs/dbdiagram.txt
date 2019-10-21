@@ -24,7 +24,7 @@ Table dogs {
   id uuid [pk]
   name varchar [not null]
   description varchar
-  price decimal [note: 'greater than 0']
+  price decimal [not null, note: 'greater than 0']
   age integer [not null]
   age_unit age_unit [not null]
   gender gender [not null]
