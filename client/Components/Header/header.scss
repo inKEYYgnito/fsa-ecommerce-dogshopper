@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
-
-$darkBlue: #0c093c;
-$intensePink: #99235c;
+@import '../../variables.scss';
 
 @mixin inline-flex {
     display: flex;
@@ -18,31 +15,30 @@ header {
     height: 9vh;
     border-bottom: solid 3px;
     border-image: radial-gradient($darkBlue, $intensePink) 1;
-    font-family: 'Baloo Bhai', cursive;
-    color: $intensePink;
+    font-family: $baloo-bhai;
 }
 
-header #logo {
+#logo {
     @include inline-flex;
     height: 100%;
 }
 
-header #logo a {
+#logo a {
     font-size: 3vw;
     color: $darkBlue;
 }
 
-header #logo img {
+#logo img {
     height: 100%;
     margin: 0 1em;
 }
 
-header a {
+a {
     text-decoration: none;
     color: $darkBlue;
 }
 
-header #user-access {
+#user-access {
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -50,13 +46,18 @@ header #user-access {
     font-size: 1.3vw;
 }
 
-header #user-access img {
-    transition: all 0.5s ease;
+#user-access img {
     height: 60%;
-    margin: 0 1em;
+    margin-left: 1em;
 }
 
-header #user-access > span, 
-header #user-access > a {
-    margin: 0 0.5rem;
+#user-access a {
+    transition: all 0.5s ease;
+    margin: 0 0.6rem;
+}
+
+#user-access a.active {
+    font-size: 1.5vw;
+    color: $intensePink;
+    border-bottom: solid 1px $intensePink;
 }
