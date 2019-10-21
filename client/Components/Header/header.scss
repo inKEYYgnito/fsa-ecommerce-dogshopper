@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
+
 $darkBlue: #0c093c;
 $intensePink: #99235c;
 
@@ -49,6 +51,7 @@ header #user-access {
 }
 
 header #user-access img {
+    transition: all 0.5s ease;
     height: 100%;
     margin: 0 1em;
 }
