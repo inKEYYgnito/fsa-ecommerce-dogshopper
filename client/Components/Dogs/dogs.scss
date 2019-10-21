@@ -1,0 +1,20 @@
+@import '../../variables.scss';
+#dogs {
+    margin:10% auto;
+    display: flex;
+    width:70%;
+    border:red solid 3px;
+}
+#dog {
+    display:flex;
+    flex-direction: column;
+    margin:auto;
+    width: 30%;
+    border: black solid 2px;
+    text-align: center;
+}
+#button{
+    width:50%;
+    margin:5% auto;
+    font-size: 20px
+}
