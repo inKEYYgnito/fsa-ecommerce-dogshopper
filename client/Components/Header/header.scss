@@ -12,11 +12,21 @@ header {
     position: sticky;
     top: 0;
     padding: 0 2vw;
-    height: 9vh;
+    height: 9.5vh;
     font-family: $baloo-bhai;
     border-bottom: solid 3px;
-    border-image: radial-gradient($sky-blue, $intense-pink) 1;
+    border-image: conic-gradient($dark-blue, $pastel-pink, $sky-blue, $intense-pink) 1;
     background-image: linear-gradient(to bottom right, $pastel-pink, $sky-blue);
+}
+
+a {
+    text-decoration: none;
+    color: $dark-blue;
+}
+
+a:hover {
+    opacity: 0.65;
+    color: $intense-pink;
 }
 
 #logo {
@@ -25,6 +35,7 @@ header {
 }
 
 #logo a {
+    margin-top: 5px;
     font-size: 3vw;
     color: $dark-blue;
 }
@@ -32,11 +43,6 @@ header {
 #logo img {
     height: 100%;
     margin: 0 1em;
-}
-
-a {
-    text-decoration: none;
-    color: $dark-blue;
 }
 
 #user-access {
