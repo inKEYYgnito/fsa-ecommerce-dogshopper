@@ -49,7 +49,7 @@ describe('Dog Model', () => {
       katsu.price = 0;
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
-        'Validation error: price should be greater than 0'
+        'Validation error: field should be greater than 0'
       );
     });
   });
@@ -60,6 +60,14 @@ describe('Dog Model', () => {
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'notNull Violation: dog.age cannot be null'
+      );
+    });
+
+    it('should be greater than 0', async () => {
+      katsu.age = 0;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'Validation error: field should be greater than 0'
       );
     });
   });

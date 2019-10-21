@@ -2,6 +2,12 @@ const connection = require('../connection');
 const { Sequelize } = connection;
 const { UUID, UUIDV4, STRING, TEXT, BOOLEAN, DECIMAL, INTEGER } = Sequelize;
 
+function greaterThanZero(field) {
+  if (field <= 0) {
+    throw new Error('field should be greater than 0');
+  }
+}
+
 const Dog = connection.define('dog', {
   id: {
     type: UUID,
@@ -23,16 +29,15 @@ const Dog = connection.define('dog', {
     type: DECIMAL,
     allowNull: false,
     validate: {
-      greaterThanZero(price) {
-        if (price <= 0) {
-          throw new Error('price should be greater than 0');
-        }
-      }
+      greaterThanZero
     }
   },
   age: {
     type: INTEGER,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      greaterThanZero
+    }
   },
   imageURL: {
     type: STRING,
