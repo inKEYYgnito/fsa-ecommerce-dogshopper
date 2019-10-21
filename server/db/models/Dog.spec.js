@@ -88,7 +88,25 @@ describe('Dog Model', () => {
       );
     });
 
-    it('should only accept value week, month and year', async () => {
+    it('should accept value week', async () => {
+      katsu.ageUnit = 'week';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value month', async () => {
+      katsu.ageUnit = 'month';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value year', async () => {
+      katsu.ageUnit = 'year';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should only accept values week, month or year', async () => {
       katsu.ageUnit = 'day';
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
@@ -106,7 +124,19 @@ describe('Dog Model', () => {
       );
     });
 
-    it('should only accept value M or F', async () => {
+    it('should accept value M', async () => {
+      katsu.gender = 'M';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value F', async () => {
+      katsu.gender = 'F';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should only accept values M or F', async () => {
       katsu.gender = 'X';
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
@@ -122,6 +152,30 @@ describe('Dog Model', () => {
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'notNull Violation: dog.size cannot be null'
       );
+    });
+
+    it('should accept value S', async () => {
+      katsu.size = 'S';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value M', async () => {
+      katsu.size = 'M';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value L', async () => {
+      katsu.size = 'L';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
+    });
+
+    it('should accept value XL', async () => {
+      katsu.size = 'XL';
+
+      await expect(Dog.create(katsu)).to.be.fulfilled;
     });
 
     it('should only accept value S, M, L or XL', async () => {

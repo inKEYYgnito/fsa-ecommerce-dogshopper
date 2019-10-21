@@ -56,7 +56,7 @@ const Dog = connection.define('dog', {
   gender: {
     type: ENUM,
     allowNull: false,
-    values: ['F']
+    values: ['M', 'F']
   },
   size: {
     type: ENUM,
