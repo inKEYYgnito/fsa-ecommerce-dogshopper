@@ -9,47 +9,59 @@ const db = require('./../db/db');
 const { Dog } = db.models;
 
 describe('Dog routes', () => {
+  const katsuMedium = {
+    id: uuid.v4(),
+    name: 'Katsu Medium',
+    price: 5000,
+    age: 1,
+    ageUnit: 'month',
+    gender: 'F',
+    size: 'M'
+  };
+
+  const katsuXL = {
+    name: 'Katsu XL',
+    price: 5000,
+    age: 1,
+    ageUnit: 'month',
+    gender: 'F',
+    size: 'XL'
+  };
+
+  const katsuNotAvailable = {
+    name: 'Katsu Not Available',
+    price: 5000,
+    age: 1,
+    ageUnit: 'month',
+    gender: 'F',
+    size: 'XL',
+    isAvailable: false
+  };
+
   beforeEach(async () => {
     await db.sync(true);
+
+    await Dog.create(katsuMedium);
+    await Dog.create(katsuXL);
+    await Dog.create(katsuNotAvailable);
   });
 
   describe('GET /api/dogs', () => {
-    beforeEach(async () => {
-      await Dog.create({ name: 'Katsu 1', price: 1000 });
-      await Dog.create({ name: 'Katsu 2', price: 2500 });
-      await Dog.create({ name: 'Katsu 3', price: 3750 });
-      await Dog.create({
-        name: 'Katsu Not Available',
-        price: 4000,
-        isAvailable: false
-      });
-    });
-
     it('should return all available dogs in the database', () => {
       return app
         .get('/api/dogs')
         .expect(200)
-        .then(response => expect(response.body.length).to.equal(3));
+        .then(response => expect(response.body.length).to.equal(2));
     });
   });
 
   describe('GET /api/dogs/:id', () => {
-    const katsu = {
-      id: uuid.v4(),
-      name: 'Katsu 1',
-      price: 1000
-    };
-
-    beforeEach(async () => {
-      await Dog.create(katsu);
-    });
-
     it('should return all dogs in the database', () => {
       return app
-        .get(`/api/dogs/${katsu.id}`)
+        .get(`/api/dogs/${katsuMedium.id}`)
         .expect(200)
         .then(response => {
-          expect(response.body.id).to.equal(katsu.id);
+          expect(response.body.id).to.equal(katsuMedium.id);
         });
     });
   });
