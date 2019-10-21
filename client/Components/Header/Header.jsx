@@ -13,25 +13,19 @@ class Header extends Component {
       <header>
         <div id="logo">
           <Link to="/">SHOPPA DOG!</Link>
-          <img src={ dogLogo } />
+          <img src={dogLogo} />
         </div>
         <div id="user-access">
-          <img src={ dogCrate } />
           {user.name && (
-              <>
-                <span>Hi, {user.name}!</span>
-                <NavLink to={ROUTE_PATH.USER_PROFILE}>My Account</NavLink>
-                <NavLink to={ROUTE_PATH.USER_ORDERS}>Order History</NavLink>
-                <a href="/api/auth/logout">Logout</a>
-              </>
-            )
-          }
-            {!user.name && (
-              <>
-                <a href="/api/auth/google">Login with GOOGLE+</a>
-              </>
-            )
-          }
+            <>
+              <span>Hi, {user.name}!</span>
+              <NavLink to={ROUTE_PATH.USER_PROFILE}>My Account</NavLink>
+              <NavLink to={ROUTE_PATH.USER_ORDERS}>Order History</NavLink>
+              <a href="/api/auth/logout">Logout</a>
+            </>
+          )}
+          {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
+          <img src={dogCrate} />
         </div>
       </header>
     )
