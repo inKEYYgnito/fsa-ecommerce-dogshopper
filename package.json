@@ -8,7 +8,7 @@
   "license": "ISC",
   "scripts": {
     "clean": "rm dist/bundle.js",
-    "test": "DATABASE_URL=postgres://postgres@localhost/circle_test mocha './{,!(node_modules)/**/}*.spec.js'",
+    "test": "DATABASE_URL=postgres://postgres@localhost/circle_test mocha --file server/util/spec_helper.js './{,!(node_modules)/**/}*.spec.js'",
     "test-dev": "npm run test -- --watch",
     "build": "webpack",
     "build-dev": "webpack --watch --mode=development",

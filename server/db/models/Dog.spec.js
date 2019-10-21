@@ -2,7 +2,6 @@ const chai = require('chai');
 chai.use(require('chai-as-promised'));
 const { expect } = chai;
 
-const db = require('../db');
 const Dog = require('./Dog');
 
 describe('Dog Model', () => {
@@ -17,8 +16,6 @@ describe('Dog Model', () => {
       gender: 'F',
       size: 'L'
     };
-
-    await db.sync(true);
   });
 
   describe('name column', () => {

@@ -1,5 +1,3 @@
-require('./../../util/spec_helper');
-
 const { expect } = require('chai');
 const request = require('supertest');
 const uuid = require('uuid');
@@ -39,8 +37,6 @@ describe('Dog routes', () => {
   };
 
   beforeEach(async () => {
-    await db.sync(true);
-
     await Dog.create(katsuMedium);
     await Dog.create(katsuXL);
     await Dog.create(katsuNotAvailable);
