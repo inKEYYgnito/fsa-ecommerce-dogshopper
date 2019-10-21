@@ -16,7 +16,7 @@ class Header extends Component {
           <img src={dogLogo} />
         </div>
         <div id="user-access">
-          <NavLink to={ROUTE_PATH.DOGS}>Available Dogs</NavLink>
+          <NavLink to={ROUTE_PATH.DOGS} exact>All Available Dogs</NavLink>
           {user.name && (
             <>
               <NavLink to={ROUTE_PATH.USER_PROFILE}>My Account</NavLink>
