@@ -6,7 +6,10 @@ Project tasks are managed through our [Trello Board](https://trello.com/b/T8aWAm
 
 ## Database Documentation
 
-For an overview of our data models, you may refer to [this ERD](https://dbdiagram.io/d/5da6929602e6e93440f2433d).
+We use DBDiagram as database documentation.
+
+1. To view our tables and relationships, copy the code found in [dbdiagram.txt](./dbdiagram.txt) and paste to [DBDiagram](https://dbdiagram.io/).
+2. Make sure to update dbdiagram.txt if it becomes outdated.
 
 ## Slack Channel
 
