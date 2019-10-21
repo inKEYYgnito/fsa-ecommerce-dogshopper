@@ -1,6 +1,15 @@
 const connection = require('../connection');
 const { Sequelize } = connection;
-const { UUID, UUIDV4, STRING, TEXT, BOOLEAN, DECIMAL, INTEGER } = Sequelize;
+const {
+  UUID,
+  UUIDV4,
+  STRING,
+  TEXT,
+  BOOLEAN,
+  DECIMAL,
+  INTEGER,
+  ENUM
+} = Sequelize;
 
 function greaterThanZero(field) {
   if (field <= 0) {
@@ -38,6 +47,11 @@ const Dog = connection.define('dog', {
     validate: {
       greaterThanZero
     }
+  },
+  ageUnit: {
+    type: ENUM,
+    allowNull: false,
+    values: ['week', 'month', 'year']
   },
   imageURL: {
     type: STRING,
