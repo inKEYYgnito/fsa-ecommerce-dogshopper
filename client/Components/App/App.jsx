@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
-import Header from './Header/Header';
-import Dogs from './Dogs';
-import Dog from './Dog';
-import { getDogs, getUser } from './../store/actions/actions';
-import { ROUTE_PATH } from './../commons/constants';
+import Header from '../Header/Header';
+import Dogs from '../Dogs';
+import Dog from '../Dog/Dog';
+import { getDogs, getUser } from '../../store/actions/actions';
+import { ROUTE_PATH } from '../../commons/constants';
 const { DOGS } = ROUTE_PATH;
 
 class App extends Component {
