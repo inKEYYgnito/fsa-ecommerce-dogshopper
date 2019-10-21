@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { ROUTE_PATH } from './../commons/constants';
+import { ROUTE_PATH } from './../../commons/constants';
 const { DOGS } = ROUTE_PATH;
 
 const Dogs = ({ dogs }) => (
