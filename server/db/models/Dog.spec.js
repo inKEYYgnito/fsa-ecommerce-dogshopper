@@ -9,7 +9,13 @@ describe('Dog Model', () => {
   let katsu;
 
   beforeEach(async () => {
-    katsu = { name: 'Katsu', price: 5000, age: 1, ageUnit: 'month' };
+    katsu = {
+      name: 'Katsu',
+      price: 5000,
+      age: 1,
+      ageUnit: 'month',
+      gender: 'F'
+    };
 
     await db.sync(true);
   });
@@ -81,11 +87,29 @@ describe('Dog Model', () => {
       );
     });
 
-    it('should accept value week, month and year', async () => {
+    it('should only accept value week, month and year', async () => {
       katsu.ageUnit = 'day';
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'invalid input value for enum "enum_dogs_ageUnit"'
+      );
+    });
+  });
+
+  describe('gender column', () => {
+    it('should not be null', async () => {
+      delete katsu.gender;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.gender cannot be null'
+      );
+    });
+
+    it('should only accept value M or F', async () => {
+      katsu.gender = 'X';
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'invalid input value for enum enum_dogs_gender'
       );
     });
   });

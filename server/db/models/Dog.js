@@ -53,6 +53,11 @@ const Dog = connection.define('dog', {
     allowNull: false,
     values: ['week', 'month', 'year']
   },
+  gender: {
+    type: ENUM,
+    allowNull: false,
+    values: ['F']
+  },
   imageURL: {
     type: STRING,
     validate: {
