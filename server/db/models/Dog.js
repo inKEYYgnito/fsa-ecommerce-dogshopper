@@ -58,6 +58,11 @@ const Dog = connection.define('dog', {
     allowNull: false,
     values: ['F']
   },
+  size: {
+    type: ENUM,
+    allowNull: false,
+    values: ['S', 'M', 'L', 'XL']
+  },
   imageURL: {
     type: STRING,
     validate: {
