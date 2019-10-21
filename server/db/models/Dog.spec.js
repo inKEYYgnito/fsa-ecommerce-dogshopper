@@ -14,7 +14,8 @@ describe('Dog Model', () => {
       price: 5000,
       age: 1,
       ageUnit: 'month',
-      gender: 'F'
+      gender: 'F',
+      size: 'L'
     };
 
     await db.sync(true);
@@ -110,6 +111,24 @@ describe('Dog Model', () => {
 
       await expect(Dog.create(katsu)).to.be.rejectedWith(
         'invalid input value for enum enum_dogs_gender'
+      );
+    });
+  });
+
+  describe('size column', () => {
+    it('should not be null', async () => {
+      delete katsu.size;
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'notNull Violation: dog.size cannot be null'
+      );
+    });
+
+    it('should only accept value S, M, L or XL', async () => {
+      katsu.size = 'X';
+
+      await expect(Dog.create(katsu)).to.be.rejectedWith(
+        'invalid input value for enum enum_dogs_size'
       );
     });
   });
