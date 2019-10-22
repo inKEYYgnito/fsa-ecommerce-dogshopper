@@ -16,6 +16,7 @@ app.use(express.json());
 
 // API Routes
 app.use('/api/auth', require('./api/auth'));
+app.use('/api/breeds', require('./api/breeds'));
 app.use('/api/dogs', require('./api/dogs'));
 app.use('/api/user', require('./api/user'));
 
