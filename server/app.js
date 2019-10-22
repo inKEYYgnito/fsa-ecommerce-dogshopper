@@ -20,9 +20,7 @@ app.use('/api/dogs', require('./api/dogs'));
 app.use('/api/user', require('./api/user'));
 
 app.use('/', express.static('dist'));
-app.get('/', (req, res, next) =>
-  res.sendFile(path.join(__dirname, '../client/index.html'))
-);
+app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '../client/index.html')));
 
 app.use(({ message }, req, res, next) => {
   res.status(500).send({ message });
