@@ -8,7 +8,7 @@ const Dog = ({ dog }) => (
         {dog.name}
         {dog.description}
         {dog.price}
-        {dog.imageUrl}
+        {dog.imageURL}
       </>
     )}
   </div>
