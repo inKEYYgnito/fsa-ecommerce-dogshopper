@@ -13,10 +13,13 @@ const Dogs = ({ dogs }) => (
       <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
         <div id='dogblock'>
           <div id ='dogtext'>
-          Price: ${dog.price}
+          Price: ${dog.price}<br/>
+          Gender: {dog.gender}<br/>
+          Age: {dog.age} {dog.ageUnit}s<br/>
+          Size: {dog.size}
             <p id ='description'>{dog.description}</p>
           </div>
-            <div id='dogpic'><strong>Pic will be here!</strong></div> 
+            <div id='dogpic'><img src = {dog.imageURL} width="100%" height="100%"/></div> 
         </div>
         <button id='button'>Add to cart</button>
       </div>
