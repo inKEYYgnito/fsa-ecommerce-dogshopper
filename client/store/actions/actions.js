@@ -1,4 +1,5 @@
+import { getBreeds } from './breedActions';
 import { getDogs } from './dogActions';
 import { getUser } from './userActions';
 
-export { getDogs, getUser };
+export { getBreeds, getDogs, getUser };
