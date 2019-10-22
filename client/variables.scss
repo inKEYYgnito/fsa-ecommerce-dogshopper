@@ -18,8 +18,18 @@ $light-blue-gray: #f2f3ee;
     align-items: center;
 }
 
+@mixin col-flex {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 @mixin gradient-border {
     border-image: conic-gradient($dark-blue, $pastel-pink, $sky-blue, $intense-pink) 1;
+}
+
+@mixin simple-shadow {
+    box-shadow: 5px 5px 10px gray;
 }
 
 @mixin retro-shadow {
@@ -27,4 +37,21 @@ $light-blue-gray: #f2f3ee;
     text-shadow: 
       4px 4px 0px #d5d5d5, 
       7px 7px 0px rgba(0, 0, 0, 0.2);
+}
+
+// GLOBAL STYLE
+button.btn-add-crate {
+    transition: all 0.2s ease;
+    margin: 2vh 0;
+    font-family: $baloo-bhai;
+    font-size: var(--btn-crate-font-size);
+    padding: 2% 3%;
+    background-color: $pastel-pink;
+    border-radius: 0.5em;
+    border: solid 3px $intense-pink;
+    border-style: outset;
+}
+
+button.btn-add-crate:hover {
+    transform: rotate(-2deg) scale(1.2);
 }
