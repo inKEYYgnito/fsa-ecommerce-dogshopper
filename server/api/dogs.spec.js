@@ -1,12 +1,10 @@
-require('./../../util/spec_helper');
-
 const { expect } = require('chai');
 const request = require('supertest');
 const uuid = require('uuid');
 
 const app = request(require('./../app'));
 const db = require('./../db/db');
-const { Dog } = db.models;
+const { Breed, Dog } = db.models;
 
 describe('Dog routes', () => {
   const katsuMedium = {
@@ -39,10 +37,15 @@ describe('Dog routes', () => {
   };
 
   beforeEach(async () => {
-    await db.sync(true);
+    const goldenDoodle = await Breed.create({ name: 'Golden Doodle' });
 
+    katsuMedium.breedId = goldenDoodle.id;
     await Dog.create(katsuMedium);
+
+    katsuXL.breedId = goldenDoodle.id;
     await Dog.create(katsuXL);
+
+    katsuNotAvailable.breedId = goldenDoodle.id;
     await Dog.create(katsuNotAvailable);
   });
 

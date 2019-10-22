@@ -7,7 +7,8 @@
     "ageUnit": "month",
     "gender": "F",
     "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg"
+    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "breedId": 87
   },
   {
     "name": "Katsu2",
@@ -17,7 +18,8 @@
     "ageUnit": "month",
     "gender": "F",
     "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg"
+    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg",
+    "breedId": 87
   },
   {
     "name": "Katsu3",
@@ -27,7 +29,8 @@
     "ageUnit": "month",
     "gender": "F",
     "size": "L",
-    "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg"
+    "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg",
+    "breedId": 87
   },
   {
     "name": "Katsu Not Available",
@@ -38,6 +41,7 @@
     "gender": "F",
     "size": "L",
     "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "isAvailable": false
+    "isAvailable": false,
+    "breedId": 87
   }
 ]
