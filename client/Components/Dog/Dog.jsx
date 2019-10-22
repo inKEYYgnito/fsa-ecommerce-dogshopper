@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import './dog.scss'
 
 const Dog = ({ dog }) => (
   <div id="dog-container">
@@ -9,6 +10,7 @@ const Dog = ({ dog }) => (
         {dog.description}
         {dog.price}
         {dog.imageURL}
+        {dog.breed.name}
       </>
     )}
   </div>

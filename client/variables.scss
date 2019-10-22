@@ -18,6 +18,10 @@ $light-blue-gray: #f2f3ee;
     align-items: center;
 }
 
+@mixin gradient-border {
+    border-image: conic-gradient($dark-blue, $pastel-pink, $sky-blue, $intense-pink) 1;
+}
+
 @mixin retro-shadow {
     letter-spacing: .05em;
     text-shadow: 

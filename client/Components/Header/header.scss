@@ -2,6 +2,8 @@
 
 header {
     @include inline-flex;
+    @include gradient-border;
+    border-bottom: solid 5px;
     justify-content: space-between;
     position: -webkit-sticky;
     position: sticky;
@@ -9,8 +11,6 @@ header {
     padding: 0 2vw;
     height: 9.5vh;
     font-family: $baloo-bhai;
-    border-bottom: solid 5px;
-    border-image: conic-gradient($dark-blue, $pastel-pink, $sky-blue, $intense-pink) 1;
     background-image: linear-gradient(to bottom right, $pastel-pink, $sky-blue);
 }
 

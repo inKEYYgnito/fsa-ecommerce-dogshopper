@@ -7,8 +7,8 @@ passport.serializeUser((user, done) => {
 })
 
 passport.deserializeUser(async (id, done) => {
-    const user = await User.findByPk(id) || {}
-    done(null, user.dataValues)
+    const user = await User.findByPk(id)
+    done(null, user)
 })
 
 passport.use(
