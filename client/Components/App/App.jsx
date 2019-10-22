@@ -5,12 +5,13 @@ import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Dogs from '../Dogs/Dogs';
 import Dog from '../Dog/Dog';
-import { getDogs, getUser } from '../../store/actions/actions';
+import { getBreeds, getDogs, getUser } from '../../store/actions/actions';
 import { ROUTE_PATH } from '../../commons/constants';
 const { DOGS } = ROUTE_PATH;
 
 class App extends Component {
   componentDidMount() {
+    this.props.getBreeds();
     this.props.getDogs();
     this.props.getUser();
   }
@@ -28,6 +29,7 @@ class App extends Component {
 }
 
 const mapDispatchToProps = {
+  getBreeds,
   getDogs,
   getUser
 };
