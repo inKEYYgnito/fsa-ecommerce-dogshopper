@@ -1,3 +1,4 @@
+const Breed = require('./Breed');
 const connection = require('../connection');
 const { Sequelize } = connection;
 const {
@@ -76,7 +77,10 @@ const Dog = connection.define('dog', {
 });
 
 Dog.findAllAvailable = function() {
-  return this.findAll({ where: { isAvailable: true } });
+  return this.findAll({ 
+    where: { isAvailable: true },
+    include: [{ model: Breed }]
+  });
 };
 
 module.exports = Dog;

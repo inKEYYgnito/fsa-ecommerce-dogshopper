@@ -1,12 +1,9 @@
 @import '../../variables.scss';
 
-@mixin inline-flex {
-    display: flex;
-    align-items: center;
-}
-
 header {
     @include inline-flex;
+    @include gradient-border;
+    border-bottom: solid 5px;
     justify-content: space-between;
     position: -webkit-sticky;
     position: sticky;
@@ -14,8 +11,6 @@ header {
     padding: 0 2vw;
     height: 9.5vh;
     font-family: $baloo-bhai;
-    border-bottom: solid 3px;
-    border-image: conic-gradient($dark-blue, $pastel-pink, $sky-blue, $intense-pink) 1;
     background-image: linear-gradient(to bottom right, $pastel-pink, $sky-blue);
 }
 
@@ -24,7 +19,8 @@ a {
     color: $dark-blue;
 }
 
-a:hover {
+a:hover,
+#user-access img:hover {
     opacity: 0.65;
     color: $intense-pink;
 }
@@ -38,6 +34,7 @@ a:hover {
     margin-top: 5px;
     font-size: 3vw;
     color: $dark-blue;
+    @include retro-shadow
 }
 
 #logo img {
