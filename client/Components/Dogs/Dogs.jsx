@@ -10,14 +10,17 @@ class Dogs extends Component {
   constructor() {
     super();
     this.state = {
-      breedId: 0
+      breedId: 0,
+      gender: ''
     };
   }
 
   updateBreed = breedId => this.setState({ breedId });
 
+  updateGender = gender => this.setState({ gender });
+
   render() {
-    const { breedId } = this.state;
+    const { breedId, gender } = this.state;
     const { dogs } = this.props;
 
     const dogsToDisplay =
