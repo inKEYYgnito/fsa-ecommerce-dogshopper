@@ -1,12 +1,8 @@
 @import '../../variables.scss';
 
 #dog-container {
-    display: flex;
-    background-color: rgba(253, 253, 150, 0.2);
-    padding-top: 6%;
-    margin: 0 auto;
+    @include view-container;
     width: 70%;
-    height: 100%;
     flex-wrap: wrap;
 }
 
