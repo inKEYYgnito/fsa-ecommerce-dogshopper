@@ -3,21 +3,13 @@ import { connect } from 'react-redux';
 
 import './filterSideBar.scss';
 
-const FilterSideBar = ({
-  breeds,
-  breedId,
-  gender,
-  updateBreed,
-  updateGender
-}) => {
+const FilterSideBar = ({ breeds, breedId, gender, updateFilter }) => {
   const onChange = event => {
-    const breedId = parseInt(event.target.value);
-    updateBreed(breedId);
-  };
-
-  const onChangeGender = event => {
-    const gender = event.target.value;
-    updateGender(gender);
+    const { tagName, value, name } = event.target;
+    let updatedFilter = {
+      [name]: tagName === 'SELECT' ? parseInt(value) : value
+    };
+    updateFilter(updatedFilter);
   };
 
   const breedOptions = [{ id: 0, name: 'All Breeds' }, ...breeds];
@@ -31,7 +23,7 @@ const FilterSideBar = ({
     <div id="filter-side-bar">
       <span className="category">Breed</span>
       <span className="selection">
-        <select id="breed" value={breedId} onChange={onChange}>
+        <select name="breedId" value={breedId} onChange={onChange}>
           {breedOptions.map(breed => (
             <option key={breed.id} value={breed.id}>
               {breed.name}
@@ -48,7 +40,7 @@ const FilterSideBar = ({
               name="gender"
               value={genderOption.value}
               checked={gender === genderOption.value}
-              onChange={onChangeGender}
+              onChange={onChange}
             />{' '}
             {genderOption.label}
           </label>
