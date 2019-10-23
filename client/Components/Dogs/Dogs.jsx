@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import FilterSideBar from './../FilterSideBar';
+import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
 const { DOGS } = ROUTE_PATH;
 
