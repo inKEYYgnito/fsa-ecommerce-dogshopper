@@ -3,10 +3,21 @@ import { connect } from 'react-redux';
 
 import './filterSideBar.scss';
 
-const FilterSideBar = ({ breeds, breedId, updateBreed }) => {
+const FilterSideBar = ({
+  breeds,
+  breedId,
+  gender,
+  updateBreed,
+  updateGender
+}) => {
   const onChange = event => {
     const breedId = parseInt(event.target.value);
     updateBreed(breedId);
+  };
+
+  const onChangeGender = event => {
+    const gender = event.target.value;
+    updateGender(gender);
   };
 
   const breedOptions = [{ id: 0, name: 'All Breeds' }, ...breeds];
@@ -18,8 +29,8 @@ const FilterSideBar = ({ breeds, breedId, updateBreed }) => {
 
   return (
     <div id="filter-side-bar">
-      <span class="category">Breed</span>
-      <span class="selection">
+      <span className="category">Breed</span>
+      <span className="selection">
         <select id="breed" value={breedId} onChange={onChange}>
           {breedOptions.map(breed => (
             <option key={breed.id} value={breed.id}>
@@ -28,12 +39,18 @@ const FilterSideBar = ({ breeds, breedId, updateBreed }) => {
           ))}
         </select>
       </span>
-      <span class="category">Gender</span>
-      <span class="selection">
-        {genderOptions.map(gender => (
-          <label>
-            <input type="radio" name="gender" value={gender.value} />{' '}
-            {gender.label}
+      <span className="category">Gender</span>
+      <span className="selection">
+        {genderOptions.map(genderOption => (
+          <label key={genderOption.value}>
+            <input
+              type="radio"
+              name="gender"
+              value={genderOption.value}
+              checked={gender === genderOption.value}
+              onChange={onChangeGender}
+            />{' '}
+            {genderOption.label}
           </label>
         ))}
       </span>
