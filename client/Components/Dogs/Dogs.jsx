@@ -11,7 +11,8 @@ class Dogs extends Component {
     super();
     this.state = {
       breedId: 0,
-      gender: ''
+      gender: '',
+      size: ''
     };
   }
 
@@ -19,7 +20,7 @@ class Dogs extends Component {
 
   filterDogs = () => {
     const { dogs } = this.props;
-    const { breedId, gender } = this.state;
+    const { breedId, gender, size } = this.state;
 
     let filteredDogs =
       breedId === 0 ? dogs : dogs.filter(dog => dog.breedId === breedId);
@@ -27,12 +28,16 @@ class Dogs extends Component {
       gender === ''
         ? filteredDogs
         : filteredDogs.filter(dog => dog.gender === gender);
+    filteredDogs =
+      size === ''
+        ? filteredDogs
+        : filteredDogs.filter(dog => dog.size === size);
 
     return filteredDogs;
   };
 
   render() {
-    const { breedId, gender } = this.state;
+    const { breedId, gender, size } = this.state;
     const dogsToDisplay = this.filterDogs();
 
     return (
@@ -41,6 +46,7 @@ class Dogs extends Component {
           updateFilter={this.updateFilter}
           breedId={breedId}
           gender={gender}
+          size={size}
         />
         {dogsToDisplay.map(dog => (
           <div key={dog.id}>
