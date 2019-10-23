@@ -4,7 +4,7 @@ import priceTag from '../../assets/img/icon-price-tag.svg'
 import './dog.scss'
 
 const Dog = ({ dog }) => {
-  return dog && (
+  return dog ? (
     <div id="dog-container">
       <div id="dog-images">
         <div className="polaroid">
@@ -37,7 +37,7 @@ const Dog = ({ dog }) => {
         <button className="btn-add-crate">Add {dog.name} to crate!</button>
       </div>
     </div>
-  )
+  ) : <></>
 }
 
 const mapStateToProps = ({ dogs }, { match }) => {

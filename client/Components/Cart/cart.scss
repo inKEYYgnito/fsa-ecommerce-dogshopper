@@ -1,0 +1,5 @@
+@import '../../variables.scss';
+
+#cart-container {
+    @include view-container;
+}
