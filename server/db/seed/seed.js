@@ -26,6 +26,7 @@ const seed = async () => {
 
   SEED_DATA_FILES.forEach(async ({ model, file }) => {
     const seedData = getSeedFileData(file);
+    console.log(`Loading data from ${file}...`);
     await createModelData(seedData, model);
   });
 };
