@@ -15,9 +15,7 @@ class Dogs extends Component {
     };
   }
 
-  updateBreed = breedId => this.setState({ breedId });
-
-  updateGender = gender => this.setState({ gender });
+  updateFilter = filterObject => this.setState(filterObject);
 
   filterDogs = () => {
     const { dogs } = this.props;
@@ -40,8 +38,7 @@ class Dogs extends Component {
     return (
       <div>
         <FilterSideBar
-          updateBreed={this.updateBreed}
-          updateGender={this.updateGender}
+          updateFilter={this.updateFilter}
           breedId={breedId}
           gender={gender}
         />
