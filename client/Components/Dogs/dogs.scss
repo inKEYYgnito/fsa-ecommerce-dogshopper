@@ -32,3 +32,14 @@
 #dogblock{
     display: flex;
 }
+button.btn-add-crate {
+    transition: all 0.2s ease;
+    margin: 2vh 0;
+    font-family: $baloo-bhai;
+    font-size: var(--btn-crate-font-size);
+    padding: 2% 3%;
+    background-color: $pastel-pink;
+    border-radius: 0.5em;
+    border: solid 3px $intense-pink;
+    border-style: outset;
+}

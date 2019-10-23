@@ -23,7 +23,7 @@ const Dogs = ({ dogs }) => (
           </div>
             <div id='dogpic'><img src = {dog.imageURL} width="100%" height="100%"/></div> 
         </div>
-        <button id='button'>Add to crate will be here</button>
+        <button className='btn-add-crate'>Add {dog.name} to crate!</button>
       </div>
     ))}
     </div>
