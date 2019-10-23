@@ -37,12 +37,6 @@ describe('Dog Model', async () => {
         'Validation error: Validation notEmpty on name failed'
       );
     });
-
-    it('should be uniqe', async () => {
-      await Dog.create(katsu);
-
-      await expect(Dog.create(katsu)).to.be.rejectedWith('Validation error');
-    });
   });
 
   describe('price column', () => {
