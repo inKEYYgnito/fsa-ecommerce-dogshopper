@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import './filterSideBar.scss';
 
-const FilterSideBar = ({ breeds, breedId, gender, updateFilter }) => {
+const FilterSideBar = ({ breeds, breedId, gender, size, updateFilter }) => {
   const onChange = event => {
     const { tagName, value, name } = event.target;
     let updatedFilter = {
@@ -18,6 +18,13 @@ const FilterSideBar = ({ breeds, breedId, gender, updateFilter }) => {
     { label: 'Male', value: 'M' },
     { label: 'Female', value: 'F' }
   ];
+  const sizeOptions = [
+    { label: 'All', value: '' },
+    { label: 'Small', value: 'S' },
+    { label: 'Medium', value: 'M' },
+    { label: 'Large', value: 'L' },
+    { label: 'Extra Lage', value: 'XL' }
+  ];
 
   return (
     <div id="filter-side-bar">
@@ -31,6 +38,7 @@ const FilterSideBar = ({ breeds, breedId, gender, updateFilter }) => {
           ))}
         </select>
       </span>
+
       <span className="category">Gender</span>
       <span className="selection">
         {genderOptions.map(genderOption => (
@@ -43,6 +51,22 @@ const FilterSideBar = ({ breeds, breedId, gender, updateFilter }) => {
               onChange={onChange}
             />{' '}
             {genderOption.label}
+          </label>
+        ))}
+      </span>
+
+      <span className="category">Size</span>
+      <span className="selection">
+        {sizeOptions.map(sizeOption => (
+          <label key={sizeOption.value}>
+            <input
+              type="radio"
+              name="size"
+              value={sizeOption.value}
+              checked={size === sizeOption.value}
+              onChange={onChange}
+            />{' '}
+            {sizeOption.label}
           </label>
         ))}
       </span>
