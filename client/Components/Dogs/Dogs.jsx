@@ -18,20 +18,29 @@ class Dogs extends Component {
 
   updateFilter = filterObject => this.setState(filterObject);
 
+  filter = (sourceList, criteria, filterFunction) => {
+    return criteria ? sourceList : sourceList.filter(filterFunction);
+  };
+
   filterDogs = () => {
     const { dogs } = this.props;
     const { breedId, gender, size } = this.state;
 
-    let filteredDogs =
-      breedId === 0 ? dogs : dogs.filter(dog => dog.breedId === breedId);
-    filteredDogs =
-      gender === ''
-        ? filteredDogs
-        : filteredDogs.filter(dog => dog.gender === gender);
-    filteredDogs =
-      size === ''
-        ? filteredDogs
-        : filteredDogs.filter(dog => dog.size === size);
+    let filteredDogs = this.filter(
+      dogs,
+      breedId === 0,
+      dog => dog.breedId === breedId
+    );
+    filteredDogs = this.filter(
+      filteredDogs,
+      gender === '',
+      dog => dog.gender === gender
+    );
+    filteredDogs = this.filter(
+      filteredDogs,
+      size === '',
+      dog => dog.size === size
+    );
 
     return filteredDogs;
   };
