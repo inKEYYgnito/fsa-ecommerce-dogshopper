@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCrate, removeFromCrate } from '../../store/actions/actions';
+import CrateButton from './../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './dog.scss';
 
-const Dog = ({ dog, crate, addToCrate, removeFromCrate }) => {
+const Dog = ({ dog }) => {
   return dog ? (
     <div id="dog-container">
       <div id="dog-images">
@@ -36,18 +36,7 @@ const Dog = ({ dog, crate, addToCrate, removeFromCrate }) => {
           <img src={priceTag} />
           <span>${dog.price}</span>
         </div>
-        {crate && crate.includes(dog.id) ? (
-          <button
-            className="btn-add-crate"
-            onClick={() => removeFromCrate(dog.id)}
-          >
-            Remove {dog.name} from crate!
-          </button>
-        ) : (
-          <button className="btn-add-crate" onClick={() => addToCrate(dog.id)}>
-            Add {dog.name} to crate!
-          </button>
-        )}
+        <CrateButton dog={dog} />
       </div>
     </div>
   ) : (
@@ -55,20 +44,11 @@ const Dog = ({ dog, crate, addToCrate, removeFromCrate }) => {
   );
 };
 
-const mapStateToProps = ({ dogs, crate }, { match }) => {
+const mapStateToProps = ({ dogs }, { match }) => {
   const id = match.params.id;
   return {
-    dog: dogs.find(dog => dog.id === id),
-    crate
+    dog: dogs.find(dog => dog.id === id)
   };
 };
 
-const mapDispatchToProps = {
-  addToCrate,
-  removeFromCrate
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Dog);
+export default connect(mapStateToProps)(Dog);
