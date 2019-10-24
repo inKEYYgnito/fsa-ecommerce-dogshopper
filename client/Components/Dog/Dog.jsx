@@ -5,7 +5,7 @@ import { addToCrate } from '../../store/actions/actions';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './dog.scss';
 
-const Dog = ({ dog, addToCrate }) => {
+const Dog = ({ dog, crate, addToCrate }) => {
   return dog ? (
     <div id="dog-container">
       <div id="dog-images">
@@ -36,9 +36,15 @@ const Dog = ({ dog, addToCrate }) => {
           <img src={priceTag} />
           <span>${dog.price}</span>
         </div>
-        <button className="btn-add-crate" onClick={() => addToCrate(dog.id)}>
-          Add {dog.name} to crate!
-        </button>
+        {crate && crate.includes(dog.id) ? (
+          <button className="btn-add-crate">
+            Remove {dog.name} from crate!
+          </button>
+        ) : (
+          <button className="btn-add-crate" onClick={() => addToCrate(dog.id)}>
+            Add {dog.name} to crate!
+          </button>
+        )}
       </div>
     </div>
   ) : (
@@ -46,10 +52,11 @@ const Dog = ({ dog, addToCrate }) => {
   );
 };
 
-const mapStateToProps = ({ dogs }, { match }) => {
+const mapStateToProps = ({ dogs, crate }, { match }) => {
   const id = match.params.id;
   return {
-    dog: dogs.find(dog => dog.id === id)
+    dog: dogs.find(dog => dog.id === id),
+    crate
   };
 };
 
