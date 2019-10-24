@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+#checkout-form {
+  @include col-flex;
+  width: 50vw;
+}
+
+input {
+  width: 400px;
+}
