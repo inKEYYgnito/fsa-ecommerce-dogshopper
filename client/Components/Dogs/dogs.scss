@@ -1,14 +1,19 @@
 @import '../../variables.scss';
+
+#dog-list-container {
+    @include inline-flex;
+    width: 100%;
+    justify-content: space-around;
+}
+
 #dogs {
-    margin: 10% auto;
     display: flex;
     flex-wrap: wrap;
     width:80%;
 }
 #dog {
-    margin:0 auto;
-    margin-bottom: 5%;
-    width: 30%;
+    margin: 2%;
+    width: 25%;
     border: black solid 2px;
     border-radius: 2%;
     text-align: center;
@@ -41,5 +46,5 @@ button.btn-add-crate {
     border-style: outset;
 }
 .filter{
-    margin: 10%;
+    flex-basis: 20%;
 }

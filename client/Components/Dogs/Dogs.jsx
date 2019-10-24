@@ -51,35 +51,33 @@ class Dogs extends Component {
     const dogsToDisplay = this.filterDogs();
 
     return (
-      <div>
-        <div>
-          <div className = 'filter'>
-        <FilterSideBar 
-          updateFilter={this.updateFilter}
-          breedId={breedId}
-          gender={gender}
-          size={size}
+      <div id="dog-list-container">
+        <div className='filter'>
+          <FilterSideBar
+            updateFilter={this.updateFilter}
+            breedId={breedId}
+            gender={gender}
+            size={size}
           />
-          </div>
-    <div id = 'dogs'>
-    {dogsToDisplay.map(dog => (
-      <div id ='dog' key={dog.id} >
-      <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
-      <div className ='dogcontent'>
-          <div id ='dogtext'>
-          Breed: {dog.breed.name}
-            <p id ='description'>{dog.description}</p>
-      </div>
-            <div id='dogpic'><img src = {dog.imageURL} width="100%" height="100%"/></div> 
         </div>
-        <div id = 'btn'>
-        <button className='btn-add-crate'>Add {dog.name} to crate!</button>
+        <div id='dogs'>
+          {dogsToDisplay.map(dog => (
+            <div id='dog' key={dog.id} >
+              <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
+              <div className='dogcontent'>
+                <div id='dogtext'>
+                  Breed: {dog.breed.name}
+                  <p id='description'>{dog.description}</p>
+                </div>
+                <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
+              </div>
+              <div id='btn'>
+                <button className='btn-add-crate'>Add {dog.name} to crate!</button>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-    ))}
-    </div>
-  </div>
-  </div>
     );
   }
 }
