@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { addToCrate } from '../../store/actions/actions';
+import { addToCrate, removeFromCrate } from '../../store/actions/actions';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './dog.scss';
 
-const Dog = ({ dog, crate, addToCrate }) => {
+const Dog = ({ dog, crate, addToCrate, removeFromCrate }) => {
   return dog ? (
     <div id="dog-container">
       <div id="dog-images">
@@ -37,7 +37,10 @@ const Dog = ({ dog, crate, addToCrate }) => {
           <span>${dog.price}</span>
         </div>
         {crate && crate.includes(dog.id) ? (
-          <button className="btn-add-crate">
+          <button
+            className="btn-add-crate"
+            onClick={() => removeFromCrate(dog.id)}
+          >
             Remove {dog.name} from crate!
           </button>
         ) : (
@@ -61,7 +64,8 @@ const mapStateToProps = ({ dogs, crate }, { match }) => {
 };
 
 const mapDispatchToProps = {
-  addToCrate
+  addToCrate,
+  removeFromCrate
 };
 
 export default connect(
