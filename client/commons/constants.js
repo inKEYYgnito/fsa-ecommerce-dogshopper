@@ -8,10 +8,11 @@ export const ACTION_TYPE = {
 };
 
 const USER = 'user';
+const CRATE = 'crate';
 
 export const ROUTE_PATH = {
   DOGS: '/dogs',
   USER_PROFILE: `/${USER}/profile`,
   USER_ORDERS: `/${USER}/orders`,
-  CART: '/cart'
+  CRATE: `/${CRATE}`
 };
