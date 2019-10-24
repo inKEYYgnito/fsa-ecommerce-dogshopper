@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Link } from 'react-router-dom'
 
 import CrateButton from './../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';

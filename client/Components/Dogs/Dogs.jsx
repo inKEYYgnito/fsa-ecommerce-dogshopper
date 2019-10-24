@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CrateButton from './../CrateButton/CrateButton';
 
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
@@ -66,13 +67,14 @@ class Dogs extends Component {
               <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
               <div className='dogcontent'>
                 <div id='dogtext'>
-                  Breed: {dog.breed.name}
+                  {dog.breed.name}
                   <p id='description'>{dog.description}</p>
                 </div>
                 <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
               </div>
               <div id='btn'>
-                <button className='btn-add-crate'>Add {dog.name} to crate!</button>
+                
+                <CrateButton dog={dog} />
               </div>
             </div>
           ))}

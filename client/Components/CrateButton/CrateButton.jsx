@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { addToCrate, removeFromCrate } from '../../store/actions/actions';
-import './crateButton.scss';
 
 const CrateButton = ({ crate, dog, addToCrate, removeFromCrate }) => {
   return crate && crate.includes(dog.id) ? (

@@ -5,7 +5,6 @@
     width: 100%;
     justify-content: space-around;
 }
-
 #dogs {
     display: flex;
     flex-wrap: wrap;
@@ -24,7 +23,6 @@
 #dog h1{
     margin:5px;
 }
-
 #dogtext{
     width:65%;
     margin:0;
@@ -33,7 +31,6 @@
     width:35%;
     margin: 5px 5px 5px 5px
 }
-
 button.btn-add-crate {
     transition: all 0.2s ease;
     margin: 2vh 0;
@@ -48,3 +45,7 @@ button.btn-add-crate {
 .filter{
     flex-basis: 20%;
 }
+
+button.btn-add-crate {
+    --btn-crate-font-size: 1em;
+  }
