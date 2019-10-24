@@ -7,8 +7,7 @@
 }
 
 #dog-images {
-    display: flex;
-    flex-direction: column;
+    @include col-flex;
     align-items: flex-end;
     flex-basis: 50%;
 }
@@ -38,6 +37,7 @@
 
 #dog-info {
     @include col-flex;
+    align-items: center;
     flex-basis: 50%;
 }
 
@@ -61,8 +61,4 @@
 .property img {
     width: 2em;
     height: 2em;
-}
-
-button.btn-add-crate {
-    --btn-crate-font-size: 1.2em;
 }

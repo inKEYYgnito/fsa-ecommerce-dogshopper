@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import priceTag from '../../assets/img/icon-price-tag.svg'
-import './dog.scss'
+
+import CrateButton from './../CrateButton/CrateButton';
+import priceTag from '../../assets/img/icon-price-tag.svg';
+import './dog.scss';
 
 const Dog = ({ dog }) => {
   return dog ? (
@@ -34,11 +36,13 @@ const Dog = ({ dog }) => {
           <img src={priceTag} />
           <span>${dog.price}</span>
         </div>
-        <button className="btn-add-crate">Add {dog.name} to crate!</button>
+        <CrateButton dog={dog} />
       </div>
     </div>
-  ) : <></>
-}
+  ) : (
+    <></>
+  );
+};
 
 const mapStateToProps = ({ dogs }, { match }) => {
   const id = match.params.id;

@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './cart.scss';
 
-const Cart = ({ orderItems }) => {
+const Cart = ({ crate }) => {
     return (
         <div id="cart-container">
             {
-                orderItems.length ?
+                crate.length ?
                 <>
                     <h1>Here are your orders.</h1>
                 </> :
@@ -19,10 +19,10 @@ const Cart = ({ orderItems }) => {
     )
 }
 
-const mapStateToProps = () => {
-    return {
-        orderItems: []
-    }
-}
+const mapStateToProps = ({ crate }) => {
+  return {
+    crate
+  };
+};
 
 export default connect(mapStateToProps)(Cart);
