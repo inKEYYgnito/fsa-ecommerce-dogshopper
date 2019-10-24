@@ -4,7 +4,6 @@ import priceTag from '../../assets/img/icon-price-tag.svg';
 import './cart.scss';
 
 const Cart = ({ crate }) => {
-  console.log('crate', crate);
   return (
     <div id="cart-container">
       {crate.length ? (
