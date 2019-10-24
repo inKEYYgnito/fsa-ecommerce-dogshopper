@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from '../../commons/constants';
 
-const { ADD_TO_CRATE } = ACTION_TYPE;
+const { ADD_TO_CRATE, SET_CRATE } = ACTION_TYPE;
 
 const getCrateFromStorage = () => {
   const crate = sessionStorage.getItem('crate');
@@ -19,6 +19,13 @@ const addToCratetAction = dogId => {
   };
 };
 
+const setCratetAction = crate => {
+  return {
+    type: SET_CRATE,
+    crate
+  };
+};
+
 const addToCrate = dogId => {
   return async dispatch => {
     addToCrateFromStorage(dogId);
@@ -26,4 +33,11 @@ const addToCrate = dogId => {
   };
 };
 
-export { addToCrate };
+const getCrate = () => {
+  return async dispatch => {
+    const crate = getCrateFromStorage();
+    return dispatch(setCratetAction(crate));
+  };
+};
+
+export { addToCrate, getCrate };
