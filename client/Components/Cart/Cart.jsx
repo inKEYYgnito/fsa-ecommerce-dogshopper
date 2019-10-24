@@ -8,13 +8,12 @@ const Cart = ({ orderItems }) => {
         <div id="cart-container">
             {
                 orderItems.length ?
-                    <>
-                        <h1>Here are your orders.</h1>
-                    </> :
-                    <>
-                        <h1>Don't see your items? Sign in.</h1>
-                        <h6>There are no items in your create.</h6>
-                    </>
+                <>
+                    <h1>Here are your orders.</h1>
+                </> :
+                <>
+                    <h6>There are no items in your create.</h6>
+                </>
             }
         </div>
     )
