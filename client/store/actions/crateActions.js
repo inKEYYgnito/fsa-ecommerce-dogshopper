@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from '../../commons/constants';
 
-const { ADD_TO_CRATE, SET_CRATE } = ACTION_TYPE;
+const { ADD_TO_CRATE, SET_CRATE, REMOVE_FROM_CRATE } = ACTION_TYPE;
 
 const getCrateFromStorage = () => {
   const crate = sessionStorage.getItem('crate');
@@ -12,9 +12,24 @@ const addToCrateFromStorage = dogId => {
   sessionStorage.setItem('crate', JSON.stringify([...crate, dogId]));
 };
 
+const removeFromCrateFromStorage = dogId => {
+  const crate = getCrateFromStorage();
+  sessionStorage.setItem(
+    'crate',
+    JSON.stringify(crate.filter(dog => dog !== dogId))
+  );
+};
+
 const addToCratetAction = dogId => {
   return {
     type: ADD_TO_CRATE,
+    dogId
+  };
+};
+
+const removeFromCrateAction = dogId => {
+  return {
+    type: REMOVE_FROM_CRATE,
     dogId
   };
 };
@@ -33,6 +48,13 @@ const addToCrate = dogId => {
   };
 };
 
+const removeFromCrate = dogId => {
+  return async dispatch => {
+    removeFromCrateFromStorage(dogId);
+    return dispatch(removeFromCrateAction(dogId));
+  };
+};
+
 const getCrate = () => {
   return async dispatch => {
     const crate = getCrateFromStorage();
@@ -40,4 +62,4 @@ const getCrate = () => {
   };
 };
 
-export { addToCrate, getCrate };
+export { addToCrate, removeFromCrate, getCrate };
