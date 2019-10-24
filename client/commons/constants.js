@@ -14,5 +14,6 @@ export const ROUTE_PATH = {
   DOGS: '/dogs',
   USER_PROFILE: `/${USER}/profile`,
   USER_ORDERS: `/${USER}/orders`,
-  CRATE: `/${CRATE}`
+  CRATE: `/${CRATE}`,
+  CRATE_CHECKOUT: `/${CRATE}/checkout`
 };
