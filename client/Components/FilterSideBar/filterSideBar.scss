@@ -1,0 +1,10 @@
+@import '../../variables.scss';
+
+#filter-side-bar,
+.selection {
+  @include col-flex;
+}
+
+#filter-side-bar {
+  width: 20vw;
+}

@@ -29,8 +29,7 @@ const Dog = connection.define('dog', {
     allowNull: false,
     validate: {
       notEmpty: true
-    },
-    unique: true
+    }
   },
   description: {
     type: TEXT
@@ -77,7 +76,7 @@ const Dog = connection.define('dog', {
 });
 
 Dog.findAllAvailable = function() {
-  return this.findAll({ 
+  return this.findAll({
     where: { isAvailable: true },
     include: [{ model: Breed }]
   });

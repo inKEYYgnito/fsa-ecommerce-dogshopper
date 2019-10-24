@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import FilterSideBar from './../FilterSideBar';
+import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
 import './dogs.scss'
 const { DOGS } = ROUTE_PATH;
@@ -11,28 +11,61 @@ class Dogs extends Component {
   constructor() {
     super();
     this.state = {
-      breedId: 0
+      breedId: 0,
+      gender: '',
+      size: ''
     };
   }
 
-  updateBreed = breedId => this.setState({ breedId });
+  updateFilter = filterObject => this.setState(filterObject);
+
+  filter = (sourceList, criteria, filterFunction) => {
+    return criteria ? sourceList : sourceList.filter(filterFunction);
+  };
+
+  filterDogs = () => {
+    const { dogs } = this.props;
+    const { breedId, gender, size } = this.state;
+
+    let filteredDogs = this.filter(
+      dogs,
+      breedId === 0,
+      dog => dog.breedId === breedId
+    );
+    filteredDogs = this.filter(
+      filteredDogs,
+      gender === '',
+      dog => dog.gender === gender
+    );
+    filteredDogs = this.filter(
+      filteredDogs,
+      size === '',
+      dog => dog.size === size
+    );
+
+    return filteredDogs;
+  };
 
   render() {
-    const { breedId } = this.state;
-    const { dogs } = this.props;
-
-    const dogsToDisplay =
-      breedId === 0 ? dogs : dogs.filter(dog => dog.breedId === breedId);
+    const { breedId, gender, size } = this.state;
+    const dogsToDisplay = this.filterDogs();
 
     return (
       <div>
         <div>
-        <FilterSideBar updateBreed={this.updateBreed} breedId={breedId} />
+          <div className = 'filter'>
+        <FilterSideBar 
+          updateFilter={this.updateFilter}
+          breedId={breedId}
+          gender={gender}
+          size={size}
+          />
+          </div>
     <div id = 'dogs'>
     {dogsToDisplay.map(dog => (
       <div id ='dog' key={dog.id} >
       <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
-        <div id='dogblock'>
+      <div className ='dogcontent'>
           <div id ='dogtext'>
           Price: ${dog.price}<br/>
           Gender: {dog.gender}<br/>
@@ -40,7 +73,7 @@ class Dogs extends Component {
           Size: {dog.size}<br/>
           Breed: {dog.breed.name}
             <p id ='description'>{dog.description}</p>
-          </div>
+      </div>
             <div id='dogpic'><img src = {dog.imageURL} width="100%" height="100%"/></div> 
         </div>
         <button className='btn-add-crate'>Add {dog.name} to crate!</button>
