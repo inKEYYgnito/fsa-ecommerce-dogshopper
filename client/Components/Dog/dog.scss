@@ -63,9 +63,7 @@
     height: 2em;
 }
 
-button.btn-add-crate {
-    --btn-crate-font-size: 1.2em;
-}
+
 button.back-btn {
     transition: all 0.2s ease;
     margin: 2vh 0;
@@ -90,3 +88,4 @@ i {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
+}

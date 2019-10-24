@@ -3,19 +3,26 @@ import { HashRouter, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
+import CrateCheckout from '../CrateCheckout/CrateCheckout';
 import Dogs from '../Dogs/Dogs';
 import Dog from '../Dog/Dog';
-import { getBreeds, getDogs, getUser } from '../../store/actions/actions';
+import {
+  getBreeds,
+  getDogs,
+  getUser,
+  getCrate
+} from '../../store/actions/actions';
 import { ROUTE_PATH } from '../../commons/constants';
-import './app.scss'
+import './app.scss';
 
-const { DOGS, CART } = ROUTE_PATH;
+const { DOGS, CRATE, CRATE_CHECKOUT } = ROUTE_PATH;
 
 class App extends Component {
   componentDidMount() {
     this.props.getBreeds();
     this.props.getDogs();
     this.props.getUser();
+    this.props.getCrate();
   }
   render() {
     return (
@@ -25,7 +32,8 @@ class App extends Component {
           <Switch>
             <Route exact path={DOGS} component={Dogs} />
             <Route exact path={`${DOGS}/:id`} component={Dog} />
-            <Route exact path={CART} component={Cart} />
+            <Route exact path={CRATE} component={Cart} />
+            <Route exact path={CRATE_CHECKOUT} component={CrateCheckout} />
           </Switch>
         </section>
       </HashRouter>
@@ -36,7 +44,8 @@ class App extends Component {
 const mapDispatchToProps = {
   getBreeds,
   getDogs,
-  getUser
+  getUser,
+  getCrate
 };
 
 export default connect(
