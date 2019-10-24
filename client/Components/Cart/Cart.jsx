@@ -1,5 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
+import { ROUTE_PATH } from '../../commons/constants';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './cart.scss';
 
@@ -9,6 +12,7 @@ const Cart = ({ crate }) => {
       {crate.length ? (
         <>
           <h1>Here are your orders.</h1>
+          <Link to={ROUTE_PATH.CRATE_CHECKOUT}>Checkout</Link>
         </>
       ) : (
         <>
