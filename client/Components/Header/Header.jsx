@@ -25,7 +25,9 @@ class Header extends Component {
             </>
           )}
           {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
-          <Link id="btn-cart" to={ROUTE_PATH.CART}><img src={dogCrate} /></Link>
+          <Link id="btn-cart" to={ROUTE_PATH.CRATE}>
+            <img src={dogCrate} />
+          </Link>
         </div>
       </header>
     )
