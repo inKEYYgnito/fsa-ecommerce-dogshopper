@@ -1,0 +1,68 @@
+@import '../../variables.scss';
+
+#dog-container {
+    @include view-container;
+    width: 70%;
+    flex-wrap: wrap;
+}
+
+#dog-images {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    flex-basis: 50%;
+}
+
+.polaroid {
+    @include simple-shadow;
+    transition: all 0.5s ease;
+    background-color: white;
+    padding: 20px;
+    transform: rotate(2deg);
+    width: 340px;
+}
+
+.polaroid:hover {
+    transform: scale(1.3);
+}
+
+.polaroid img {
+    object-fit: cover;
+    width: 300px;
+    height: 350px;
+}
+
+.polaroid p {
+    word-wrap: break-word;
+}
+
+#dog-info {
+    @include col-flex;
+    flex-basis: 50%;
+}
+
+#name {
+    @include retro-shadow;
+    font-family: $baloo-bhai;
+    font-size: 3em;
+}
+
+.property {
+    @include inline-flex;
+    font-size: 1.4em;
+    margin: 1vh 0;
+}
+
+.property span:first-child {
+    margin-right: 0.8em;
+    font-size: 0.7em;
+}
+
+.property img {
+    width: 2em;
+    height: 2em;
+}
+
+button.btn-add-crate {
+    --btn-crate-font-size: 1.2em;
+}

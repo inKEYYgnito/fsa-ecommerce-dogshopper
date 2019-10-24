@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, NavLink } from 'react-router-dom';
 import { ROUTE_PATH } from '../../commons/constants'
 import dogLogo from '../../assets/img/logo-shoppadog.png'
-import dogCrate from '../../assets/img/logo-dogcrate.png'
+import dogCrate from '../../assets/img/icon-dogcrate.png'
 import './header.scss'
 
 class Header extends Component {
@@ -25,7 +25,7 @@ class Header extends Component {
             </>
           )}
           {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
-          <img src={dogCrate} />
+          <Link id="btn-cart" to={ROUTE_PATH.CART}><img src={dogCrate} /></Link>
         </div>
       </header>
     )

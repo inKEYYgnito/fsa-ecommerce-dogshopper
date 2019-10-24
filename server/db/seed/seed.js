@@ -3,17 +3,17 @@ require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
 
-const connection = require('./../connection');
-const Dog = require('./../models/Dog');
+const db = require('./../db');
+const { Breed, Dog } = db.models;
 
 const SEED_DATA_FOLDER = path.resolve('./server/db/seed/data');
+const SEED_DATA_FILES = [
+  { model: Dog, file: 'dogs.json' },
+  { model: Breed, file: 'breeds.json' }
+];
 
 const createModelData = (list, Model) => {
   return Promise.all(list.map(el => Model.create(el)));
-};
-
-const getSeedFiles = () => {
-  return fs.readdirSync(SEED_DATA_FOLDER);
 };
 
 const getSeedFileData = file => {
@@ -22,12 +22,11 @@ const getSeedFileData = file => {
 };
 
 const seed = async () => {
-  await connection.sync({ force: true });
+  await db.sync(true);
 
-  const seedFiles = getSeedFiles();
-  seedFiles.forEach(file => {
+  SEED_DATA_FILES.forEach(async ({ model, file }) => {
     const seedData = getSeedFileData(file);
-    createModelData(seedData, Dog);
+    await createModelData(seedData, model);
   });
 };
 

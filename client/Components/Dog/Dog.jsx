@@ -1,18 +1,44 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import priceTag from '../../assets/img/icon-price-tag.svg'
+import './dog.scss'
 
-const Dog = ({ dog }) => (
-  <>
-    {dog && (
-      <>
-        {dog.name}
-        {dog.description}
-        {dog.price}
-        {dog.imageUrl}
-      </>
-    )}
-  </>
-);
+const Dog = ({ dog }) => {
+  return dog ? (
+    <div id="dog-container">
+      <div id="dog-images">
+        <div className="polaroid">
+          <img id="dog-image" src={dog.imageURL} />
+          <p>{dog.description}</p>
+        </div>
+      </div>
+      <div id="dog-info">
+        <span id="name">{dog.name}</span>
+        <div className="property">
+          <span>Breed</span>
+          <span>{dog.breed.name}</span>
+        </div>
+        <div className="property">
+          <span>Gender</span>
+          <span>{dog.gender}</span>
+        </div>
+        <div className="property">
+          <span>Age</span>
+          <span>{`${dog.age} ${dog.ageUnit}${dog.age > 1 ? 's' : ''}`}</span>
+        </div>
+        <div className="property">
+          <span>Size</span>
+          <span>{dog.size}</span>
+        </div>
+        <div className="property">
+          <img src={priceTag} />
+          <span>${dog.price}</span>
+        </div>
+        <button className="btn-add-crate">Add {dog.name} to crate!</button>
+      </div>
+    </div>
+  ) : <></>
+}
 
 const mapStateToProps = ({ dogs }, { match }) => {
   const id = match.params.id;
