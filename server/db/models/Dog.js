@@ -12,11 +12,7 @@ const {
   ENUM
 } = Sequelize;
 
-function greaterThanZero(field) {
-  if (field <= 0) {
-    throw new Error('field should be greater than 0');
-  }
-}
+const { greaterThanZero } = require('./util/model_helper');
 
 const Dog = connection.define('dog', {
   id: {
