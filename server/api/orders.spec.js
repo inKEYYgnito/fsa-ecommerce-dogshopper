@@ -46,7 +46,7 @@ describe('Order routes', () => {
         .then(response => {
           const createdOrder = response.body;
           expect(createdOrder.status).to.equal('created');
-          expect(createdOrder.order_items.length).to.equal(2);
+          expect(createdOrder.orderItems.length).to.equal(2);
         });
     });
 
