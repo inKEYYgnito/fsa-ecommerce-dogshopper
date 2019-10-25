@@ -12,6 +12,7 @@ header {
     height: 9.5vh;
     font-family: $baloo-bhai;
     background-image: linear-gradient(to bottom right, $pastel-pink, $sky-blue);
+    flex-shrink: 0;
 }
 
 a {
