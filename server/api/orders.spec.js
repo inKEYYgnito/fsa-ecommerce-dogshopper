@@ -4,7 +4,7 @@ const request = require('supertest');
 const app = request(require('./../app'));
 
 const db = require('./../db/db');
-const { Breed, Dog } = db.models;
+const { Breed, Dog, OrderItem } = db.models;
 
 describe('Order routes', () => {
   let order;
@@ -50,13 +50,37 @@ describe('Order routes', () => {
         });
     });
 
-    it('should update ordered dog to unavailable', () => {});
+    it('should update ordered dog to unavailable', () => {
+      return app
+        .post('/api/orders')
+        .send({ order, crate })
+        .expect(201)
+        .then(async response => {
+          const { orderItems } = response.body;
+          const orderedDog = await Dog.findByPk(orderItems[0].dogId);
 
-    describe('when order was not created', () => {
-      it('should not create order items', () => {});
+          expect(orderedDog.isAvailable).to.equal(false);
+        });
     });
 
-    describe('when there is a logged in user', () => {
+    describe('when order was not created', () => {
+      it('should not create order items', () => {
+        delete order.email;
+
+        return app
+          .post('/api/orders')
+          .send({ order, crate })
+          .expect(500)
+          .then(async () => {
+            const orderedDog = await OrderItem.findOne({
+              where: { dogId: crate[0] }
+            });
+            expect(orderedDog).to.equal(null);
+          });
+      });
+    });
+
+    xdescribe('when there is a logged in user', () => {
       it('should associate the userId to the order', () => {});
     });
   });
