@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
@@ -15,7 +15,7 @@ import {
 import { ROUTE_PATH } from '../../commons/constants';
 import './app.scss';
 
-const { DOGS, CRATE, CRATE_CHECKOUT } = ROUTE_PATH;
+const { DOG, DOGS, CRATE, CRATE_CHECKOUT } = ROUTE_PATH;
 
 class App extends Component {
   componentDidMount() {
@@ -30,10 +30,18 @@ class App extends Component {
         <Header />
         <section>
           <Switch>
-            <Route exact path={DOGS} component={Dogs} />
-            <Route exact path={`${DOGS}/:id`} component={Dog} />
-            <Route exact path={CRATE} component={Cart} />
-            <Route exact path={CRATE_CHECKOUT} component={CrateCheckout} />
+            <Route path={DOG} component={Dog} />
+            <Route path={DOGS} component={Dogs} />
+            <Route
+              path={CRATE_CHECKOUT} render={() => (
+                <>
+                  <Cart />
+                  <CrateCheckout />
+                </>
+              )}
+            />
+            <Route path={CRATE} component={Cart} />
+            <Redirect to={DOGS} />
           </Switch>
         </section>
       </HashRouter>
