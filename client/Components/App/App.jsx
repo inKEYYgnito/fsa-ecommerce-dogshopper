@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
-import { HashRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Header from '../Header/Header';
 import Cart from '../Cart/Cart';
 import CrateCheckout from '../CrateCheckout/CrateCheckout';
+import UserProfile from '../UserProfile/UserProfile';
+import OrderHistory from '../OrderHistory/OrderHistory';
 import Dogs from '../Dogs/Dogs';
 import Dog from '../Dog/Dog';
-import {
-  getBreeds,
-  getDogs,
-  getUser,
-  getCrate
-} from '../../store/actions/actions';
+import { getBreeds, getDogs, getUser, getCrate } from '../../store/actions/actions';
 import { ROUTE_PATH } from '../../commons/constants';
 import './app.scss';
 
-const { DOGS, CRATE, CRATE_CHECKOUT } = ROUTE_PATH;
+const { DOG, DOGS, CRATE, CRATE_CHECKOUT, USER_PROFILE, USER_ORDERS } = ROUTE_PATH;
 
 class App extends Component {
   componentDidMount() {
@@ -30,10 +27,20 @@ class App extends Component {
         <Header />
         <section>
           <Switch>
-            <Route exact path={DOGS} component={Dogs} />
-            <Route exact path={`${DOGS}/:id`} component={Dog} />
-            <Route exact path={CRATE} component={Cart} />
-            <Route exact path={CRATE_CHECKOUT} component={CrateCheckout} />
+            <Route path={DOG} component={Dog} />
+            <Route path={DOGS} component={Dogs} />
+            <Route path={USER_PROFILE} component={UserProfile} />
+            <Route path={USER_ORDERS} component={OrderHistory} />
+            <Route
+              path={CRATE_CHECKOUT} render={() => (
+                <>
+                  <Cart />
+                  <CrateCheckout />
+                </>
+              )}
+            />
+            <Route path={CRATE} component={Cart} />
+            <Redirect to={DOGS} />
           </Switch>
         </section>
       </HashRouter>
