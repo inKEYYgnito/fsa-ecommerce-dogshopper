@@ -31,8 +31,8 @@ describe('Order routes', () => {
       breedId: goldenDoodle.id
     };
 
-    const katsu1 = await Dog.create({ ...katsu, id: uuid.v4() });
-    const katsu2 = await Dog.create({ ...katsu, id: uuid.v4() });
+    const katsu1 = await Dog.create({ id: uuid.v4(), ...katsu });
+    const katsu2 = await Dog.create({ id: uuid.v4(), ...katsu });
 
     crate = [katsu1.id, katsu2.id];
   });
