@@ -19,6 +19,7 @@ app.use('/api/auth', require('./api/auth'));
 app.use('/api/breeds', require('./api/breeds'));
 app.use('/api/dogs', require('./api/dogs'));
 app.use('/api/user', require('./api/user'));
+app.use('/api/orders', require('./api/orders'));
 
 app.use('/', express.static('dist'));
 app.get('/', (req, res, next) => res.sendFile(path.join(__dirname, '../client/index.html')));
