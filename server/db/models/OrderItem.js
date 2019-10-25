@@ -1,10 +1,10 @@
 const connection = require('../connection');
 const { Sequelize } = connection;
-const { UUID, DECIMAL } = Sequelize;
+const { DECIMAL } = Sequelize;
 
 const { greaterThanZero } = require('./util/model_helper');
 
-const OrderItem = connection.define('order_item', {
+const OrderItem = connection.define('orderItem', {
   price: {
     type: DECIMAL,
     allowNull: false,
