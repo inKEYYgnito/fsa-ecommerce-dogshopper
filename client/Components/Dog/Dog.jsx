@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import {Link } from 'react-router-dom'
 
 import CrateButton from './../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';
@@ -7,6 +8,8 @@ import './dog.scss';
 
 const Dog = ({ dog }) => {
   return dog ? (
+    <div>
+    <button className = 'back-btn'><i className = 'left'></i><Link to='/dogs'>Back to ALL DOGS</Link></button>
     <div id="dog-container">
       <div id="dog-images">
         <div className="polaroid">
@@ -39,10 +42,9 @@ const Dog = ({ dog }) => {
         <CrateButton dog={dog} />
       </div>
     </div>
-  ) : (
-    <></>
-  );
-};
+    </div>
+  ) : <></>
+}
 
 const mapStateToProps = ({ dogs }, { match }) => {
   const id = match.params.id;

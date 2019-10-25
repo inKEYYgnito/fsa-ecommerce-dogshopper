@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import CrateButton from './../CrateButton/CrateButton';
 
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
+import './dogs.scss'
 const { DOGS } = ROUTE_PATH;
 
 class Dogs extends Component {
@@ -50,19 +52,33 @@ class Dogs extends Component {
     const dogsToDisplay = this.filterDogs();
 
     return (
-      <div>
-        <FilterSideBar
-          updateFilter={this.updateFilter}
-          breedId={breedId}
-          gender={gender}
-          size={size}
-        />
-        {dogsToDisplay.map(dog => (
-          <div key={dog.id}>
-            <Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link> {dog.price}{' '}
-            {dog.description}
-          </div>
-        ))}
+      <div id="dog-list-container">
+        <div className='filter'>
+          <FilterSideBar
+            updateFilter={this.updateFilter}
+            breedId={breedId}
+            gender={gender}
+            size={size}
+          />
+        </div>
+        <div id='dogs'>
+          {dogsToDisplay.map(dog => (
+            <div id='dog' key={dog.id} >
+              <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
+              <div className='dogcontent'>
+                <div id='dogtext'>
+                  {dog.breed.name}
+                  <p id='description'>{dog.description}</p>
+                </div>
+                <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
+              </div>
+              <div id='btn'>
+                
+                <CrateButton dog={dog} />
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }
