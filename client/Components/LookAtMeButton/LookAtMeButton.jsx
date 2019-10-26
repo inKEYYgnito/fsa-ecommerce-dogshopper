@@ -6,8 +6,8 @@ const { DOGS } = ROUTE_PATH;
 
 const LookAtMe = ({dog}) => {
     return (
-        <button className="btn-add-crate">
-            <Link to={`${DOGS}/${dog.id}`}>Look at me!</Link>
+        <button className="btn-look">
+            <Link to={`${DOGS}/${dog.id}`}>Take a closer look at me!</Link>
         </button>
     )
 }
