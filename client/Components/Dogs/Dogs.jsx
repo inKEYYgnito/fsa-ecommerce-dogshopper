@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CrateButton from './../CrateButton/CrateButton';
-
+import LookAtMe from './../LookAtMeButton/LookAtMeButton'
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
 import './dogs.scss'
@@ -53,29 +53,29 @@ class Dogs extends Component {
 
     return (
       <div id="dog-list-container">
-        <div className='filter'>
-          <FilterSideBar
+       
+          <FilterSideBar 
             updateFilter={this.updateFilter}
             breedId={breedId}
             gender={gender}
             size={size}
           />
-        </div>
+  
         <div id='dogs'>
           {dogsToDisplay.map(dog => (
             <div id='dog' key={dog.id} >
-              <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
+              <h2>{dog.name}</h2>
               <div className='dogcontent'>
                 <div id='dogtext'>
-                  {dog.breed.name}
-                  <p id='description'>{dog.description}</p>
+                  <h4>{dog.breed.name}</h4>
+                  <p>Gender:{dog.gender}</p>
+                  <p>Age: {dog.age} {dog.ageUnit}s</p>
                 </div>
                 <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
               </div>
-              <div id='btn'>
-                
-                <CrateButton dog={dog} />
-              </div>
+              <div id = 'btn'>
+                <LookAtMe dog={dog} />
+                </div>
             </div>
           ))}
         </div>

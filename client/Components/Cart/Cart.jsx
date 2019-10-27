@@ -6,6 +6,7 @@ import priceTag from '../../assets/img/icon-price-tag.svg';
 import './cart.scss';
 
 const Cart = ({ crate }) => {
+    console.log(crate)
     return (
         <div id="cart-container">
             {crate.length ? (
@@ -15,7 +16,7 @@ const Cart = ({ crate }) => {
                     
                     <Link to={ROUTE_PATH.CRATE_CHECKOUT}>Checkout</Link>
                 </>
-            ) : <h6>There are no items in your create.</h6>
+            ) : <h6>There are no items in your crate.</h6>
             }
         </div>
     );

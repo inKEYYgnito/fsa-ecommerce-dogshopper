@@ -39,7 +39,7 @@ describe('OrderItem Model', () => {
       delete orderItem.price;
 
       await expect(OrderItem.create(orderItem)).to.be.rejectedWith(
-        'notNull Violation: order_item.price cannot be null'
+        'notNull Violation: orderItem.price cannot be null'
       );
     });
 
@@ -58,7 +58,7 @@ describe('OrderItem Model', () => {
       orderItem.orderId = nonExistentOrderId;
 
       await expect(OrderItem.create(orderItem)).to.be.rejectedWith(
-        'insert or update on table "order_items" violates foreign key constraint "order_items_orderId_fkey"'
+        'insert or update on table "orderItems" violates foreign key constraint "orderItems_orderId_fkey"'
       );
     });
 
@@ -66,7 +66,7 @@ describe('OrderItem Model', () => {
       delete orderItem.orderId;
 
       await expect(OrderItem.create(orderItem)).to.be.rejectedWith(
-        'notNull Violation: order_item.orderId cannot be null'
+        'notNull Violation: orderItem.orderId cannot be null'
       );
     });
   });
@@ -77,7 +77,7 @@ describe('OrderItem Model', () => {
       orderItem.dogId = nonExistentDogId;
 
       await expect(OrderItem.create(orderItem)).to.be.rejectedWith(
-        'insert or update on table "order_items" violates foreign key constraint "order_items_dogId_fkey"'
+        'insert or update on table "orderItems" violates foreign key constraint "orderItems_dogId_fkey"'
       );
     });
 
@@ -85,7 +85,7 @@ describe('OrderItem Model', () => {
       delete orderItem.dogId;
 
       await expect(OrderItem.create(orderItem)).to.be.rejectedWith(
-        'notNull Violation: order_item.dogId cannot be null'
+        'notNull Violation: orderItem.dogId cannot be null'
       );
     });
   });

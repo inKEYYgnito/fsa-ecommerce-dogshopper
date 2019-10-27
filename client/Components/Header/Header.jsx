@@ -5,10 +5,12 @@ import { ROUTE_PATH } from '../../commons/constants'
 import dogLogo from '../../assets/img/logo-shoppadog.png'
 import dogCrate from '../../assets/img/icon-dogcrate.png'
 import './header.scss'
+import CrateButton from '../CrateButton/CrateButton';
 
 class Header extends Component {
   render() {
     const { user } = this.props
+  
     return (
       <header>
         <div id="logo">
@@ -26,7 +28,7 @@ class Header extends Component {
           )}
           {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
           <Link id="btn-cart" to={ROUTE_PATH.CRATE}>
-            <img src={dogCrate} />
+            <img src={dogCrate} />({/*crate.length*/})
           </Link>
         </div>
       </header>

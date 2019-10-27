@@ -1,7 +1,7 @@
 @import '../../variables.scss';
 
 #dog-list-container {
-    @include inline-flex;
+    display: flex;
     width: 100%;
     justify-content: space-around;
 }
@@ -13,39 +13,41 @@
 #dog {
     margin: 2%;
     width: 25%;
-    border: black solid 2px;
+    height:320px;
+    border: rgb(156, 154, 154) solid 1px;
     border-radius: 2%;
     text-align: center;
+    //position: relative
 }
 .dogcontent {
     display: flex;
+    height: 65%;
+    margin: 1%;
+    margin-bottom: 2%;
 }
-#dog h1{
-    margin:5px;
+#dog h2{
+    margin:7px;
+    height:10%
 }
 #dogtext{
     width:65%;
     margin:0;
 }
 #dogpic{
-    width:35%;
-    margin: 5px 5px 5px 5px
+    width:50%;
+    margin: 5px 5px 5px 5px;
 }
-button.btn-add-crate {
-    transition: all 0.2s ease;
-    margin: 2vh 0;
-    font-family: $baloo-bhai;
-    font-size: var(--btn-crate-font-size);
-    padding: 2% 3%;
-    background-color: $pastel-pink;
-    border-radius: 0.5em;
-    border: solid 3px $intense-pink;
-    border-style: outset;
+img{
+    border-radius:15%;
+    max-width:100%;
+    height:auto;
 }
-.filter{
-    flex-basis: 20%;
+#btn {
+    height:60px;
+
 }
 
 button.btn-add-crate {
     --btn-crate-font-size: 1em;
-  }
+}
+
