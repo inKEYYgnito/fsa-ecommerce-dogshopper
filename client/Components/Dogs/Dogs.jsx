@@ -49,8 +49,9 @@ class Dogs extends Component {
 
   render() {
     const { breedId, gender, size } = this.state;
+    const { crate } = this.props
     const dogsToDisplay = this.filterDogs();
-
+    const filteredDoggos = dogsToDisplay.filter(dog => !crate.includes(dog.id))
     return (
     <div className ='dogcontainer'>
        
@@ -61,7 +62,7 @@ class Dogs extends Component {
             size={size}
           />
         <div id='dogs'>
-          {dogsToDisplay.map(dog => (
+          {filteredDoggos.map(dog => (
             <div id='dog' key={dog.id} >
               <h2>{dog.name}</h2>
               <div className='dogcontent'>
@@ -83,9 +84,10 @@ class Dogs extends Component {
   }
 }
 
-const mapStateToProps = ({ dogs }) => {
+const mapStateToProps = ({ dogs, crate }) => {
   return {
-    dogs
+    dogs, 
+    crate
   };
 };
 
