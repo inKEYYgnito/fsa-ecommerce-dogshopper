@@ -2,4 +2,26 @@
 
 #cart-container {
     @include col-flex;
+    color: $dark-blue;
+    align-items: center;
+    padding-top: 2vw;
+}
+
+.cart-dogs {
+    @include inline-flex;
+    @include btn-controls;
+    width: 80%;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2%;
+}
+
+.polaroid {
+    height: 16vw;
+    width: 2vw;
+}
+
+.polaroid .dog-pic {
+    height: 13vw;
+    width: 12vw;
 }

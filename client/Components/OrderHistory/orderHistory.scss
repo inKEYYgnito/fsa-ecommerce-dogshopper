@@ -1,0 +1,8 @@
+@import '../../variables.scss';
+
+#order-history-container {
+    @include col-flex;
+    color: $dark-blue;
+    align-items: center;
+    padding-top: 2vw;
+}

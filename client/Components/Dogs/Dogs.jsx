@@ -53,7 +53,7 @@ class Dogs extends Component {
 
     return (
       <div id="dog-list-container">
-        <div className='filter'>
+        <div className="filter">
           <FilterSideBar
             updateFilter={this.updateFilter}
             breedId={breedId}
@@ -61,19 +61,18 @@ class Dogs extends Component {
             size={size}
           />
         </div>
-        <div id='dogs'>
+        <div id="dogs">
           {dogsToDisplay.map(dog => (
-            <div id='dog' key={dog.id} >
+            <div id="dog" key={dog.id} >
               <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
-              <div className='dogcontent'>
-                <div id='dogtext'>
+              <div className="dogcontent">
+                <div id="dogtext">
                   {dog.breed.name}
-                  <p id='description'>{dog.description}</p>
+                  <p id="description">{dog.description}</p>
                 </div>
-                <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
+                <div id="dogpic"><img src={dog.imageURL} width="100%" height="100%" /></div>
               </div>
-              <div id='btn'>
-                
+              <div id="btn">
                 <CrateButton dog={dog} />
               </div>
             </div>

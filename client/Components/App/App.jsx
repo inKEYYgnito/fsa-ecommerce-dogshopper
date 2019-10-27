@@ -32,10 +32,10 @@ class App extends Component {
             <Route path={USER_PROFILE} component={UserProfile} />
             <Route path={USER_ORDERS} component={OrderHistory} />
             <Route
-              path={CRATE_CHECKOUT} render={() => (
+              path={CRATE_CHECKOUT} render={(props) => (
                 <>
-                  <Cart />
-                  <CrateCheckout />
+                  <Cart {...props} />
+                  <CrateCheckout {...props} />
                 </>
               )}
             />

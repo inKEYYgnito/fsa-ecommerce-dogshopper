@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import CrateButton from './../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';
@@ -8,9 +8,8 @@ import './dog.scss';
 
 const Dog = ({ dog }) => {
   return dog ? (
-    <div>
-    <button className = 'back-btn'><i className = 'left'></i><Link to='/dogs'>Back to ALL DOGS</Link></button>
     <div id="dog-container">
+      <Link id="btn-back" className="btn-controls" to='/dogs'>Back to ALL DOGS</Link>
       <div id="dog-images">
         <div className="polaroid">
           <img id="dog-image" src={dog.imageURL} />
@@ -18,7 +17,7 @@ const Dog = ({ dog }) => {
         </div>
       </div>
       <div id="dog-info">
-        <span id="name">{dog.name}</span>
+        <h1 className="name">{dog.name}</h1>
         <div className="property">
           <span>Breed</span>
           <span>{dog.breed.name}</span>
@@ -41,7 +40,6 @@ const Dog = ({ dog }) => {
         </div>
         <CrateButton dog={dog} />
       </div>
-    </div>
     </div>
   ) : <></>
 }

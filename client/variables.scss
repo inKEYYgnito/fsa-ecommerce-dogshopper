@@ -2,11 +2,11 @@
 @import url('https://fonts.googleapis.com/css?family=Baloo+Bhai&display=swap');
 
 // FONTS
-$noto-sans: 'Noto Sans KR', sans-serif;
+$noto-sans: 'Noto Sans KR';
 $baloo-bhai: 'Baloo Bhai', cursive;
 
 // COLORS
-$dark-blue: #0c093c;
+$dark-blue: #210b5e;
 $intense-pink: #99235c;
 $pastel-pink: #ffe6eb;
 $sky-blue: #ccffec;
@@ -38,15 +38,22 @@ $light-blue-gray: #f2f3ee;
       7px 7px 0px rgba(0, 0, 0, 0.2);
 }
 
-@mixin view-container {
-    display: flex;
-    background-color: rgba(253, 253, 150, 0.2);
-    padding-top: 6%;
-    margin: 0 auto;
-    height: 100%;
+@mixin page-title {
+    padding: 0.5vw 1vw;
+    border: solid 1px $dark-blue;
+    font-family: $baloo-bhai;
+    font-size: 2vw;
+}
+
+@mixin btn-controls {
+    background-color: rgba(236, 225, 216, 0.7);
+    border: solid 5px $pastel-pink;
+    border-radius: 4%;
+    text-align: center;
 }
 
 // GLOBAL STYLE
+
 button.btn-add-crate {
     transition: all 0.2s ease;
     margin: 2vh 0;
@@ -61,4 +68,32 @@ button.btn-add-crate {
 
 button.btn-add-crate:hover {
     transform: rotate(-2deg) scale(1.2);
+}
+
+h1.page-title {
+    @include page-title;
+    font-size: 2vw;
+}
+
+.btn-controls {
+        transition: all 0.2s ease;
+        font-family: $baloo-bhai;
+        font-size: 1.3vw;
+        padding: 0.2vw 0.6vw;
+        @include btn-controls
+}
+.btn-controls:hover {
+    transform: scale(1.1)
+}
+
+.polaroid {
+    @include simple-shadow;
+    transition: all 0.5s ease;
+    background-color: white;
+    padding: 20px;
+    transform: rotate(2deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.3);
 }

@@ -1,51 +1,52 @@
-@import '../../variables.scss';
+@import "../../variables.scss";
 
 #dog-list-container {
-    @include inline-flex;
-    width: 100%;
-    justify-content: space-around;
+  @include inline-flex;
+  width: 100%;
+  justify-content: space-around;
+  color: $dark-blue;
+  padding-top: 2vw;
 }
+
 #dogs {
-    display: flex;
-    flex-wrap: wrap;
-    width:80%;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
 }
+
 #dog {
-    margin: 2%;
-    width: 25%;
-    border: black solid 2px;
-    border-radius: 2%;
-    text-align: center;
+  @include col-flex;
+  @include btn-controls;
+  justify-content: space-around;
+  margin: 2%;
+  padding: 1%;
+  width: 25%;
 }
+
 .dogcontent {
-    display: flex;
+  display: flex;
 }
-#dog h1{
-    margin:5px;
+
+#dog h1 {
+  font-family: $baloo-bhai;
+  margin: 5px;
 }
-#dogtext{
-    width:65%;
-    margin:0;
+
+#dogtext {
+  width: 65%;
+  margin: 0;
 }
-#dogpic{
-    width:35%;
-    margin: 5px 5px 5px 5px
+
+#dogpic {
+  width: 35%;
+  object-fit: cover;
+  margin: 5px;
 }
-button.btn-add-crate {
-    transition: all 0.2s ease;
-    margin: 2vh 0;
-    font-family: $baloo-bhai;
-    font-size: var(--btn-crate-font-size);
-    padding: 2% 3%;
-    background-color: $pastel-pink;
-    border-radius: 0.5em;
-    border: solid 3px $intense-pink;
-    border-style: outset;
-}
-.filter{
-    flex-basis: 20%;
+
+.filter {
+  flex-basis: 20%;
 }
 
 button.btn-add-crate {
-    --btn-crate-font-size: 1em;
-  }
+  --btn-crate-font-size: 1.5em;
+}
