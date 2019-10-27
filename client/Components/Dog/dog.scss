@@ -58,7 +58,7 @@
     height: 2em;
 }
 
-button.back-btn {
+#btn-back {
     transition: all 0.2s ease;
     margin: 2%;
     font-family: $baloo-bhai;
@@ -68,6 +68,7 @@ button.back-btn {
     border-radius: 0.5em;
     border: solid 3px $intense-pink;
     border-style: outset;
+    height: 10%
 }
 h4{
     font-style: oblique;
