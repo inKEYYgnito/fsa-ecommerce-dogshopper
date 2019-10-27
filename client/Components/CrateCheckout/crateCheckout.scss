@@ -1,5 +1,12 @@
 @import '../../variables.scss';
 
+#crate-checkout-container {
+  @include col-flex;
+  color: $dark-blue;
+  align-items: center;
+  padding-top: 2vw;
+}
+
 #checkout-form {
   @include col-flex;
   width: 50vw;

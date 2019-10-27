@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import CrateButton from './../CrateButton/CrateButton';
+//import { Link } from 'react-router-dom';
+
 import LookAtMe from './../LookAtMeButton/LookAtMeButton'
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
@@ -52,15 +52,14 @@ class Dogs extends Component {
     const dogsToDisplay = this.filterDogs();
 
     return (
-      <div id="dog-list-container">
+    <div className ='dogcontainer'>
        
-          <FilterSideBar 
+          <FilterSideBar
             updateFilter={this.updateFilter}
             breedId={breedId}
             gender={gender}
             size={size}
           />
-  
         <div id='dogs'>
           {dogsToDisplay.map(dog => (
             <div id='dog' key={dog.id} >
@@ -71,7 +70,7 @@ class Dogs extends Component {
                   <p>Gender:{dog.gender}</p>
                   <p>Age: {dog.age} {dog.ageUnit}s</p>
                 </div>
-                <div id='dogpic'><img src={dog.imageURL} width="100%" height="100%" /></div>
+                <div id="dogpic"><img src={dog.imageURL} width="100%" height="100%" /></div>
               </div>
               <div id = 'btn'>
                 <LookAtMe dog={dog} />
@@ -79,7 +78,7 @@ class Dogs extends Component {
             </div>
           ))}
         </div>
-      </div>
+    </div> 
     );
   }
 }
