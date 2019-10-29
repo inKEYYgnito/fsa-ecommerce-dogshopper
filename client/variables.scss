@@ -69,21 +69,31 @@ button.btn-add-crate {
 button.btn-add-crate:hover {
     transform: rotate(-2deg) scale(1.2);
 }
-button.btn-look{
-    transition: all 0.2s ease;
-    font-family: $baloo-bhai;
-    font-size: var(--btn-crate-font-size);
-    margin-bottom: 3%;
-    padding: 2% 2%;
-    background-color: $pastel-pink;
-    border-radius: 0.5em;
-    border: solid 3px $intense-pink;
-    border-style: outset;
+
+h1.page-title {
+    @include page-title;
+    font-size: 2vw;
 }
-i {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    margin: 0 5px 0 0;
-  }
+
+.btn-controls {
+        transition: all 0.2s ease;
+        font-family: $baloo-bhai;
+        font-size: 1.3vw;
+        padding: 0.2vw 0.6vw;
+        @include btn-controls
+}
+.btn-controls:hover {
+    transform: scale(1.1)
+}
+
+.polaroid {
+    @include simple-shadow;
+    transition: all 0.5s ease;
+    background-color: white;
+    padding: 20px;
+    transform: rotate(2deg);
+}
+
+.polaroid:hover {
+    transform: scale(1.3);
+}

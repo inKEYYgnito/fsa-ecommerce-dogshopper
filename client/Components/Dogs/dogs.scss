@@ -1,49 +1,52 @@
 @import "../../variables.scss";
-.dogcontainer{
-   display: flex;
+
+#dog-list-container {
+  @include inline-flex;
+  width: 100%;
+  justify-content: space-around;
+  color: $dark-blue;
+  padding-top: 2vw;
 }
+
 #dogs {
-    display: flex;
-    flex-wrap: wrap;
-    width: 75%;
-    margin-right:0;
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
 }
+
 #dog {
   @include col-flex;
   @include btn-controls;
   justify-content: space-around;
   margin: 2%;
   padding: 1%;
-  width: 28%;
+  width: 25%;
 }
+
 .dogcontent {
-    display: flex;
-    height: 65%;
-    margin: 1%;
-    margin-bottom: 2%;
+  display: flex;
 }
-#dog h2{
-    margin:7px;
-    height:10%
+
+#dog h1 {
+  font-family: $baloo-bhai;
+  margin: 5px;
 }
-#dogtext{
-    width:65%;
-    margin:0;
+
+#dogtext {
+  width: 65%;
+  margin: 0;
 }
-#dogpic{
-    width:50%;
-    margin: 5px 5px 5px 5px;
+
+#dogpic {
+  width: 35%;
+  object-fit: cover;
+  margin: 5px;
 }
-img{
-    border-radius:15%;
-    max-width:100%;
-    height:auto;
-}
-#btn {
-    height:60px;
+
+.filter {
+  flex-basis: 20%;
 }
 
 button.btn-add-crate {
-  --btn-crate-font-size: 1.2em;
+  --btn-crate-font-size: 1.5em;
 }
-
