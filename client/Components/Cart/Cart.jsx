@@ -12,7 +12,7 @@ const Cart = ({ crate, isEditable }) => {
             {crate.length ? (
                 <>
                     <h1 className="page-title">Confirm Orders</h1>
-                    <h3>{crate.length > 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
+                    <h3>{crate.length <= 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
                     {
                         crate.map(dog => (
                             <div className="cart-dogs" key={dog.id}>
