@@ -9,7 +9,7 @@ import './dog.scss';
 const Dog = ({ dog }) => {
   return dog ? (
     <div id="dog-container">
-      <Link id="btn-back" className="btn-controls" to='/dogs'>Back to ALL DOGS</Link>
+      <Link id="btn-back" className="btn-controls" to='/dogs'><i className = 'left'></i>Back to ALL DOGS</Link>
       <div id="dog-images">
         <div id="dog-image" className="polaroid">
           <img src={dog.imageURL} />

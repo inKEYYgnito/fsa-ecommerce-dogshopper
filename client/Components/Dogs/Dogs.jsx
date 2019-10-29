@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
-import CrateButton from './../CrateButton/CrateButton';
+//import { Link } from 'react-router-dom';
 
+import LookAtMe from './../LookAtMeButton/LookAtMeButton'
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
 import './dogs.scss'
@@ -49,43 +49,45 @@ class Dogs extends Component {
 
   render() {
     const { breedId, gender, size } = this.state;
+    const { crate } = this.props
     const dogsToDisplay = this.filterDogs();
-
+    const filteredDoggos = dogsToDisplay.filter(dog => !crate.includes(dog.id))
     return (
-      <div id="dog-list-container">
-        <div className="filter">
+    <div className ='dogcontainer'>
+       
           <FilterSideBar
             updateFilter={this.updateFilter}
             breedId={breedId}
             gender={gender}
             size={size}
           />
-        </div>
-        <div id="dogs">
-          {dogsToDisplay.map(dog => (
-            <div id="dog" key={dog.id} >
-              <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
-              <div className="dogcontent">
-                <div id="dogtext">
-                  {dog.breed.name}
-                  <p id="description">{dog.description}</p>
+        <div id='dogs'>
+          {filteredDoggos.map(dog => (
+            <div id='dog' key={dog.id} >
+              <h2>{dog.name}</h2>
+              <div className='dogcontent'>
+                <div id='dogtext'>
+                  <h4>{dog.breed.name}</h4>
+                  <p>Gender:{dog.gender}</p>
+                  <p>Age: {dog.age} {dog.ageUnit}s</p>
                 </div>
                 <div id="dogpic"><img src={dog.imageURL} width="100%" height="100%" /></div>
               </div>
-              <div id="btn">
-                <CrateButton dog={dog} />
-              </div>
+              <div id = 'btn'>
+                <LookAtMe dog={dog} />
+                </div>
             </div>
           ))}
         </div>
-      </div>
+    </div> 
     );
   }
 }
 
-const mapStateToProps = ({ dogs }) => {
+const mapStateToProps = ({ dogs, crate }) => {
   return {
-    dogs
+    dogs, 
+    crate
   };
 };
 
