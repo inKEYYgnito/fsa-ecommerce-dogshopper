@@ -11,8 +11,8 @@ const Dog = ({ dog }) => {
     <div id="dog-container">
       <Link id="btn-back" className="btn-controls" to='/dogs'>Back to ALL DOGS</Link>
       <div id="dog-images">
-        <div className="polaroid">
-          <img id="dog-image" src={dog.imageURL} />
+        <div id="dog-image" className="polaroid">
+          <img src={dog.imageURL} />
           <p>{dog.description}</p>
         </div>
       </div>
