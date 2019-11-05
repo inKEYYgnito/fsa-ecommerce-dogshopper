@@ -1,12 +1,19 @@
 import axios from 'axios';
 import { ACTION_TYPE } from '../../commons/constants';
 
-const { SET_DOGS } = ACTION_TYPE
+const { SET_DOGS, REMOVE_DOG } = ACTION_TYPE;
 
 const setDogsAction = dogs => {
   return {
     type: SET_DOGS,
     dogs
+  };
+};
+
+const removeDogAction = dogId => {
+  return {
+    type: REMOVE_DOG,
+    dogId
   };
 };
 
@@ -17,4 +24,6 @@ const getDogs = () => {
   };
 };
 
-export { getDogs };
+const removeDog = dogId => removeDogAction(dogId);
+
+export { getDogs, removeDog };

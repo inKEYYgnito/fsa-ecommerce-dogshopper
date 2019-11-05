@@ -1,6 +1,7 @@
 export const ACTION_TYPE = {
   SET_BREEDS: 'SET_BREEDS',
   SET_DOGS: 'SET_DOGS',
+  REMOVE_DOG: 'REMOVE_DOG',
   SET_USER: 'SET_USER',
   ADD_TO_CRATE: 'ADD_TO_CRATE',
   REMOVE_FROM_CRATE: 'REMOVE_FROM_CRATE',
@@ -8,7 +9,7 @@ export const ACTION_TYPE = {
 };
 
 const USER = 'user';
-const DOGS = 'dogs'
+const DOGS = 'dogs';
 const CRATE = 'crate';
 
 export const ROUTE_PATH = {
