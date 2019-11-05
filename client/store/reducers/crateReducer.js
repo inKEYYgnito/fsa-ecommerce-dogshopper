@@ -1,6 +1,6 @@
 import { ACTION_TYPE } from '../../commons/constants';
 
-const { ADD_TO_CRATE, REMOVE_FROM_CRATE, SET_CRATE } = ACTION_TYPE;
+const { ADD_TO_CRATE, REMOVE_FROM_CRATE, SET_CRATE, EMPTY_CRATE } = ACTION_TYPE;
 
 const createReducer = (state = [], action) => {
   switch (action.type) {
@@ -10,6 +10,8 @@ const createReducer = (state = [], action) => {
       return state.filter(dogId => dogId !== action.dogId);
     case SET_CRATE:
       return action.crate;
+    case EMPTY_CRATE:
+      return [];
     default:
       return state;
   }
