@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const db = require('./../db/db');
 const { createOrder } = db.transactions;
-const { Order, OrderItem } = db.models;
+const { Dog, Order, OrderItem } = db.models;
 
 router.post('/', async (req, res, next) => {
   const { order, crate } = req.body;
@@ -12,7 +12,7 @@ router.post('/', async (req, res, next) => {
   createOrder({ order, crate })
     .then(orderId =>
       Order.findByPk(orderId, {
-        include: [{ model: OrderItem }]
+        include: [{ model: OrderItem, include: [{ model: Dog }] }]
       })
     )
     .then(order => res.status(201).send(order))
