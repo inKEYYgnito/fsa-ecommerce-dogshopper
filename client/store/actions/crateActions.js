@@ -1,5 +1,6 @@
-import { ACTION_TYPE } from '../../commons/constants';
+import axios from 'axios';
 
+import { ACTION_TYPE } from '../../commons/constants';
 const { ADD_TO_CRATE, SET_CRATE, REMOVE_FROM_CRATE } = ACTION_TYPE;
 
 const getCrateFromStorage = () => {
@@ -62,4 +63,17 @@ const getCrate = () => {
   };
 };
 
-export { addToCrate, removeFromCrate, getCrate };
+const checkoutCrate = ({ order, crate }) => {
+  return async dispatch => {
+    try {
+      const confirmedOrder = (await axios.post('/api/orders', { order, crate }))
+        .data;
+      // remove ordered dogs from store
+      // empty crate from session storage
+    } catch (e) {
+      console.log(e);
+    }
+  };
+};
+
+export { addToCrate, removeFromCrate, getCrate, checkoutCrate };
