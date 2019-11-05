@@ -6,7 +6,8 @@ export const ACTION_TYPE = {
   ADD_TO_CRATE: 'ADD_TO_CRATE',
   REMOVE_FROM_CRATE: 'REMOVE_FROM_CRATE',
   EMPTY_CRATE: 'EMPTY_CRATE',
-  SET_CRATE: 'SET_CRATE'
+  SET_CRATE: 'SET_CRATE',
+  ADD_ORDER: 'ADD_ORDER'
 };
 
 const USER = 'user';
@@ -19,5 +20,6 @@ export const ROUTE_PATH = {
   USER_PROFILE: `/${USER}/profile`,
   USER_ORDERS: `/${USER}/orders`,
   CRATE: `/${CRATE}`,
-  CRATE_CHECKOUT: `/${CRATE}/checkout`
+  CRATE_CHECKOUT: `/${CRATE}/checkout`,
+  ORDER_CONFIRMED: `/${USER}/order/confirmed`
 };

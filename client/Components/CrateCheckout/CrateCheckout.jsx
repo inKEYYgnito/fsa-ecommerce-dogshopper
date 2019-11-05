@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { checkoutCrate } from '../../store/actions/actions';
 import './crateCheckout.scss';
 
-const CrateCheckout = ({ crate, checkoutCrate }) => {
+const CrateCheckout = ({ crate, checkoutCrate, history }) => {
   const onSubmit = event => {
     event.preventDefault();
 
@@ -17,7 +17,7 @@ const CrateCheckout = ({ crate, checkoutCrate }) => {
       country: form.country.value,
       zip: form.zip.value
     };
-    checkoutCrate({ order, crate });
+    checkoutCrate({ order, crate, history });
   };
 
   return (

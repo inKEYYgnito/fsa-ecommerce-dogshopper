@@ -6,13 +6,27 @@ import Cart from '../Cart/Cart';
 import CrateCheckout from '../CrateCheckout/CrateCheckout';
 import UserProfile from '../UserProfile/UserProfile';
 import OrderHistory from '../OrderHistory/OrderHistory';
+import OrderConfirmed from '../OrderConfirmed/OrderConfirmed';
 import Dogs from '../Dogs/Dogs';
 import Dog from '../Dog/Dog';
-import { getBreeds, getDogs, getUser, getCrate } from '../../store/actions/actions';
+import {
+  getBreeds,
+  getDogs,
+  getUser,
+  getCrate
+} from '../../store/actions/actions';
 import { ROUTE_PATH } from '../../commons/constants';
 import './app.scss';
 
-const { DOG, DOGS, CRATE, CRATE_CHECKOUT, USER_PROFILE, USER_ORDERS } = ROUTE_PATH;
+const {
+  DOG,
+  DOGS,
+  CRATE,
+  CRATE_CHECKOUT,
+  USER_PROFILE,
+  USER_ORDERS,
+  ORDER_CONFIRMED
+} = ROUTE_PATH;
 
 class App extends Component {
   componentDidMount() {
@@ -31,8 +45,10 @@ class App extends Component {
             <Route path={DOGS} component={Dogs} />
             <Route path={USER_PROFILE} component={UserProfile} />
             <Route path={USER_ORDERS} component={OrderHistory} />
+            <Route path={`${ORDER_CONFIRMED}/:id`} component={OrderConfirmed} />
             <Route
-              path={CRATE_CHECKOUT} render={(props) => (
+              path={CRATE_CHECKOUT}
+              render={props => (
                 <>
                   <Cart {...props} />
                   <CrateCheckout {...props} />

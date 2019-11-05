@@ -7,6 +7,7 @@ import {
   removeFromCrate,
   checkoutCrate
 } from './crateActions';
+import { addOrder } from './orderActions';
 
 export {
   getBreeds,
@@ -16,5 +17,6 @@ export {
   addToCrate,
   getCrate,
   removeFromCrate,
-  checkoutCrate
+  checkoutCrate,
+  addOrder
 };

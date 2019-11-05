@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-import { removeDog } from '../actions/actions';
-import { ACTION_TYPE, CRATE } from '../../commons/constants';
+import { removeDog, addOrder } from '../actions/actions';
+import { ACTION_TYPE, CRATE, ROUTE_PATH } from '../../commons/constants';
 const { ADD_TO_CRATE, SET_CRATE, REMOVE_FROM_CRATE, EMPTY_CRATE } = ACTION_TYPE;
 
 const getCrateFromStorage = () => {
@@ -81,13 +81,15 @@ const emptyCrate = () => {
   };
 };
 
-const checkoutCrate = ({ order, crate }) => {
+const checkoutCrate = ({ order, crate, history }) => {
   return async dispatch => {
     try {
       const confirmedOrder = (await axios.post('/api/orders', { order, crate }))
         .data;
       crate.forEach(dogId => dispatch(removeDog(dogId)));
       dispatch(emptyCrate());
+      dispatch(addOrder(confirmedOrder));
+      history.push(`${ROUTE_PATH.ORDER_CONFIRMED}/${confirmedOrder.id}`);
     } catch (e) {
       console.log(e);
     }
