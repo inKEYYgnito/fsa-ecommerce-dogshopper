@@ -5,12 +5,13 @@ export const ACTION_TYPE = {
   SET_USER: 'SET_USER',
   ADD_TO_CRATE: 'ADD_TO_CRATE',
   REMOVE_FROM_CRATE: 'REMOVE_FROM_CRATE',
+  EMPTY_CRATE: 'EMPTY_CRATE',
   SET_CRATE: 'SET_CRATE'
 };
 
 const USER = 'user';
 const DOGS = 'dogs';
-const CRATE = 'crate';
+export const CRATE = 'crate';
 
 export const ROUTE_PATH = {
   DOGS: `/${DOGS}`,

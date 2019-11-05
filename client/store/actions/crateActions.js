@@ -1,25 +1,29 @@
 import axios from 'axios';
 
 import { removeDog } from '../actions/actions';
-import { ACTION_TYPE } from '../../commons/constants';
-const { ADD_TO_CRATE, SET_CRATE, REMOVE_FROM_CRATE } = ACTION_TYPE;
+import { ACTION_TYPE, CRATE } from '../../commons/constants';
+const { ADD_TO_CRATE, SET_CRATE, REMOVE_FROM_CRATE, EMPTY_CRATE } = ACTION_TYPE;
 
 const getCrateFromStorage = () => {
-  const crate = sessionStorage.getItem('crate');
+  const crate = sessionStorage.getItem(CRATE);
   return crate ? JSON.parse(crate) : [];
 };
 
 const addToCrateFromStorage = dogId => {
   const crate = getCrateFromStorage();
-  sessionStorage.setItem('crate', JSON.stringify([...crate, dogId]));
+  sessionStorage.setItem(CRATE, JSON.stringify([...crate, dogId]));
 };
 
 const removeFromCrateFromStorage = dogId => {
   const crate = getCrateFromStorage();
   sessionStorage.setItem(
-    'crate',
+    CRATE,
     JSON.stringify(crate.filter(dog => dog !== dogId))
   );
+};
+
+const emptyCrateFromStorage = () => {
+  sessionStorage.setItem(CRATE, JSON.stringify([]));
 };
 
 const addToCratetAction = dogId => {
@@ -40,6 +44,12 @@ const setCratetAction = crate => {
   return {
     type: SET_CRATE,
     crate
+  };
+};
+
+const emptyCrateAction = () => {
+  return {
+    type: EMPTY_CRATE
   };
 };
 
@@ -64,14 +74,20 @@ const getCrate = () => {
   };
 };
 
+const emptyCrate = () => {
+  return async dispatch => {
+    emptyCrateFromStorage();
+    return dispatch(emptyCrateAction());
+  };
+};
+
 const checkoutCrate = ({ order, crate }) => {
   return async dispatch => {
     try {
       const confirmedOrder = (await axios.post('/api/orders', { order, crate }))
         .data;
       crate.forEach(dogId => dispatch(removeDog(dogId)));
-
-      // empty crate from session storage
+      dispatch(emptyCrate());
     } catch (e) {
       console.log(e);
     }
