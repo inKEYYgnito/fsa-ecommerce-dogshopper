@@ -10,16 +10,15 @@ export const ACTION_TYPE = {
   ADD_ORDER: 'ADD_ORDER'
 };
 
-const USER = 'user';
 const DOGS = 'dogs';
 export const CRATE = 'crate';
 
 export const ROUTE_PATH = {
   DOGS: `/${DOGS}`,
   DOG: `/${DOGS}/:id`,
-  USER_PROFILE: `/${USER}/profile`,
-  USER_ORDERS: `/${USER}/orders`,
+  USER_PROFILE: `/profile`,
+  USER_ORDERS: `/orders`,
   CRATE: `/${CRATE}`,
   CRATE_CHECKOUT: `/${CRATE}/checkout`,
-  ORDER_CONFIRMED: `/${USER}/order/confirmed`
+  ORDER_CONFIRMED: `/order/confirmed`
 };
