@@ -1,12 +1,29 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
+import { checkoutCrate } from '../../store/actions/actions';
 import './crateCheckout.scss';
 
-const CrateCheckout = ({ user }) => {
+const CrateCheckout = ({ crate, checkoutCrate, history }) => {
+  const onSubmit = event => {
+    event.preventDefault();
+
+    const form = event.target;
+    const order = {
+      email: form.email.value,
+      street: form.street.value,
+      city: form.city.value,
+      state: form.state.value,
+      country: form.country.value,
+      zip: form.zip.value
+    };
+    checkoutCrate({ order, crate, history });
+  };
+
   return (
     <div id="crate-checkout-containter">
       <h1 className="page-title">Email and Billing Information</h1>
-      <form id="checkout-form">
+      <form id="checkout-form" onSubmit={onSubmit}>
         <label>
           Email
           <input name="email" />
@@ -35,7 +52,7 @@ const CrateCheckout = ({ user }) => {
         <button>Checkout</button>
       </form>
     </div>
-  )
+  );
 };
 
 const mapStateToProps = ({ crate }) => {
@@ -44,4 +61,11 @@ const mapStateToProps = ({ crate }) => {
   };
 };
 
-export default connect(mapStateToProps)(CrateCheckout);
+const mapDispatchToProps = {
+  checkoutCrate
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(CrateCheckout);

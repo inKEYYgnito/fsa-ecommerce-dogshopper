@@ -5,19 +5,10 @@ import { ROUTE_PATH } from '../../commons/constants'
 import dogLogo from '../../assets/img/logo-shoppadog.png'
 import dogCrate from '../../assets/img/icon-dogcrate.png'
 import './header.scss'
-import { getCrate } from '../../store/actions/actions';
 
 class Header extends Component {
-  constructor(){
-    super()
-    this.state = {
-      crate: []
-    }
-  }
- 
   render() {
-    const { user, crate } = this.props
-
+    const { user } = this.props
     return (
       <header>
         <div id="logo">
@@ -35,7 +26,7 @@ class Header extends Component {
           )}
           {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
           <Link id="btn-cart" to={ROUTE_PATH.CRATE}>
-            <img src={dogCrate} /><strong>({crate.length})</strong>
+            <img src={dogCrate} />
           </Link>
         </div>
       </header>
@@ -43,10 +34,9 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = ({ user, crate }) => {
+const mapStateToProps = ({ user }) => {
   return {
-    user,
-    crate
+    user
   }
 }
 
