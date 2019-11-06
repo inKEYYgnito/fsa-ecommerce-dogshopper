@@ -16,7 +16,7 @@
 
 #dog {
   @include col-flex;
-  @include btn-controls;
+  @include card-bg;
   justify-content: space-around;
   margin: 2%;
   padding: 1%;

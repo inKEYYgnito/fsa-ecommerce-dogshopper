@@ -4,14 +4,34 @@
   @include col-flex;
   color: $dark-blue;
   align-items: center;
-  padding-top: 2vw;
+  margin: 2vw 0 4vw 0;
+}
+
+#crate-checkout-container .page-title {
+  margin: 2vw 0;
 }
 
 #checkout-form {
   @include col-flex;
-  width: 50vw;
+  @include card-bg;
+  width: 80%;
+  padding: 2vw;
+  align-items: center;
 }
 
-input {
-  width: 400px;
+#checkout-form > button {
+  margin: 3vw auto 0 auto;
+  width: 30%;
+  font-size: 1.8vw;
+}
+
+#checkout-form > label {
+  width: 30vw;
+}
+
+#checkout-form > label > input {
+  width: 100%;
+  height: 2.2vw;
+  font-size: 1.1vw;
+  text-align: center;
 }
