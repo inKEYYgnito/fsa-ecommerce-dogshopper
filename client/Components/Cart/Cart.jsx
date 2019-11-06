@@ -6,27 +6,36 @@ import CrateButton from '../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 import './cart.scss';
 
-const Cart = ({ crate, isEditable }) => {
+const Cart = ({ crate, isEditable, total }) => {
     return (
         <div id="cart-container">
             {crate.length ? (
                 <>
                     <h1 className="page-title">Confirm Orders</h1>
-                    <h3>{crate.length > 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
-                    {
-                        crate.map(dog => (
-                            <div className="cart-dogs" key={dog.id}>
-                                <div className="polaroid">
-                                    <img className="dog-pic" src={dog.imageURL} />
+                    <div id="cart-dogs-wrapper">
+                        <h3>{crate.length > 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
+                        {
+                            crate.map(dog => (
+                                <div className="cart-dogs" key={dog.id}>
+                                    <div className="polaroid">
+                                        <img className="dog-pic" src={dog.imageURL} />
+                                    </div>
+                                    <h3>{dog.name}</h3>
+                                    <div className="price-container">
+                                        <img src={priceTag} />
+                                        <span>${dog.price}</span>
+                                    </div>
+                                    { isEditable && <CrateButton dog={dog} /> }
                                 </div>
-                                <h3>{dog.name}</h3>
-                                <img src={priceTag} />
-                                <span>{dog.price}</span>
-                                { isEditable && <CrateButton dog={dog} /> }
-                            </div>
-                        ))
-                    }
-                    { isEditable &&  <Link to={ROUTE_PATH.CRATE_CHECKOUT}>Confirm Billing Address</Link> }
+                            ))
+                        }
+                        <div style={{'margin-top': '2vw'}} className="price-container">
+                            <h2>Total:</h2>
+                            <img src={priceTag} />
+                            <span>${total}</span>
+                        </div>
+                        { isEditable &&  <Link className="btn-controls" to={ROUTE_PATH.CRATE_CHECKOUT}>Confirm Billing Address</Link> }
+                    </div>
                 </>
             ) :
                 <>
@@ -44,7 +53,7 @@ const mapStateToProps = ({ dogs, crate }, { location }) => {
     return {
         isEditable: endpoints[endpoints.length - 1] === 'crate',
         crate: dogsInCrate,
-        total: dogsInCrate.reduce((a, c) => a + c.price, 0)
+        total: dogsInCrate.reduce((a, c) => parseInt(a, 10) + parseInt(c.price, 10), 0)
     };
 };
 
