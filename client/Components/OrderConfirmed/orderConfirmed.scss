@@ -1,1 +1,38 @@
 @import '../../variables.scss';
+
+#order-container {
+    @include col-flex;
+    height: 100%;
+    color: $dark-blue;
+    align-items: center;
+    background: url(../../assets/img/bg-notepad.jpg) no-repeat top center fixed;
+    background-size: cover;
+    padding: 2vw;
+}
+
+#order-content {
+    @include col-flex;
+    align-items: center;
+    height: 90%;
+    overflow: scroll;
+}
+
+.order-items {
+    @include inline-flex;
+    justify-content: space-around;
+    width: 580px;
+}
+
+.order-items > div.frame {
+    background-color: white;
+    padding: 7px 7px 21px 7px;
+    transform: rotate(2deg);
+    width: 130px;
+    height: 140px;
+}
+
+.frame > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
