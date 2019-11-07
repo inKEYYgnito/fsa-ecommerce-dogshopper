@@ -29,7 +29,7 @@ const Cart = ({ crate, isEditable, total }) => {
                                 </div>
                             ))
                         }
-                        <div style={{'margin-top': '2vw'}} className="price-container">
+                        <div style={{marginTop: '2vw'}} className="price-container">
                             <h2>Total:</h2>
                             <img src={priceTag} />
                             <span>${total}</span>
