@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import { ROUTE_PATH } from '../../commons/constants';
 import CrateButton from '../CrateButton/CrateButton';
 import priceTag from '../../assets/img/icon-price-tag.svg';
@@ -34,7 +35,7 @@ const Cart = ({ crate, isEditable, total }) => {
                             <img src={priceTag} />
                             <span>${total}</span>
                         </div>
-                        { isEditable &&  <Link className="btn-controls" to={ROUTE_PATH.CRATE_CHECKOUT}>Confirm Billing Address</Link> }
+                        { isEditable &&  <Link className="btn-controls" to={`${ROUTE_PATH.CRATE_CHECKOUT}#checkout-form`} smooth>Confirm Billing Address</Link> }
                     </div>
                 </>
             ) :
