@@ -1,7 +1,7 @@
 @import "../../variables.scss";
 
 #dog-list-container {
-  @include inline-flex;
+  display:flex;
   width: 100%;
   justify-content: space-around;
   color: $dark-blue;
@@ -38,10 +38,14 @@
 }
 
 #dogpic {
-  width: 35%;
-  object-fit: cover;
-  margin: 5px;
+  width:50%;
+  margin: 5px 5px 5px 5px;
 }
+img{
+      border-radius:15%;
+      max-width:100%;
+      height:auto;
+  }
 
 .filter {
   flex-basis: 20%;

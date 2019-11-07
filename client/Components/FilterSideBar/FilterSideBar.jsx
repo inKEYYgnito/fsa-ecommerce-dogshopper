@@ -28,8 +28,9 @@ const FilterSideBar = ({ breeds, breedId, gender, size, updateFilter }) => {
 
   return (
     <div id="filter-side-bar">
+    <div id='breed'> 
       <span className="category">Breed</span>
-      <span className="selection">
+      <span className="box">
         <select name="breedId" value={breedId} onChange={onChange}>
           {breedOptions.map(breed => (
             <option key={breed.id} value={breed.id}>
@@ -38,38 +39,41 @@ const FilterSideBar = ({ breeds, breedId, gender, size, updateFilter }) => {
           ))}
         </select>
       </span>
-
-      <span className="category">Gender</span>
-      <span className="selection">
-        {genderOptions.map(genderOption => (
-          <label key={genderOption.value}>
-            <input
-              type="radio"
-              name="gender"
-              value={genderOption.value}
-              checked={gender === genderOption.value}
-              onChange={onChange}
-            />{' '}
-            {genderOption.label}
-          </label>
-        ))}
-      </span>
-
-      <span className="category">Size</span>
-      <span className="selection">
-        {sizeOptions.map(sizeOption => (
-          <label key={sizeOption.value}>
-            <input
-              type="radio"
-              name="size"
-              value={sizeOption.value}
-              checked={size === sizeOption.value}
-              onChange={onChange}
-            />{' '}
-            {sizeOption.label}
-          </label>
-        ))}
-      </span>
+      </div>
+      <div id='gender'>
+        <span className="category">Gender</span>
+        <span className="selection">
+          {genderOptions.map(genderOption => (
+            <label key={genderOption.value}>
+              <input
+                type="radio"
+                name="gender"
+                value={genderOption.value}
+                checked={gender === genderOption.value}
+                onChange={onChange}
+              />{' '}
+              {genderOption.label}
+            </label>
+          ))}
+        </span>
+      </div>
+      <div id = 'size'>
+        <span className="category">Size</span>
+        <span className="selection">
+          {sizeOptions.map(sizeOption => (
+            <label key={sizeOption.value}>
+              <input
+                type="radio"
+                name="size"
+                value={sizeOption.value}
+                checked={size === sizeOption.value}
+                onChange={onChange}
+              />{' '}
+              {sizeOption.label}
+            </label>
+          ))}
+        </span>
+        </div>
     </div>
   );
 };
