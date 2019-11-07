@@ -5,7 +5,7 @@ import './orderConfirmed.scss';
 const OrderConfirmed = ({ order }) => {
   return (
     <div id="order-container">
-      <h1 className="page-title">Order Summary</h1>
+      <h1>Order Summary</h1>
       {order && (
         <>
           <div id="order-content">

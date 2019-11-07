@@ -17,7 +17,7 @@ const Dog = ({ dog }) => {
         </div>
       </div>
       <div id="dog-info">
-        <h1 className="name">{dog.name}</h1>
+        <h2 id="name">{dog.name}</h2>
         <div className="property">
           <span>Breed</span>
           <span>{dog.breed.name}</span>
@@ -36,7 +36,7 @@ const Dog = ({ dog }) => {
         </div>
         <div className="property">
           <img src={priceTag} />
-          <span>${dog.price}</span>
+          <h2>${dog.price}</h2>
         </div>
         <CrateButton dog={dog} />
       </div>

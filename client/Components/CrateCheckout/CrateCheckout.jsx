@@ -28,7 +28,7 @@ const CrateCheckout = ({ crate, checkoutCrate, history }) => {
           <h2>Email</h2>
           <input name="email" placeholder="Email (ex. john.doe@gmail.com)" title="Email" />
         </label>
-        <h2>Delivery Address</h2>
+        <h2 style={{marginTop: '1.2vw'}}>Delivery Address</h2>
         <label>
           <input name="street" placeholder="Street" title="Street" />
         </label>
