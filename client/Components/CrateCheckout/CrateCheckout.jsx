@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { checkoutCrate } from '../../store/actions/actions';
+import { ROUTE_PATH } from '../../commons/constants';
+import { HashLink as Link } from 'react-router-hash-link';
+import undoIcon from '../../assets/img/icon-undo.svg';
 import './crateCheckout.scss';
 
 const CrateCheckout = ({ crate, checkoutCrate, history }) => {
@@ -22,6 +24,7 @@ const CrateCheckout = ({ crate, checkoutCrate, history }) => {
 
   return (
     <div id="crate-checkout-container">
+      <Link id="link-edit-crate" title="Edit Crate" to={`${ROUTE_PATH.CRATE}#cart-container`} smooth><img src={undoIcon} /></Link>
       <h1 className="page-title">Email and Billing Information</h1>
       <form id="checkout-form" onSubmit={onSubmit}>
         <label>
