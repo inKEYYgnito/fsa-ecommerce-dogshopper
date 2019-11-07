@@ -16,7 +16,7 @@
 }
 
 #cart-dogs-wrapper > a {
-    margin: 2vw 0;
+    margin: 1.7vw 0;
 }
 
 .cart-dogs {
@@ -25,7 +25,7 @@
     flex-wrap: wrap;
     justify-content: space-around;
     padding: 2%;
-    background-color: rgba(255, 255, 255, 0.5)
+    background-color: $opaque-white;
 }
 
 .cart-dogs div.polaroid {
@@ -42,6 +42,7 @@
 .price-container {
     @include inline-flex;
     align-items: center;
+    padding-bottom: 1.5vw;
 }
 
 .price-container > img {

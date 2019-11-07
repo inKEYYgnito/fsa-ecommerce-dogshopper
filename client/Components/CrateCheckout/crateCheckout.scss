@@ -15,14 +15,15 @@
   @include col-flex;
   @include card-bg;
   width: 80%;
-  padding-bottom: 2vw;
+  padding: 2vw 0;
   align-items: center;
+  justify-content: space-around;
 }
 
 #checkout-form > button {
-  margin: 3vw auto 0 auto;
   width: 30%;
   font-size: 1.8vw;
+  margin-top: 1.5vw;
 }
 
 #checkout-form > label {
