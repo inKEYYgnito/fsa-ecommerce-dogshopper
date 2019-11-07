@@ -12,7 +12,7 @@ const FilterSideBar = ({ breeds, breedId, gender, size, updateFilter }) => {
     updateFilter(updatedFilter);
   };
 
-  const breedOptions = [{ id: 0, name: 'All Breeds' }, ...breeds];
+  const breedOptions = [{ id: 0, name: 'Choose a breed'}, ...breeds];
   const genderOptions = [
     { label: 'All', value: '' },
     { label: 'Male', value: 'M' },
