@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-//import { Link } from 'react-router-dom';
 import { HashLink as Link } from 'react-router-hash-link';
 import { ROUTE_PATH } from '../../commons/constants';
 import CrateButton from '../CrateButton/CrateButton';
