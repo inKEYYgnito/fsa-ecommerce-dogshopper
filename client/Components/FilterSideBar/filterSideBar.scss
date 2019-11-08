@@ -1,10 +1,57 @@
-@import '../../variables.scss';
+//@import '../../variables.scss';
 
-#filter-side-bar,
-.selection {
-  @include col-flex;
+#filter-side-bar{
+  width:20%;
+  margin: 2% 2% 2% 2%;
+  font-size: 17px;
 }
-
-#filter-side-bar {
-  width: 20vw;
+#breed{
+  margin: 0 0 5% 0;
+  padding: 2%;
+  background-color: rgb(186, 212, 186);
+  text-align: center;
+}
+#gender{
+    margin: 0 0 5% 0;
+    padding: 2%;
+    background-color: rgb(186, 212, 186);
+  }
+#size{
+    margin: 0 0 5% 0;
+    padding: 2%;
+    background-color: rgb(186, 212, 186);
+  }
+.box{
+    font-size: 20px;
+  }
+.box select {
+  background-color:lightgrey;
+  text-align: center;
+  margin: 5%;
+  padding: 5px;
+  width: 60%;
+  border: none;
+  font-size: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+.down{
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}
+span.selection{
+  margin:0;
+  width: 80%
+}
+.category{
+  text-decoration: underline;
+  text-align: center;
+}
+label {
+  display: flex;
+  text-align: left
+}
+input{
+  width: 10%;
+  margin: 5px;
 }
