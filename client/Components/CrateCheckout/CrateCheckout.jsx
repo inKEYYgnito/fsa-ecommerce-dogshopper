@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { checkoutCrate } from '../../store/actions/actions';
+import { ROUTE_PATH } from '../../commons/constants';
+import { HashLink as Link } from 'react-router-hash-link';
+import undoIcon from '../../assets/img/icon-undo.svg';
 import './crateCheckout.scss';
 
 const CrateCheckout = ({ crate, checkoutCrate, history }) => {
@@ -21,35 +23,31 @@ const CrateCheckout = ({ crate, checkoutCrate, history }) => {
   };
 
   return (
-    <div id="crate-checkout-containter">
+    <div id="crate-checkout-container">
+      <Link id="link-edit-crate" title="Edit Crate" to={`${ROUTE_PATH.CRATE}#cart-container`} smooth><img src={undoIcon} /></Link>
       <h1 className="page-title">Email and Billing Information</h1>
       <form id="checkout-form" onSubmit={onSubmit}>
         <label>
-          Email
-          <input name="email" />
+          <h2>Email</h2>
+          <input name="email" placeholder="Email (ex. john.doe@gmail.com)" title="Email" />
         </label>
-        <p>Delivery Address</p>
+        <h2 style={{marginTop: '1.2vw'}}>Delivery Address</h2>
         <label>
-          Street
-          <input name="street" />
-        </label>
-        <label>
-          City
-          <input name="city" />
+          <input name="street" placeholder="Street" title="Street" />
         </label>
         <label>
-          State
-          <input name="state" />
+          <input name="city" placeholder="City" title="City" />
         </label>
         <label>
-          Country
-          <input name="country" />
+          <input name="state" placeholder="State" title="State"/>
         </label>
         <label>
-          Zip
-          <input name="zip" />
+          <input name="country" placeholder="Country" title="Country"/>
         </label>
-        <button>Checkout</button>
+        <label>
+          <input name="zip" placeholder="Zip Code" title="Zip Code"/>
+        </label>
+        <button type="submit" className="btn-controls">Checkout</button>
       </form>
     </div>
   );

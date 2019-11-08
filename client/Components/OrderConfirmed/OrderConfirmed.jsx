@@ -1,26 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import priceTag from '../../assets/img/icon-price-tag.svg';
 import './orderConfirmed.scss';
 
 const OrderConfirmed = ({ order }) => {
   return (
-    <div id="cart-container">
+    <div id="order-container">
+      <h1>Order Summary</h1>
       {order && (
         <>
-          <h1 className="page-title">Order Summary</h1>
-          <h3> Order #: {order.id}</h3>
-          {order.orderItems.map(orderItem => (
-            <div className="cart-dogs" key={orderItem.id}>
-              <div className="polaroid">
-                <img className="dog-pic" src={orderItem.dog.imageURL} />
+          <div id="order-content">
+            <h3> Order #: {order.id}</h3>
+            {order.orderItems.map(orderItem => (
+              <div className="order-items" key={orderItem.id}>
+                <div className="frame">
+                  <img src={orderItem.dog.imageURL} />
+                </div>
+                <h3>{orderItem.dog.name}</h3>
+                <span>${orderItem.price}</span>
               </div>
-              <h3>{orderItem.dog.name}</h3>
-              <img src={priceTag} />
-              <span>{orderItem.price}</span>
-            </div>
-          ))}
+            ))}
+          </div>
         </>
       )}
     </div>

@@ -7,5 +7,8 @@
 }
 
 section {
-  flex: 1
+  flex: 1;
+  overflow: scroll;
+  background: url(../../assets/img/bg-pawprint.jpg) no-repeat top center fixed;
+  background-size: cover;
 }

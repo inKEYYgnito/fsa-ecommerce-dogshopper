@@ -4,14 +4,40 @@
   @include col-flex;
   color: $dark-blue;
   align-items: center;
-  padding-top: 2vw;
+  margin: 2vw 0 4vw 0;
+}
+
+#link-edit-crate {
+  height: 4vw;
+  width: 4vw;
+}
+
+#crate-checkout-container .page-title {
+  margin: 2vw 0;
 }
 
 #checkout-form {
   @include col-flex;
-  width: 50vw;
+  @include card-bg;
+  width: 80%;
+  padding: 2vw 0;
+  align-items: center;
+  justify-content: space-around;
 }
 
-input {
-  width: 400px;
+#checkout-form > button {
+  width: 30%;
+  font-size: 1.8vw;
+  margin-top: 1.5vw;
+}
+
+#checkout-form > label {
+  width: 30vw;
+}
+
+#checkout-form > label > input {
+  width: 100%;
+  height: 2.2vw;
+  font-size: 1.1vw;
+  text-align: center;
 }
