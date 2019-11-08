@@ -7,8 +7,14 @@ import dogCrate from '../../assets/img/icon-dogcrate.png'
 import './header.scss'
 
 class Header extends Component {
+  constructor(){
+      super()
+      this.state = {
+        crate: []
+      }
+    }
   render() {
-    const { user } = this.props
+    const { user,crate } = this.props
     return (
       <header>
         <div id="logo">
@@ -26,7 +32,7 @@ class Header extends Component {
           )}
           {!user.name && <a href="/api/auth/google">Login with GOOGLE+</a>}
           <Link id="btn-cart" to={ROUTE_PATH.CRATE}>
-            <img src={dogCrate} />
+            <img src={dogCrate} /><strong>({crate.length})</strong>
           </Link>
         </div>
       </header>
@@ -34,9 +40,10 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = ({ user, crate }) => {
   return {
-    user
+    user,
+    crate
   }
 }
 

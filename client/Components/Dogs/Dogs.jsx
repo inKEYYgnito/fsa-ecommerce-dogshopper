@@ -49,28 +49,30 @@ class Dogs extends Component {
 
   render() {
     const { breedId, gender, size } = this.state;
+    const { crate } = this.props
     const dogsToDisplay = this.filterDogs();
-
+    const filteredDoggos = dogsToDisplay.filter(dog => !crate.includes(dog.id))
     return (
       <div id="dog-list-container">
-        <div className="filter">
           <FilterSideBar
             updateFilter={this.updateFilter}
             breedId={breedId}
             gender={gender}
             size={size}
           />
-        </div>
-        <div id="dogs">
-          {dogsToDisplay.map(dog => (
-            <div id="dog" key={dog.id} >
-              <h1><Link to={`${DOGS}/${dog.id}`}>{dog.name}</Link></h1>
-              <div className="dogcontent">
-                <div id="dogtext">
-                  {dog.breed.name}
-                  <p id="description">{dog.description}</p>
+        <div id='dogs'>
+            {filteredDoggos.map(dog => (
+            <div id='dog' key={dog.id} >
+              <h2>{dog.name}</h2>
+             <div className='dogcontent'>
+               <div id='dogtext'>
+                  <h4>{dog.breed.name}</h4>
+                  <p>Gender:{dog.gender}</p>
+                 <p>Age: {dog.age} {dog.ageUnit}s</p>
                 </div>
-                <div id="dogpic"><img src={dog.imageURL} width="100%" height="100%" /></div>
+                  <Link id = 'dogpic' to={`/dogs/${dog.id}`}>
+                    <img src={dog.imageURL} />
+                  </Link>
               </div>
               <div id="btn">
                 <CrateButton dog={dog} />
@@ -83,9 +85,10 @@ class Dogs extends Component {
   }
 }
 
-const mapStateToProps = ({ dogs }) => {
+const mapStateToProps = ({ dogs, crate }) => {
   return {
-    dogs
+    dogs,
+    crate
   };
 };
 
