@@ -56,7 +56,7 @@
   },
   {
     "name": "Josh",
-    "description": "I’ve been told that I am extremely playful and peppy, loads of fun, personable, oh and I like to be spoiled. I am excited and ready to pack my bags for all the impromptu walks we will have together. Trust me! You need me in your life, as much as I need you in mine. Will you take me home with you? Then call now, before someone else does",
+    "description": "I’ve been told that I am extremely playful and peppy, loads of fun, personable, oh and I like to be spoiled. I am excited and ready to pack my bags for all the impromptu walks we will have together. Trust me! You need me in your life, as much as I need you in mine",
     "price": 3000,
     "age": 1,
     "ageUnit": "year",
@@ -66,36 +66,34 @@
     "breedId": 10
   },
   {
-    "name": "Katsu 7",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 3500,
+    "name": "Delise",
+    "description": "Before arriving at your home, Delise will be vet checked, up to date on her puppy vaccinations and pre-spoiled. Don't worry though, she can't wait to spoil you too!",
+    "price": 3000,
     "age": 3,
     "ageUnit": "year",
     "gender": "F",
     "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "imageURL": "https://www.dogbreedinfo.com/images31/MiaAmericanBullyPit3YearsOld.jpg",
     "breedId": 15
   },
   {
-    "name": "Katsu 8",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 4000,
-    "age": 4,
-    "ageUnit": "year",
+    "name": "Olive",
+    "description": "Olive is a precious little girl. Very docile but sure of herself",
+    "age": 7,
+    "ageUnit": "month",
     "gender": "F",
-    "size": "XL",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 27
+    "size": "M",
+    "imageURL": "https://nationalpurebreddogday.com/wp-content/uploads/2018/03/0043ab36cde538b705ae5297661f482e.jpg"
   },
   {
-    "name": "Katsu 9",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 750,
-    "age": 5,
+    "name": "Duane",
+    "description": "Duane is the one you have been looking for. He will win your heart with his first puppy kiss. Duane is the perfect cuddle buddy.",
+    "price": 1250,
+    "age": 1.5,
     "ageUnit": "year",
     "gender": "M",
-    "size": "S",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "size": "M",
+    "imageURL": "https://www.about-cocker-spaniels.com/images/cocker-spaniel-weight-1.jpg.pagespeed.ce.5M3cuOJDRm.jpg",
     "breedId": 66
   },
   {
