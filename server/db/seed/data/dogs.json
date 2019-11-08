@@ -1,135 +1,135 @@
 [
   {
-    "name": "Katsu 1",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
+    "name": "Peanut",
+    "description": "Peanut is a young and lively pup who loves peanut butter",
     "price": 500,
     "age": 2,
     "ageUnit": "month",
     "gender": "M",
     "size": "S",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "imageURL": "https://vetstreet.brightspotcdn.com/dims4/default/cd7ce56/2147483647/crop/0x0%2B0%2B0/resize/645x380/quality/90/?url=https%3A%2F%2Fvetstreet-brightspot.s3.amazonaws.com%2Fcb%2Fa181a0a26911e087a80050568d634f%2Ffile%2FAffenpinscher-2-645mk062311.jpg",
     "breedId": 1
   },
   {
-    "name": "Katsu 2",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
+    "name": "Sammy",
+    "description": "I will arrive to you healthy and with my vaccinations up to date, before wiping my paws on our welcome mat. Ready for a lifelong best friend? Well I'm ready for my forever family!",
     "price": 1000,
     "age": 3,
     "ageUnit": "month",
     "gender": "M",
     "size": "M",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "imageURL": "https://i.pinimg.com/originals/38/3c/bc/383cbc872497fa56a2ea90da9c6eb0f3.jpg",
     "breedId": 2
   },
   {
-    "name": "Katsu 3",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
+    "name": "Sonny",
+    "description": "This puppy will make a great companion. Sonny will be up to date on his puppy vaccinations and he will be vet checked from head to tail. Call about this sweet boy now!",
     "price": 1500,
     "age": 4,
     "ageUnit": "month",
     "gender": "M",
-    "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 3
-  },
-  {
-    "name": "Katsu 4",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 2000,
-    "age": 5,
-    "ageUnit": "month",
-    "gender": "M",
-    "size": "XL",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
+    "size": "M",
+    "imageURL": "https://i.pinimg.com/originals/b1/34/82/b134827f5f0d4241587f5c077cd5fad7.jpg",
     "breedId": 4
   },
   {
-    "name": "Katsu 5",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 2500,
-    "age": 6,
+    "name": "Chase",
+    "description": "Chase is always doing something sweet to catch your attention and it always works! He is very sweet and I'm sure you'll fall in love with him at first sight. He will come home to you up to date on vaccinations and pre-spoiled. Don't pass up on this baby because he can't wait to meet you!",
+    "price": 2000,
+    "age": 4,
+    "ageUnit": "month",
+    "gender": "M",
+    "size": "M",
+    "imageURL": "https://i.pinimg.com/originals/2f/00/ce/2f00ceb2a0fb00987d9a31d7e1276c9d.jpg",
+    "breedId": 6
+  },
+  {
+    "name": "Nova",
+    "description": "On a scale of 1 to 10, my cuteness is an 11. The family I have now tells me that I am a true cutie and any family would be lucky to have me. But truthfully, I'd be lucky to have a family to love me and I sure hope that it is you.",
+    "price": 2200,
+    "age": 2,
     "ageUnit": "month",
     "gender": "F",
     "size": "S",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
+    "imageURL": "https://i.pinimg.com/originals/b3/56/7d/b3567dccfeeed09608aef04ff6a2051f.jpg",
+    "breedId": 8
   },
   {
-    "name": "Katsu 6",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
+    "name": "Josh",
+    "description": "I’ve been told that I am extremely playful and peppy, loads of fun, personable, oh and I like to be spoiled. I am excited and ready to pack my bags for all the impromptu walks we will have together. Trust me! You need me in your life, as much as I need you in mine",
     "price": 3000,
     "age": 1,
     "ageUnit": "year",
-    "gender": "F",
+    "gender": "M",
     "size": "M",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
+    "imageURL": "http://www.boardogs.com/Josh_Fl3.jpg",
+    "breedId": 10
   },
   {
-    "name": "Katsu 7",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 3500,
+    "name": "Delise",
+    "description": "Before arriving at your home, Delise will be vet checked, up to date on her puppy vaccinations and pre-spoiled. Don't worry though, she can't wait to spoil you too!",
+    "price": 3000,
     "age": 3,
     "ageUnit": "year",
     "gender": "F",
     "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
+    "imageURL": "https://www.dogbreedinfo.com/images31/MiaAmericanBullyPit3YearsOld.jpg",
+    "breedId": 15
   },
   {
-    "name": "Katsu 8",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 4000,
-    "age": 4,
-    "ageUnit": "year",
-    "gender": "F",
-    "size": "XL",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
-  },
-  {
-    "name": "Katsu 9",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 750,
-    "age": 5,
-    "ageUnit": "year",
-    "gender": "M",
-    "size": "S",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
-  },
-  {
-    "name": "Katsu 10",
-    "description": "Katsu is a young and lively pup who loves peanut butter",
-    "price": 10,
+    "name": "Olive",
+    "description": "Olive is a precious little girl. Very docile but sure of herself",
+    "price":1000,
     "age": 7,
+    "ageUnit": "month",
+    "gender": "F",
+    "size": "M",
+    "imageURL": "https://nationalpurebreddogday.com/wp-content/uploads/2018/03/0043ab36cde538b705ae5297661f482e.jpg",
+    "breedId": 27
+  },
+  {
+    "name": "Duane",
+    "description": "Duane is the one you have been looking for. He will win your heart with his first puppy kiss. Duane is the perfect cuddle buddy.",
+    "price": 1250,
+    "age": 2,
     "ageUnit": "year",
     "gender": "M",
     "size": "M",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
-    "breedId": 87
+    "imageURL": "https://www.about-cocker-spaniels.com/images/cocker-spaniel-weight-1.jpg.pagespeed.ce.5M3cuOJDRm.jpg",
+    "breedId": 66
   },
   {
-    "name": "Katsu 11",
-    "description": "This pup will make u smile",
+    "name": "Katsu",
+    "description": "Katsu will make you want to stay home all day and cuddle him",
+    "price": 3000,
+    "age": 2,
+    "ageUnit": "year",
+    "gender": "M",
+    "size": "M",
+    "imageURL": "https://www.k9rl.com/wp-content/uploads/2017/02/Finnish-Spitz-dog-breed-825x510.jpg",
+    "breedId": 80
+  },
+  {
+    "name": "Raven",
+    "description": "This gorgeous boxer is loyal, full of energy, and the kids love him",
     "price": 2250,
-    "age": 8,
+    "age": 2,
     "ageUnit": "year",
     "gender": "F",
-    "size": "L",
-    "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/cedar-3-236x300.jpg",
-    "breedId": 5
+    "size": "M",
+    "imageURL": "https://www.dogbreedinfo.com/images23/BrunoBoxer2Years2MonthsOld.jpg",
+    "breedId": 45
   },
   {
-    "name": "Katsu 12",
-    "description": "Great pupster",
+    "name": "Rocky",
+    "description": "She is a sweet and fluffy doggo that needs a good home",
     "price": 3250,
-    "age": 10,
+    "age": 5,
     "ageUnit": "year",
     "gender": "F",
-    "size": "XL",
-    "imageURL": "https://www.allthingsdogs.com/wp-content/uploads/2019/05/Apricot-Color-Teacup-Poodle.jpg",
-    "breedId": 6
+    "size": "M",
+    "imageURL": "",
+    "breedId": 32
   },
   {
     "name": "Katsu Not Available",
@@ -141,6 +141,6 @@
     "size": "L",
     "imageURL": "https://www.swissridgekennels.com/wp-content/uploads/gigi-8.jpg",
     "isAvailable": false,
-    "breedId": 87
+    "breedId": 29
   }
 ]
