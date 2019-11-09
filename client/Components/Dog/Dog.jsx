@@ -13,7 +13,9 @@ const Dog = ({ dog }) => {
       <div id="dog-images">
         <div id="dog-image" className="polaroid">
           <img src={dog.imageURL} />
-          <p>{dog.description}</p>
+          <div>
+            <p>{dog.description}</p>
+          </div>
         </div>
       </div>
       <div id="dog-info">

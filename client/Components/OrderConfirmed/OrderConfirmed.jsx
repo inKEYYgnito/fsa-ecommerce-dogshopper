@@ -5,11 +5,11 @@ import './orderConfirmed.scss';
 const OrderConfirmed = ({ order }) => {
   return (
     <div id="order-container">
-      <h1>Order Summary</h1>
       {order && (
-        <>
           <div id="order-content">
-            <h3> Order #: {order.id}</h3>
+            <h2>Order has been placed!</h2>
+            <span>Our agent will contact you within 24 hours to schedule house inspection and payment details!</span>
+            <span>For questions or concerns, please contact hello@fullstackacademy.com</span>
             {order.orderItems.map(orderItem => (
               <div className="order-items" key={orderItem.id}>
                 <div className="frame">
@@ -19,8 +19,8 @@ const OrderConfirmed = ({ order }) => {
                 <span>${orderItem.price}</span>
               </div>
             ))}
+            <p>Order ID: {order.id}</p>
           </div>
-        </>
       )}
     </div>
   );
@@ -28,6 +28,7 @@ const OrderConfirmed = ({ order }) => {
 
 const mapStateToProps = ({ orders }, { match }) => {
   const orderId = match.params.id;
+  console.log({orders, match})
   return {
     order: orders.find(order => order.id === orderId)
   };

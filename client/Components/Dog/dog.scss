@@ -3,7 +3,7 @@
 #dog-container {
     background-color: $opaque-beige;
     display: flex;
-    padding: 8vw 5vw;
+    padding: 5vw 3vw;
     margin: 0 auto;
     height: 100%;
     width: 60%;
@@ -19,17 +19,24 @@
 #dog-image {
     width: 340px;
     height: 470px;
+    @include col-flex;
 }
+
 .polaroid {
        width: 360px;
 }
+
 #dog-image img {
     object-fit: cover;
     width: 300px;
     height: 350px;
 }
 
-#dog-image p {
+#dog-image div {
+    overflow: scroll;
+}
+
+#dog-image > div > p {
     word-wrap: break-word;
 }
 

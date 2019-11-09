@@ -5,6 +5,8 @@ const OrderHistory = () => {
     return (
         <div id="order-history-container">
             <h1 className="page-title">Order History</h1>
+            <br />
+            <h2>Coming soon...</h2>
         </div>
     );
 }
