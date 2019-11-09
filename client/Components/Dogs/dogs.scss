@@ -32,20 +32,16 @@
   margin: 5px;
 }
 
-#dogtext {
-  width: 65%;
-  margin: 0;
-}
-
 #dogpic {
   width:50%;
   margin: 5px 5px 5px 5px;
 }
-img{
-      border-radius:15%;
-      max-width:100%;
-      height:auto;
-  }
+
+img {
+    border-radius:15%;
+    max-width:100%;
+    height:auto;
+}
 
 .filter {
   flex-basis: 20%;
@@ -53,4 +49,40 @@ img{
 
 button.btn-add-crate {
   --btn-crate-font-size: 1.2em;
+}
+
+#dogname {
+  @include retro-shadow;
+  font-family: $baloo-bhai;
+  @include gradient-border;
+  border-bottom: solid 1px;
+  font-size: 2em;
+}
+
+#dogtext {
+  width: 65%;
+  @include col-flex;
+  justify-content: space-around;
+}
+
+#dogtext > h4,
+#dogtext > p {
+  margin: 5px 0;
+}
+
+#dogtext > div {
+  @include inline-flex;
+  font-size: 1.4em;
+  margin: 0.3vh 0;
+  justify-content: center;
+}
+
+#dogtext > div > span {
+  margin-right: 0.8em;
+  font-size: 0.7em;
+}
+
+#dogtext > div > img {
+  width: 1em;
+  height: 1em;
 }

@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CrateButton from './../CrateButton/CrateButton';
-
+import priceTag from '../../assets/img/icon-price-tag.svg';
 import FilterSideBar from '../FilterSideBar/FilterSideBar';
 import { ROUTE_PATH } from './../../commons/constants';
 import './dogs.scss'
@@ -54,29 +54,31 @@ class Dogs extends Component {
     const filteredDoggos = dogsToDisplay.filter(dog => !crate.includes(dog.id))
     return (
       <div id="dog-list-container">
-          <FilterSideBar
-            updateFilter={this.updateFilter}
-            breedId={breedId}
-            gender={gender}
-            size={size}
-          />
+        <FilterSideBar
+          updateFilter={this.updateFilter}
+          breedId={breedId}
+          gender={gender}
+          size={size}
+        />
         <div id='dogs'>
-            {filteredDoggos.map(dog => (
+          {filteredDoggos.map(dog => (
             <div id='dog' key={dog.id} >
-              <h2>{dog.name}</h2>
-             <div className='dogcontent'>
-               <div id='dogtext'>
+              <Link id='dogname' to={`/dogs/${dog.id}`}>{dog.name}</Link>
+              <div className='dogcontent'>
+                <div id='dogtext'>
                   <h4>{dog.breed.name}</h4>
                   <p>Gender:{dog.gender}</p>
-                 <p>Age: {dog.age} {dog.ageUnit}s</p>
+                  <p>Age: {dog.age} {dog.ageUnit}s</p>
+                  <div>
+                    <img src={priceTag} />
+                    <span>${dog.price}</span>
+                  </div>
                 </div>
-                  <Link id = 'dogpic' to={`/dogs/${dog.id}`}>
-                    <img src={dog.imageURL} />
-                  </Link>
+                <Link id='dogpic' to={`/dogs/${dog.id}`}>
+                  <img src={dog.imageURL} />
+                </Link>
               </div>
-              <div id="btn">
-                <CrateButton dog={dog} />
-              </div>
+              <CrateButton dog={dog} />
             </div>
           ))}
         </div>

@@ -100,14 +100,14 @@
   },
   {
     "name": "Katsu",
-    "description": "Katsu will make you want to stay home all day and cuddle him",
+    "description": "Katsu will make you want to stay home all day and cuddle her",
     "price": 3000,
     "age": 2,
     "ageUnit": "year",
-    "gender": "M",
+    "gender": "F",
     "size": "M",
-    "imageURL": "https://www.k9rl.com/wp-content/uploads/2017/02/Finnish-Spitz-dog-breed-825x510.jpg",
-    "breedId": 80
+    "imageURL": "https://i.imgur.com/yn4x1m4.jpg",
+    "breedId": 87
   },
   {
     "name": "Raven",
@@ -128,7 +128,7 @@
     "ageUnit": "year",
     "gender": "F",
     "size": "M",
-    "imageURL": "",
+    "imageURL": "https://www.k9rl.com/wp-content/uploads/2017/02/Finnish-Spitz-dog-breed-825x510.jpg",
     "breedId": 32
   },
   {
