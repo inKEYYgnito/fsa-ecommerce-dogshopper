@@ -12,7 +12,6 @@ const Cart = ({ crate, isEditable, total }) => {
             {crate.length ? (
                 <>
                     <h1 className="page-title">Confirm Orders</h1>
-
                     <div id="cart-dogs-wrapper">
                         <h3>{crate.length === 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
                         {
