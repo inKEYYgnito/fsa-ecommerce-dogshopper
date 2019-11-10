@@ -6,7 +6,7 @@ import Cart from '../Cart/Cart';
 import CrateCheckout from '../CrateCheckout/CrateCheckout';
 import UserProfile from '../UserProfile/UserProfile';
 import OrderHistory from '../OrderHistory/OrderHistory';
-import OrderConfirmed from '../OrderConfirmed/OrderConfirmed';
+import Order from '../Order/Order';
 import Dogs from '../Dogs/Dogs';
 import Dog from '../Dog/Dog';
 import {
@@ -47,7 +47,11 @@ class App extends Component {
             <Route path={DOGS} component={Dogs} />
             <Route path={USER_PROFILE} component={UserProfile} />
             <Route exact path={ORDERS} component={OrderHistory} />
-            <Route path={`${ORDER_CONFIRMED}/:id`} component={OrderConfirmed} />
+            <Route
+              path={`${ORDER_CONFIRMED}/:id`}
+              render={({ match }) => <Order match={match} confirm={true} />}
+            />
+            <Route path={`${ORDERS}/:id`} component={Order} />
             <Route
               path={CRATE_CHECKOUT}
               render={props => (

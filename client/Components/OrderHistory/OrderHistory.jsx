@@ -1,6 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { HashLink as Link } from 'react-router-hash-link';
 
+import { ROUTE_PATH } from '../../commons/constants';
 import './orderHistory.scss';
 
 const OrderHistory = ({ orders }) => {
@@ -12,7 +14,10 @@ const OrderHistory = ({ orders }) => {
         <>
           {orders.map(order => (
             <div key={order.id}>
-              <p>Order ID: {order.id}</p>
+              <p>
+                Order ID:{' '}
+                <Link to={`${ROUTE_PATH.ORDERS}/${order.id}`}>{order.id}</Link>
+              </p>
               <p>Order Date: {order.createdAt}</p>
               <p>Items: {order.orderItems.length}</p>
               <p>
