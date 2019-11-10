@@ -67,7 +67,7 @@ class Dogs extends Component {
               <div className='dogcontent'>
                 <div id='dogtext'>
                   <h4>{dog.breed.name}</h4>
-                  <p>Gender:{dog.gender}</p>
+                  <p>Gender: {dog.gender}</p>
                   <p>Age: {dog.age} {dog.ageUnit}s</p>
                   <div>
                     <img src={priceTag} />

@@ -5,25 +5,14 @@
   margin: 2% 2% 2% 2%;
   font-size: 17px;
 }
-#breed{
+#filter-side-bar > div {
+  padding: 7%;
+  background-color: rgba(186, 212, 186, 0.8);
   margin: 0 0 5% 0;
-  padding: 2%;
-  background-color: rgb(186, 212, 186);
+}
+#breed{
   text-align: center;
 }
-#gender{
-    margin: 0 0 5% 0;
-    padding: 2%;
-    background-color: rgb(186, 212, 186);
-  }
-#size{
-    margin: 0 0 5% 0;
-    padding: 2%;
-    background-color: rgb(186, 212, 186);
-  }
-.box{
-    font-size: 20px;
-  }
 .box select {
   background-color:lightgrey;
   text-align: center;
@@ -31,7 +20,7 @@
   padding: 5px;
   width: 60%;
   border: none;
-  font-size: 20px;
+  font-size: 14px;
   box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
   outline: none;
 }
@@ -44,6 +33,7 @@ span.selection{
   width: 80%
 }
 .category{
+  font-weight: bold;
   text-decoration: underline;
   text-align: center;
 }
