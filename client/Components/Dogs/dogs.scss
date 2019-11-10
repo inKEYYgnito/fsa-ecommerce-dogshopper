@@ -21,11 +21,12 @@
   margin: 2%;
   padding: 1%;
   width: 28%;
-  max-height: 35vh;
+  height: 21vw;
 }
 
 .dogcontent {
-  display: flex;
+  @include inline-flex;
+  flex-shrink: 1;
 }
 
 #dog h1 {
@@ -41,7 +42,7 @@
 #dogpic img {
     border-radius:15%;
     max-width:100%;
-    height:auto;
+    height: 9vw;
     object-fit: cover;
 }
 
