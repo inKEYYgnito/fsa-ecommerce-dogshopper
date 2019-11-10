@@ -15,7 +15,7 @@ const Order = ({ order, total, confirm }) => {
               <span>
                 Thank you for giving these pups a chance! Our agent will contact
                 you at the provided email (<b>{order.email}</b>) within 24 hours
-                to schedule an interview, house inspection, and payment!
+                to schedule an interview, observed trial, and payment!
               </span>
             </>
           )}

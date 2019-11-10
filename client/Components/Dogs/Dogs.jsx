@@ -69,9 +69,9 @@ class Dogs extends Component {
                   <h4>{dog.breed.name}</h4>
                   <p>Gender: {dog.gender}</p>
                   <p>Age: {dog.age} {dog.ageUnit}s</p>
-                  <div>
-                    <img src={priceTag} />
-                    <span>${dog.price}</span>
+                  <div className="dogprice">
+                    <img style={{marginRight: '0.2vw'}} src={priceTag} />
+                    <span style={{fontSize: '1.3vw'}}>${dog.price}</span>
                   </div>
                 </div>
                 <Link id='dogpic' to={`/dogs/${dog.id}`}>

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Shoppadog</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    </head>
-    <body>
-        <div id="app"></div>
-        <script src="bundle.js"></script>
-    </body>
+
+<head>
+    <title>Shoppadog</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@2.3.2/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function () {
+            // Obtain your user ID at the dashboard https://dashboard.emailjs.com/integration
+            emailjs.init("user_E1qsFJdmLqWR6wU4IZ2cS");
+        })();
+        </script>
+</head>
+
+<body>
+    <div id="app"></div>
+    <script src="bundle.js"></script>
+</body>
+
 </html>

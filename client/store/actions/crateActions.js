@@ -81,7 +81,18 @@ const emptyCrate = () => {
   };
 };
 
-const checkoutCrate = ({ order, crate, history }) => {
+const sendConfirmationMail = async (templateParams) => {
+  try {
+    const serviceId = 'gmail';
+    const templateId = 'template_mOcErIlk';
+    const response = await window.emailjs.send(serviceId, templateId, templateParams);
+    console.log('Email confirmation is sent!', response, templateParams)
+  } catch (error) {
+    console.warning('Failed to send email confirmation with:', { templateParams, error })
+  }
+}
+
+const checkoutCrate = ({ userName, order, crate, history }) => {
   return async dispatch => {
     try {
       const confirmedOrder = (await axios.post('/api/orders', { order, crate }))
@@ -89,6 +100,13 @@ const checkoutCrate = ({ order, crate, history }) => {
       crate.forEach(dogId => dispatch(removeDog(dogId)));
       dispatch(emptyCrate());
       dispatch(addOrder(confirmedOrder));
+      const templateParams = {
+        userName,
+        orderId: confirmedOrder.id,
+        orderTotal: confirmedOrder.orderItems.reduce((acc, item) => acc + parseFloat(item.price), 0),
+        ...order
+      }
+      await sendConfirmationMail(templateParams)
       history.push(`${ROUTE_PATH.ORDER_CONFIRMED}/${confirmedOrder.id}`);
     } catch (e) {
       console.log(e);

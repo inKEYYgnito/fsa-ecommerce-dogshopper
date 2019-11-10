@@ -69,3 +69,16 @@ a:hover,
 #btn-cart img {
     height: 4vw;
 }
+
+#btn-cart .badge {
+    position: absolute;
+    right: 1.6%;
+    top: 20%;
+    width: 2.3vw;
+    height: 2.3vw;
+    border-radius: 2vw;
+    font-size: 1.5vw;
+    color: #fff;
+    text-align: center;
+    background: rgb(255, 116, 92);
+}
