@@ -6,8 +6,9 @@ const Dog = require('./models/Dog');
 const Order = require('./models/Order');
 const OrderItem = require('./models/OrderItem');
 const { createOrder } = require('./transactions/orderTransactions');
+const { updateAddress } = require('./transactions/userTransactions');
 
-Address.hasOne(User);
+User.belongsTo(Address);
 Dog.belongsTo(Breed, { foreignKey: { allowNull: false } });
 Order.belongsTo(User);
 Order.hasMany(OrderItem, { foreignKey: { allowNull: false } });
@@ -28,6 +29,7 @@ module.exports = {
     OrderItem
   },
   transactions: {
-    createOrder
+    createOrder,
+    updateAddress
   }
 };

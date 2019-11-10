@@ -18,7 +18,7 @@ export const CRATE = 'crate';
 export const ROUTE_PATH = {
   DOGS: `/${DOGS}`,
   DOG: `/${DOGS}/:id`,
-  USER_PROFILE: `/profile`,
+  PROFILE: `/profile`,
   ORDERS: `/${ORDERS}`,
   ORDER_CONFIRMED: `/${ORDERS}/confirmed`,
   CRATE: `/${CRATE}`,

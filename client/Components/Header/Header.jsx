@@ -27,7 +27,7 @@ class Header extends Component {
           </NavLink>
           {user.name && (
             <>
-              <NavLink to={ROUTE_PATH.USER_PROFILE}>My Account</NavLink>
+              <NavLink to={ROUTE_PATH.PROFILE}>My Account</NavLink>
               <NavLink exact to={ROUTE_PATH.ORDERS}>
                 Order History
               </NavLink>

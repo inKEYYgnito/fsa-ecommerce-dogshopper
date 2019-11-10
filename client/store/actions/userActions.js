@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { ACTION_TYPE } from '../../commons/constants';
 
-const { SET_USER } = ACTION_TYPE
+const { SET_USER } = ACTION_TYPE;
 
 const setUserAction = user => {
   return {
@@ -17,4 +17,11 @@ const getUser = () => {
   };
 };
 
-export { getUser };
+const updateUser = address => {
+  return async dispatch => {
+    const user = (await axios.put('/api/user', address)).data;
+    return dispatch(setUserAction(user));
+  };
+};
+
+export { getUser, updateUser };

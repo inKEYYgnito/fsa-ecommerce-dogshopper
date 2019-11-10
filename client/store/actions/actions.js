@@ -1,6 +1,6 @@
 import { getBreeds } from './breedActions';
 import { getDogs, removeDog } from './dogActions';
-import { getUser } from './userActions';
+import { getUser, updateUser } from './userActions';
 import {
   addToCrate,
   getCrate,
@@ -14,6 +14,7 @@ export {
   getDogs,
   removeDog,
   getUser,
+  updateUser,
   addToCrate,
   getCrate,
   removeFromCrate,

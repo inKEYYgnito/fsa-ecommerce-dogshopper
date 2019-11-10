@@ -24,7 +24,7 @@ const {
   DOGS,
   CRATE,
   CRATE_CHECKOUT,
-  USER_PROFILE,
+  PROFILE,
   ORDERS,
   ORDER_CONFIRMED
 } = ROUTE_PATH;
@@ -45,7 +45,7 @@ class App extends Component {
           <Switch>
             <Route path={DOG} component={Dog} />
             <Route path={DOGS} component={Dogs} />
-            <Route path={USER_PROFILE} component={UserProfile} />
+            <Route path={PROFILE} component={UserProfile} />
             <Route exact path={ORDERS} component={OrderHistory} />
             <Route
               path={`${ORDER_CONFIRMED}/:id`}
