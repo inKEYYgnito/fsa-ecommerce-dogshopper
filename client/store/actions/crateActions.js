@@ -81,16 +81,24 @@ const emptyCrate = () => {
   };
 };
 
-const sendConfirmationMail = async (templateParams) => {
+const sendConfirmationMail = async templateParams => {
   try {
     const serviceId = 'gmail';
     const templateId = 'template_mOcErIlk';
-    const response = await window.emailjs.send(serviceId, templateId, templateParams);
-    console.log('Email confirmation is sent!', response, templateParams)
+    const response = await window.emailjs.send(
+      serviceId,
+      templateId,
+      templateParams
+    );
+    console.log('Email confirmation is sent!', response, templateParams);
+    console.log('done');
   } catch (error) {
-    console.warning('Failed to send email confirmation with:', { templateParams, error })
+    console.warning('Failed to send email confirmation with:', {
+      templateParams,
+      error
+    });
   }
-}
+};
 
 const checkoutCrate = ({ userName, order, crate, history }) => {
   return async dispatch => {
@@ -103,10 +111,13 @@ const checkoutCrate = ({ userName, order, crate, history }) => {
       const templateParams = {
         userName,
         orderId: confirmedOrder.id,
-        orderTotal: confirmedOrder.orderItems.reduce((acc, item) => acc + parseFloat(item.price), 0),
+        orderTotal: confirmedOrder.orderItems.reduce(
+          (acc, item) => acc + parseFloat(item.price),
+          0
+        ),
         ...order
-      }
-      await sendConfirmationMail(templateParams)
+      };
+      await sendConfirmationMail(templateParams);
       history.push(`${ROUTE_PATH.ORDER_CONFIRMED}/${confirmedOrder.id}`);
     } catch (e) {
       console.log(e);
