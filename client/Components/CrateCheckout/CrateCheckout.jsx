@@ -19,7 +19,7 @@ const CrateCheckout = ({ user, crate, checkoutCrate, history }) => {
       country: form.country.value,
       zip: form.zip.value
     };
-    checkoutCrate({ order, crate, history });
+    checkoutCrate({ userName: user.name, order, crate, history });
   };
 
   const address =
