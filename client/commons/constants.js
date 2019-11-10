@@ -20,7 +20,6 @@ export const ROUTE_PATH = {
   DOG: `/${DOGS}/:id`,
   USER_PROFILE: `/profile`,
   ORDERS: `/${ORDERS}`,
-  ORDER: `/${ORDERS}`,
   ORDER_CONFIRMED: `/${ORDERS}/confirmed`,
   CRATE: `/${CRATE}`,
   CRATE_CHECKOUT: `/${CRATE}/checkout`
