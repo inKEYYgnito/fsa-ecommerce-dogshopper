@@ -3,6 +3,17 @@ const router = require('express').Router();
 const db = require('./../db/db');
 const { createOrder } = db.transactions;
 const { Dog, Order, OrderItem } = db.models;
+const { Op } = require('./../db/connection').Sequelize;
+
+router.get('/', async (req, res, next) => {
+  Order.findAll({
+    where: { status: { [Op.not]: 'cart' } },
+    include: [{ model: OrderItem, include: [{ model: Dog }] }],
+    order: [['createdAt', 'DESC']]
+  })
+    .then(orders => res.send(orders))
+    .catch(next);
+});
 
 router.post('/', async (req, res, next) => {
   const { order, crate } = req.body;
