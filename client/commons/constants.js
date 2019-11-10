@@ -12,14 +12,16 @@ export const ACTION_TYPE = {
 };
 
 const DOGS = 'dogs';
+const ORDERS = 'orders';
 export const CRATE = 'crate';
 
 export const ROUTE_PATH = {
   DOGS: `/${DOGS}`,
   DOG: `/${DOGS}/:id`,
   USER_PROFILE: `/profile`,
-  USER_ORDERS: `/orders`,
+  ORDERS: `/${ORDERS}`,
+  ORDER: `/${ORDERS}`,
+  ORDER_CONFIRMED: `/${ORDERS}/confirmed`,
   CRATE: `/${CRATE}`,
-  CRATE_CHECKOUT: `/${CRATE}/checkout`,
-  ORDER_CONFIRMED: `/order/confirmed`
+  CRATE_CHECKOUT: `/${CRATE}/checkout`
 };
