@@ -13,14 +13,15 @@ const Cart = ({ crate, isEditable, total }) => {
                 <>
                     <h1 className="page-title">Confirm Orders</h1>
 
-
                     <div id="cart-dogs-wrapper">
                         <h3>{crate.length === 1 ? 'Here is your chosen one!' : 'Here are your chosen puppers!'}</h3>
                         {
                             crate.map(dog => (
                                 <div className="cart-dogs" key={dog.id}>
                                     <div className="polaroid">
-                                        <img className="dog-pic" src={dog.imageURL} />
+                                        <Link to={`/dogs/${dog.id}`}>
+                                            <img className="dog-pic" src={dog.imageURL} />
+                                        </Link>
                                     </div>
                                     <h3>{dog.name}</h3>
                                     <div className="price-container">

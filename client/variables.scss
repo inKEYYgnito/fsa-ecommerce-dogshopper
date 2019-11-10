@@ -66,6 +66,7 @@ $opaque-white: rgba(255, 255, 255, 0.7);
 // GLOBAL STYLE
 
 button.btn-add-crate {
+    cursor: pointer;
     transition: all 0.2s ease;
     margin: 0.7vw 0 0.5vw 0;
     font-family: $baloo-bhai;
