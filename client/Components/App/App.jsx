@@ -13,7 +13,8 @@ import {
   getBreeds,
   getDogs,
   getUser,
-  getCrate
+  getCrate,
+  getOrders
 } from '../../store/actions/actions';
 import { ROUTE_PATH } from '../../commons/constants';
 import './app.scss';
@@ -34,6 +35,7 @@ class App extends Component {
     this.props.getDogs();
     this.props.getUser();
     this.props.getCrate();
+    this.props.getOrders();
   }
   render() {
     return (
@@ -68,7 +70,8 @@ const mapDispatchToProps = {
   getBreeds,
   getDogs,
   getUser,
-  getCrate
+  getCrate,
+  getOrders
 };
 
 export default connect(
