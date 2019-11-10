@@ -9,9 +9,9 @@ const OrderConfirmed = ({ order, total }) => {
     <div id="order-container">
       {order && (
         <div id="order-content">
-          <h2>Order has been placed!</h2>
-          <span>Our agent will contact you within 24 hours to schedule house inspection and payment details!</span>
-          <span>For questions or concerns, please contact hello@fullstackacademy.com</span>
+          <h2>Your order has been placed.</h2>
+          <span>Thank you for giving these pups a chance! Our agent will contact you at the provided email (<b>{order.email}</b>)  within 24 hours to schedule an interview, house inspection, and payment!</span>
+          <span style={{fontSize: '0.8em'}}>For questions or concerns, please contact hello@fullstackacademy.com</span>
           <div id="order-items-container">
             <div id="total-price">
               <span style={{marginRight: '0.5em'}}>TOTAL:</span>
@@ -23,8 +23,8 @@ const OrderConfirmed = ({ order, total }) => {
                 <div className="frame">
                   <img src={orderItem.dog.imageURL} />
                 </div>
-                <h3>{orderItem.dog.name}</h3>
-                <span>${orderItem.price}</span>
+                <span>{orderItem.dog.name}</span>
+                <h2>${orderItem.price}</h2>
               </div>
             ))}
           </div>
@@ -41,7 +41,7 @@ const mapStateToProps = ({ orders }, { match }) => {
   console.log({orders, order})
   return {
     order,
-    total: order.orderItems.reduce((acc, item) => acc + parseFloat(item.price), 0)
+    total: order && order.orderItems.reduce((acc, item) => acc + parseFloat(item.price), 0)
   };
 };
 

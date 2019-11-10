@@ -6,7 +6,7 @@
     color: $dark-blue;
     align-items: center;
     background: url(../../assets/img/bg-receipt.png) no-repeat top center fixed;
-    background-size: contain;
+    background-size: 46rem 59rem;
     padding: 2vw;
 }
 
@@ -14,15 +14,22 @@
     @include col-flex;
     align-items: center;
     height: 82%;
-    width: 45%;
-    max-width: 530px;
+    width: 38rem;
     justify-content: space-between;
-    background-color: rgba(150, 120, 120, 0.3)
+    background-color: rgba(150, 120, 120, 0.1);
+    padding: 1.5vw;
+}
+
+#order-content span {
+    margin: 0.9vw 0;
 }
 
 #order-content p {
     position: absolute;
-    top: 80%
+    top: 52.5rem;
+    font-size: 0.9em;
+    font-weight: bold;
+    letter-spacing: 0.3em;
 }
 
 #order-items-container {
@@ -34,6 +41,7 @@
 
 #total-price {
     @include inline-flex;
+    justify-content: center;
     align-items: center;
 }
 
@@ -43,21 +51,29 @@
 }
 
 #total-price > span {
-    font-size: 2em;
+    font-size: 1.2em;
 }
 
 .order-items {
     @include inline-flex;
     justify-content: space-between;
-    margin: 2% 8% 2% 3%;
+    margin: 2% 22% 2% 12%;
 }
 
 .order-items > div.frame {
     background-color: white;
     padding: 7px 7px 21px 7px;
     transform: rotate(2deg);
-    width: 130px;
-    height: 140px;
+    width: 8rem;
+    height: 8rem;
+}
+
+.order-items > span {
+    font-family: $baloo-bhai;
+    @include gradient-border;
+    border-bottom: solid 2px;
+    font-size: 2em;
+    margin: 3rem;
 }
 
 .frame > img {
