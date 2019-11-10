@@ -17,7 +17,7 @@
     width: 45%;
     max-width: 530px;
     justify-content: space-between;
-    border: solid 1px green;
+    background-color: rgba(58, 34, 34, 0.6)
 }
 
 #order-content p {
@@ -38,18 +38,18 @@
 }
 
 #total-price > img {
-    height: 2em;
-    width: 2em;
+    height: 2.5em;
+    width: 2.5em;
 }
 
 #total-price > span {
-    font-size: 1em;
+    font-size: 2em;
 }
 
 .order-items {
     @include inline-flex;
     justify-content: space-between;
-    margin: 2% 8% 2% 5%;
+    margin: 2% 8% 2% 3%;
 }
 
 .order-items > div.frame {

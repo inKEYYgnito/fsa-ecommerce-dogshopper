@@ -37,10 +37,10 @@ const OrderConfirmed = ({ order, total }) => {
 
 const mapStateToProps = ({ orders }, { match }) => {
   const orderId = match.params.id;
-  const order = orders.find(order => order.id === orderId)
+  const order = orders.find(o => o.id === orderId)
   return {
     order,
-    total: order.reduce((acc, item) => acc + parseFloat(item.price), 0)
+    total: order.orderItems.reduce((acc, item) => acc + parseFloat(item.price), 0)
   };
 };
 
