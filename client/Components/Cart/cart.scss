@@ -39,21 +39,6 @@
     font-size: 2em;
 }
 
-.price-container {
-    @include inline-flex;
-    align-items: center;
-    padding-bottom: 1.5vw;
-}
-
-.price-container > img {
-    height: 3vw;
-    width: 4vw;
-}
-
-.price-container > span {
-    font-size: 2em;
-}
-
 .dog-pic {
     height: 13vw;
     width: 12vw;
