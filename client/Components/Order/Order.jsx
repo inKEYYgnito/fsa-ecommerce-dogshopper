@@ -5,7 +5,6 @@ import './order.scss';
 import priceTag from '../../assets/img/icon-price-tag.svg';
 
 const Order = ({ order, total, confirm }) => {
-  console.log({ order });
   return (
     <div id="order-container">
       {order && (
@@ -49,7 +48,6 @@ const Order = ({ order, total, confirm }) => {
 const mapStateToProps = ({ orders }, { match }) => {
   const orderId = match.params.id;
   const order = orders.find(o => o.id === orderId);
-  console.log(match);
   return {
     order,
     total:
